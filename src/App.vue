@@ -1,7 +1,7 @@
 <template>
   <div>
     <NavigationMenu />
-    <div class="container">
+    <div class="container my-8">
       <router-view />
     </div>
   </div>
@@ -14,3 +14,17 @@
     components: { NavigationMenu },
   };
 </script>
+
+<style>
+  .container {
+    margin: 0 auto;
+    width: 75%;
+  }
+  .transparent {
+    background-color: transparent;
+  }
+  .my-8 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+</style>

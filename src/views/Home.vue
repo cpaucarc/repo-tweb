@@ -1,18 +1,32 @@
 <template>
-  <h1 class="text-primary">Home</h1>
-
-  <img alt="Vue logo" src="../assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <h1 class="text-primary">Inicio</h1>
+  <div class="grid grid-cols-3 gap-x-4">
+    <template v-for="proyecto in proyectos" :key="proyecto.id">
+      <CardProyecto :proyecto="proyecto" />
+    </template>
+  </div>
 </template>
 
 <script>
-  //   import HelloWorld from "../components/HelloWorld.vue";
-  import HelloWorld from "../components/HelloWorld.vue";
+  import CardProyecto from "../components/CardProyecto.vue";
+  import proyectosData from "../hooks/proyectos.json";
+
   export default {
     name: "Home",
-    components: { HelloWorld },
+    components: { CardProyecto },
+    setup() {
+      const proyectos = proyectosData;
+
+      return { proyectos };
+    },
   };
 </script>
 
 <style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 1rem;
+    row-gap: 2rem;
+  }
 </style>

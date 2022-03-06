@@ -1,22 +1,14 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="container">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <router-link class="nav-link active" aria-current="page" to="/"
-                >Home</router-link
-              >
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/about">Acerca de</router-link>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </nav>
+  <div class="container">
+    <ul class="navbar">
+      <li class="nav-item">
+        <router-link class="nav-link" to="/">Inicio</router-link>
+      </li>
+      <li class="nav-item">
+        <router-link class="nav-link" to="/about">Acerca de</router-link>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -25,5 +17,20 @@
   };
 </script>
 
-<style>
+<style scoped>
+  .navbar {
+    column-gap: 1.5rem;
+    align-items: center;
+    display: flex;
+    padding: 0;
+  }
+  .nav-item {
+    color: black;
+    list-style-type: none;
+    appearance: unset;
+  }
+
+  .nav-link {
+    text-decoration: none;
+  }
 </style>

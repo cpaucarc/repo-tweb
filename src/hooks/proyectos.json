@@ -1,0 +1,82 @@
+[
+    {
+        "id": 15,
+        "titulo": "Implementación de sistema de radio FM en Huaraz 2019 ",
+        "tags": [
+            "Ingenieria",
+            "Telecomunicaciones",
+            "Radio FM"
+        ],
+        "imagen": "https://prometheo.pe/wp-content/uploads/2021/01/Antenas-Celulares-768x432.png",
+        "usuario": {
+            "nombre": "Pedro Castillo",
+            "foto": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80"
+        }
+    },
+    {
+        "id": 18,
+        "titulo": "Estudio de hongos endofíticos de plantas medicinales...",
+        "tags": [
+            "Medicina",
+            "Micologia"
+        ],
+        "imagen": "https://nexciencia.exactas.uba.ar/wp-content/uploads/2013/08/HongosCarmaran.jpg",
+        "usuario": {
+            "nombre": "Rosario Tamariz",
+            "foto": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80"
+        }
+    },
+    {
+        "id": 165,
+        "titulo": "Estudio de la inversión pública departamental en el Perú, 2018",
+        "tags": [
+            "Inversion pública",
+            "Economia",
+            "Perú"
+        ],
+        "imagen": "https://laley.pe/upload/images/10_2020/138_la-ley-70.png",
+        "usuario": {
+            "nombre": "Jorge Manrique",
+            "foto": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80"
+        }
+    },
+    {
+        "id": 1165,
+        "titulo": "Evaluación de los efluentes mineros en San Marcos, 2019",
+        "tags": [
+            "Mineria",
+            "Medio Ambiente"
+        ],
+        "imagen": "https://larepublica.pe/resizer/j5Ae71kawzQCubuDSjfaCXvAdHU=/480x282/top/smart/arc-anglerfish-arc2-prod-gruporepublica.s3.amazonaws.com/public/Y6NGGNE77BHN3BRSE3IINUVF3Q.png",
+        "usuario": {
+            "nombre": "Isabel Flores",
+            "foto": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80"
+        }
+    },
+    {
+        "id": 7165,
+        "titulo": "Evaluación del Riesgo Sísmico-Geotécnico de la UNASAM, 2018",
+        "tags": [
+            "Sismo",
+            "Geofisica"
+        ],
+        "imagen": "https://ancashaldia.com/wp-content/uploads/2018/10/unasam-simulacro.jpg",
+        "usuario": {
+            "nombre": "Julian Quispe",
+            "foto": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80"
+        }
+    },
+    {
+        "id": 20187,
+        "titulo": "Implementación de estrategias de cultura ambiental, 2020",
+        "tags": [
+            "Concientización",
+            "Medio Ambiente"
+        ],
+        "imagen": "https://infomedios.org/wp-content/uploads/2021/05/Educacion-y-cultura-ambiental-en-Peru3-min.jpg",
+        "usuario": {
+            "nombre": "Eugenia Osorio",
+            "foto": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80"
+        }
+    }
+]
