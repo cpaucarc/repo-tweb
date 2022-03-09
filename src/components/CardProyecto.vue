@@ -42,9 +42,9 @@ export default {
   width: 100%;
 }
 .card-body {
-  padding: 5px 10px;
-  color: #111827;
   background-color: white;
+  color: #111827;
+  padding: 0.5rem 1rem;
 }
 .titulo {
   font-size: 1.1rem;
@@ -55,6 +55,6 @@ export default {
   border-top-width: 1px solid #d0d7de;
   display: flex;
   justify-content: space-between;
-  padding: 5px 10px;
+  padding: 0.5rem 1rem;
 }
 </style>

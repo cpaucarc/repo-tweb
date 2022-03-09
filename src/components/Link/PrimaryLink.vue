@@ -18,14 +18,14 @@ export default {
 
 <style scoped>
 .primary-link {
-    background-color: #6962a8;
+    background-color: var(--color-primary);
     border-radius: 10px;
     color: white;
     font-size: 0.875rem;
-    padding: 5px 15px;
+    padding: 0.5rem 1rem;
     text-decoration: none;
 }
 .primary-link:hover {
-    background-color: #5b539f;
+    background-color: var(--color-primary-hover);
 }
 </style>

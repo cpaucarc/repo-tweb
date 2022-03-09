@@ -1,11 +1,7 @@
 <template>
-  <div class="nav-menu">
+  <div class="nav-bar">
     <div class="container navbar">
-      <ul class="lista-rutas">
-        <li class="nav-item" v-for="(ruta, i) in rutas" :key="i">
-          <router-link class="nav-link item" :to="ruta.ruta">{{ ruta.nombre }}</router-link>
-        </li>
-      </ul>
+      <p>Logo</p>
 
       <div>
         <input type="text" placeholder="Buscar proyectos..." />
@@ -13,43 +9,35 @@
 
       <div class="lista-rutas">
         <PrimaryLink>+ Subir mi proyecto</PrimaryLink>
-        <PrimaryLink>Iniciar Sesión</PrimaryLink>
-        <UsuarioConectado />
+        <UsuarioConectado v-if="estaLogeado" />
+        <PrimaryLink v-else @click="estaLogeado = true"
+          >Iniciar Sesión</PrimaryLink
+        >
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import UsuarioConectado from "./Usuario/UsuarioConectado.vue";
-import PrimaryLink from "./Link/PrimaryLink.vue";
-const rutas = [
-  // Definir mas rutas en el archivo router.js
-  {
-    ruta: "/",
-    nombre: "Inicio",
-  },
-  {
-    ruta: "proyecto",
-    nombre: "Proyecto",
-  },
-  {
-    ruta: "about",
-    nombre: "Acerca de",
-  },
-];
+import { provide, ref } from "vue";
+import UsuarioConectado from "../Usuario/UsuarioConectado.vue";
+import PrimaryLink from "../Link/PrimaryLink.vue";
 
 export default {
   name: "NavigationMenu",
   components: { UsuarioConectado, PrimaryLink },
   setup() {
-    return { rutas };
+    const estaLogeado = ref(false);
+
+    provide("estaLogeado", estaLogeado);
+
+    return { estaLogeado };
   },
 };
 </script>
 
 <style scoped>
-.nav-menu {
+.nav-bar {
   align-items: center;
   background-color: white;
   display: flex;
@@ -79,7 +67,7 @@ export default {
   text-decoration: none;
 }
 .router-link-exact-active {
-  color: #7c43f7;
+  color: var(--color-primary);
   font-weight: bold;
   text-decoration: none;
 }

@@ -17,8 +17,8 @@ export default {
     name: 'Dropdown',
     props: {
         top: {
-            type: Number,
-            default: 25
+            type: String,
+            default: "25"
         }
     },
     setup() {

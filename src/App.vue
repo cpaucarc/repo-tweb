@@ -1,30 +1,38 @@
 <template>
   <div>
-    <NavigationMenu />
-    <div class="container my-8">
-      <router-view />
+    <NavegationBar />
+    <div class="container margin">
+      <div class="columnas">
+        <NavigationMenu />
+        <div class="espacios">
+          <router-view />
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import NavigationMenu from "./components/NavigationMenu.vue";
+import NavigationMenu from "./components/Navs/NavMenu.vue";
+import NavegationBar from "./components/Navs/NavBar.vue";
 export default {
   name: "App",
-  components: { NavigationMenu },
+  components: { NavigationMenu, NavegationBar },
 };
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  width: 90%;
-}
-.transparent {
-  background-color: transparent;
-}
-.my-8 {
+.margin {
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+.columnas {
+  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+}
+.espacios {
+  grid-column: span 4 / span 4;
 }
 </style>
