@@ -8,7 +8,10 @@
       </div>
 
       <div class="lista-rutas">
-        <PrimaryLink>+ Subir mi proyecto</PrimaryLink>
+        <PrimaryLink>
+          <span class="material-icons"> add_circle_outline </span>
+          Subir mi proyecto
+        </PrimaryLink>
         <UsuarioConectado v-if="estaLogeado" />
         <PrimaryLink v-else @click="estaLogeado = true"
           >Iniciar Sesión</PrimaryLink
@@ -40,6 +43,7 @@ export default {
 .nav-bar {
   align-items: center;
   background-color: white;
+  border-bottom: 1px solid #e1e4ed;
   display: flex;
   height: 60px;
   width: 100%;

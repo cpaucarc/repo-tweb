@@ -16,7 +16,7 @@
         "https://aprendeconalf.es/docencia/git/manual/manual-git.pdf"
     ],
     "portadas": [
-        "http://imagescdn.gettyimagesbank.com/500/18/893/563/0/1074918712.jpg"
+        "https://image.shutterstock.com/z/stock-vector-speech-recognition-infographics-smart-home-and-voice-assistance-system-concept-diagram-vector-768848461.jpg"
     ],
     "tags": [
         "Ingenieria",
@@ -42,6 +42,12 @@
             "uuid": "8ba8e6d5-cfa5-4378-99c5-2cc47e04e61f",
             "titulo": "Sistema de optimización de rutas para la recolección basura en Huaraz aplicando el algoritmo de hormigas.",
             "portada": "https://cdn.www.gob.pe/uploads/document/file/566564/standard_recojo-3-1024x682.jpeg"
+        },
+        {
+            "id": 1460,
+            "uuid": "459fd22d-db83-4f4e-89ba-f4ee9227344a",
+            "titulo": "La inteligencia artificial en la programación y coordinación del sistema eléctrico interconectado nacional peruana.",
+            "portada": "https://www.muniancud.cl/portal/wp-content/uploads/2020/10/electrificacion.jpg"
         }
     ]
 }

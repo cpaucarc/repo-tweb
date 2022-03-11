@@ -13,8 +13,7 @@
 
     <div class="card-footer transparent">
       <AutorImagen :autor="proyecto.usuario" />
-
-      <a href="#">Revisar</a>
+      <router-link class="nav-menu-link" to="/proyecto"> Revisar </router-link>
     </div>
   </div>
 </template>

@@ -21,13 +21,13 @@ export default {
 <style scoped>
 .nav-menu-link {
   border: 2px solid transparent;
-  color: #abb9c9;
+  color: #768596;
   text-decoration: none;
   padding: 1rem 0.75rem;
 }
 .router-link-exact-active {
   background-color: #fbfbfc;
-  border-left: 2px solid var(--color-primary);
+  border-left: 5px solid var(--color-primary);
   color: var(--color-primary);
   font-weight: bold;
 }

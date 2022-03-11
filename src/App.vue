@@ -30,7 +30,7 @@ export default {
   align-items: flex-start;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 2rem;
 }
 .espacios {
   grid-column: span 4 / span 4;

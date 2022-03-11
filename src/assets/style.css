@@ -7,11 +7,13 @@
 :root {
   --color-primary: #1877f2;
   --color-primary-hover: #2563eb;
-  --bg: #f9f9fb;
+  --black: #1f2937;
+  --bg: #ebeef1;
 }
 
 body {
   background-color: var(--bg);
+  color: var(--black);
 }
 
 .container {
@@ -21,4 +23,17 @@ body {
 
 .transparent {
   background-color: transparent;
+}
+
+.material-icons.md-18 {
+  font-size: 18px;
+}
+.material-icons.md-24 {
+  font-size: 24px;
+}
+.material-icons.md-36 {
+  font-size: 36px;
+}
+.material-icons.md-48 {
+  font-size: 48px;
 }
