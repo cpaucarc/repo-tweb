@@ -1,32 +1,32 @@
 <template>
-  <Card>
-    <div class="">
-      <img
-        class="aspect-video object-cover"
-        :src="proyecto.imagen"
-        :alt="proyecto.titulo"
-      />
+  <router-link to="/proyecto">
+    <Card>
+      <div class="p-3 space-y-4">
+        <img
+          class="aspect-video object-cover rounded-md"
+          :src="proyecto.imagen"
+          :alt="proyecto.titulo"
+        />
 
-      <div class="p-4 space-y-2">
-        <h2 class="font-bold text-gray-800">{{ proyecto.titulo }}</h2>
-        <div class="flex flex-wrap gap-2">
-          <template v-for="(tag, i) in proyecto.tags" :key="i">
-            <BadgeTag :tag="tag" />
-          </template>
+        <div class="my-2 space-y-2 relative">
+          <h2 class="font-medium text-gray-700 leading-5">
+            {{ proyecto.titulo }}
+          </h2>
+          <div class="flex flex-wrap gap-2">
+            <template v-for="(tag, i) in proyecto.tags" :key="i">
+              <BadgeTag :tag="tag" />
+            </template>
+          </div>
+          <div class="absolute -top-16 -left-1">
+            <img
+              :src="proyecto.usuario.foto"
+              class="w-14 h-14 object-cover rounded-full border-white border-2"
+            />
+          </div>
         </div>
       </div>
-
-      <div class="flex items-center justify-between p-4">
-        <AutorImagen :autor="proyecto.usuario" />
-        <router-link
-          class="text-gray-500 hover:text-rose-600 hover:underline"
-          to="/proyecto"
-        >
-          Revisar
-        </router-link>
-      </div>
-    </div>
-  </Card>
+    </Card>
+  </router-link>
 </template>
 
 <script>

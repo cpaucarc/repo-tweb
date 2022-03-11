@@ -2,12 +2,7 @@
   <div class="h-16 bg-white border-b border-gray-300 flex items-center">
     <div class="container mx-auto flex items-center justify-between">
       <div class="flex items-center gap-x-2">
-        <img
-          class="h-8"
-          src="https://www.shareicon.net/data/256x256/2016/07/08/117367_logo_512x512.png"
-          alt=""
-        />
-        <p class="font-bold">Logo Original</p>
+        <img class="h-10" src="../../assets/repotweb.svg" alt="Logo REPOTWEB" />
       </div>
 
       <div>

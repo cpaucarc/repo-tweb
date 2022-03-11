@@ -1,17 +1,20 @@
 <template>
   <div class="flex justify-between items-center">
     <div class="relative">
-      <div class="flex items-center gap-x-2">
+      <div class="flex items-center gap-x-2 bg-gray-50 px-3 py-2 rounded-lg">
         <img
-          class="w-12 h-12 rounded-lg object-cover shadow"
+          class="w-10 h-10 bg-blue-500 rounded-lg object-cover"
           src="../../assets/Kakaroto.webp"
           alt="Foto"
           @mouseenter="mouseEnter"
           @mouseleave="mouseLeave"
         />
         <div>
-          <h4 class="font-bold">{{ autor.nombre }}</h4>
-          <p class="text-sm">{{ autor.escuela }}</p>
+          <h4 class="text-sm text-gray-600">
+            por
+            <span class="text-blue-600 font-semibold">{{ autor.nombre }}</span>
+          </h4>
+          <p class="text-xs text-gray-600">{{ autor.escuela }}</p>
         </div>
       </div>
 
@@ -37,9 +40,10 @@
     </div>
 
     <button
-      class="border border-gray-300 rounded-md px-3 pt-1 text-gray-600 hover:text-amber-500"
+      class="bg-gray-50 text-sm px-3 py-2 rounded-lg inline-flex items-center text-gray-600 hover:text-amber-600"
     >
-      <span class="material-icons"> star_border </span>
+      <span class="material-icons mr-1"> star_border </span>
+      Añadir a favoritos
     </button>
   </div>
 </template>

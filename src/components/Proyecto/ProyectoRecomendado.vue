@@ -6,7 +6,9 @@
       alt="Portada"
       :title="id"
     />
-    <p class="text-sm font-semibold text-gray-600 group-hover:text-blue-600">
+    <p
+      class="text-sm font-medium leading-4 mt-1 text-gray-600 group-hover:text-blue-600"
+    >
       {{ titulo }}
     </p>
   </div>
