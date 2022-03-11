@@ -1,13 +1,20 @@
 <template>
-  <div class="nav-bar">
-    <div class="container navbar">
-      <p>Logo</p>
+  <div class="h-16 bg-white border-b border-gray-300 flex items-center">
+    <div class="container mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-x-2">
+        <img
+          class="h-8"
+          src="https://www.shareicon.net/data/256x256/2016/07/08/117367_logo_512x512.png"
+          alt=""
+        />
+        <p class="font-bold">Logo Original</p>
+      </div>
 
       <div>
         <input type="text" placeholder="Buscar proyectos..." />
       </div>
 
-      <div class="lista-rutas">
+      <div class="flex items-center gap-x-2">
         <PrimaryLink>
           <span class="material-icons"> add_circle_outline </span>
           Subir mi proyecto
@@ -38,41 +45,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.nav-bar {
-  align-items: center;
-  background-color: white;
-  border-bottom: 1px solid #e1e4ed;
-  display: flex;
-  height: 60px;
-  width: 100%;
-}
-.navbar {
-  align-items: center;
-  background-color: white;
-  display: flex;
-  justify-content: space-between;
-}
-.lista-rutas {
-  align-items: center;
-  background-color: white;
-  column-gap: 1.5rem;
-  display: flex;
-  padding: 0;
-}
-.nav-item {
-  list-style-type: none;
-}
-.nav-link {
-  background-color: white;
-  color: #52525b;
-  margin: auto;
-  text-decoration: none;
-}
-.router-link-exact-active {
-  color: var(--color-primary);
-  font-weight: bold;
-  text-decoration: none;
-}
-</style>

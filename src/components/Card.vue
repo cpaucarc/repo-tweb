@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="bg-white rounded-md overflow-hidden shadow">
     <slot></slot>
   </div>
 </template>
@@ -8,7 +8,7 @@
 export default {
   name: "Card",
   props: {
-    p: {
+    class: {
       type: String,
       default: "1rem",
     },
@@ -18,9 +18,9 @@ export default {
 
 <style scoped>
 .card {
-  background-color: white;
+  /* background-color: white;
   border-radius: 0.5rem;
-  box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
+  box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px; */
   padding: v-bind(p);
 }
 </style>

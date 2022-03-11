@@ -1,6 +1,6 @@
 <template>
   <Card p="0">
-    <div class="nav-menu">
+    <div class="flex flex-col py-4">
       <NavMenuLink v-for="(ruta, i) in rutas" :key="i" :href="ruta.ruta">
         <span class="material-icons">{{ ruta.icono }}</span>
         {{ ruta.nombre }}
@@ -40,11 +40,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.nav-menu {
-  display: flex;
-  flex-direction: column;
-  padding: 0.5rem 0;
-}
-</style>

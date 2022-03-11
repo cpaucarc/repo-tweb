@@ -1,13 +1,20 @@
 <template>
-  <div>
-    <img class="portada" :src="portada" alt="Portada" :title="id" />
-    <p>{{ titulo }}</p>
+  <div class="hover:cursor-pointer group">
+    <img
+      class="aspect-video rounded-md object-cover"
+      :src="portada"
+      alt="Portada"
+      :title="id"
+    />
+    <p class="text-sm font-semibold text-gray-600 group-hover:text-blue-600">
+      {{ titulo }}
+    </p>
   </div>
 </template>
 
 <script>
 export default {
-  props: { id: String, portada: String, titulo: String },
+  props: { id: Number, portada: String, titulo: String },
 };
 </script>
 

@@ -1,10 +1,16 @@
 <template>
-  <div class="dropdown">
-    <div class="trigger" @click="verOpciones = !verOpciones">
+  <div class="relative">
+    <div
+      class="inline-flex cursor-pointer items-center"
+      @click="verOpciones = !verOpciones"
+    >
       <slot name="trigger"></slot>
     </div>
 
-    <div class="opciones" :style="{ top: top + 'px' }" v-show="verOpciones">
+    <div
+      class="bg-white absolute shadow-lg border rounded-md z-50 px-3 py-2 mt-1 right-0 w-48"
+      v-show="verOpciones"
+    >
       <slot name="opciones"></slot>
     </div>
   </div>
@@ -28,26 +34,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.dropdown {
-  position: relative;
-}
-.trigger {
-  align-items: center;
-  column-gap: 0.25rem;
-  cursor: pointer;
-  display: flex;
-}
-
-.opciones {
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  left: -75px;
-  padding: 5px 10px;
-  position: absolute;
-  width: 150px;
-  z-index: 50;
-}
-</style>

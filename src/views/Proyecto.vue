@@ -1,29 +1,33 @@
 <template>
   <div class="columnas-4">
     <div class="espacio">
-      <Card p="2rem">
-        <DatosAutor :autor="proyecto.autor" />
+      <Card>
+        <div class="p-6 space-y-4">
+          <DatosAutor :autor="proyecto.autor" />
 
-        <DatosProyecto
-          :portadas="proyecto.portadas"
-          :titulo="proyecto.titulo"
-          :tags="proyecto.tags"
-          :archivos="proyecto.archivos"
-          :resumen="proyecto.resumen"
-        />
+          <DatosProyecto
+            :portadas="proyecto.portadas"
+            :titulo="proyecto.titulo"
+            :tags="proyecto.tags"
+            :archivos="proyecto.archivos"
+            :resumen="proyecto.resumen"
+          />
+        </div>
       </Card>
     </div>
 
     <Card>
-      <h3>Proyectos Similares</h3>
-      <div class="flex-col">
-        <template v-for="similar in proyecto.similares" :key="similar.id">
-          <ProyectoRecomendado
-            :id="similar.id"
-            :portada="similar.portada"
-            :titulo="similar.titulo"
-          />
-        </template>
+      <div class="p-4">
+        <h3 class="font-bold text-gray-500 mb-2">Te puede interesar</h3>
+        <div class="flex-col space-y-2">
+          <template v-for="similar in proyecto.similares" :key="similar.id">
+            <ProyectoRecomendado
+              :id="similar.id"
+              :portada="similar.portada"
+              :titulo="similar.titulo"
+            />
+          </template>
+        </div>
       </div>
     </Card>
   </div>

@@ -1,6 +1,5 @@
 <template>
-  <h1 class="text-primary">Inicio</h1>
-  <div class="grid grid-cols-3">
+  <div class="grid grid-cols-3 gap-6">
     <template v-for="proyecto in proyectos" :key="proyecto.id">
       <CardProyecto :proyecto="proyecto" />
     </template>
@@ -21,12 +20,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  column-gap: 1.5rem;
-  row-gap: 2rem;
-}
-</style>

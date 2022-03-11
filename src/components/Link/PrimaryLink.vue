@@ -1,5 +1,8 @@
 <template>
-  <a :href="href" class="primary-link">
+  <a
+    :href="href"
+    class="text-sm bg-blue-500 hover:bg-blue-600 inline-flex items-center gap-x-2 text-white px-3 py-1 rounded-md"
+  >
     <slot></slot>
   </a>
 </template>

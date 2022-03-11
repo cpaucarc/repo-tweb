@@ -1,53 +1,55 @@
 {
-    "id": 15,
-    "uuid": "5f4aee23-9330-4d7a-8791-27a82d62e780",
-    "titulo": "Diseño de Software de reconocimiento de voz para la escritura del idioma quechua, 2020",
-    "resumen": "El Reconocimiento Automático del Habla puede llegar a ser muy útiles, ya que no tan sólo han impactado en industria de las telecomunicaciones y de los sistemas multimedia, sino que también otras áreas como telemática, juegos, automóviles, sistemas para personas con discapacidad, medicina y educación. El desarrollo de esta tesis se basa en un estudio teórico sobre la naturaleza, parametrización, extracción de características y procesamiento de señales de voz, además de un estudio práctico que contempla el diseño de un software de reconocimiento automático de voz para la escritura de expresiones algebraicas a través de órdenes de voz, sin necesidad de utilizar ninguna interfaz física, como pueda..",
-    "autor": {
-        "avatar": "https://icones.pro/wp-content/uploads/2021/03/avatar-de-personne-icone-homme.png",
-        "nombre": "Silvestre Gutierrez Jefferson Antony",
-        "correo": "jsilvestreg@unasam.edu.pe",
-        "telefono": "987654321",
-        "escuela": "Ingenieria de Sistemas e Informática",
-        "facultad": "Facultad de Ciencias"
+  "id": 15,
+  "uuid": "5f4aee23-9330-4d7a-8791-27a82d62e780",
+  "titulo": "Diseño de Software de reconocimiento de voz para la escritura del idioma quechua, 2020",
+  "resumen": "El Reconocimiento Automático del Habla puede llegar a ser muy útiles, ya que no tan sólo han impactado en industria de las telecomunicaciones y de los sistemas multimedia, sino que también otras áreas como telemática, juegos, automóviles, sistemas para personas con discapacidad, medicina y educación. El desarrollo de esta tesis se basa en un estudio teórico sobre la naturaleza, parametrización, extracción de características y procesamiento de señales de voz, además de un estudio práctico que contempla el diseño de un software de reconocimiento automático de voz para la escritura de expresiones algebraicas a través de órdenes de voz, sin necesidad de utilizar ninguna interfaz física, como pueda..",
+  "autor": {
+    "avatar": "https://icones.pro/wp-content/uploads/2021/03/avatar-de-personne-icone-homme.png",
+    "nombre": "Robles Alvarado Emilio",
+    "correo": "eroblesa@unasam.edu.pe",
+    "telefono": "987654321",
+    "escuela": "Ingenieria de Sistemas e Informática",
+    "facultad": "Facultad de Ciencias"
+  },
+  "archivos": [
+    "https://training.github.com/downloads/es_ES/github-git-cheat-sheet.pdf",
+    "https://aprendeconalf.es/docencia/git/manual/manual-git.pdf"
+  ],
+  "portadas": [
+    "https://www.gosmar.eu/machinelearning/wp-content/uploads/2020/05/cnn_img_480-1.png"
+  ],
+  "tags": [
+    "Ingenieria",
+    "IA",
+    "Python",
+    "Software",
+    "Speech Recognition",
+    "Quechua"
+  ],
+  "similares": [
+    {
+      "id": 78,
+      "uuid": "1889ab52-52e4-4367-8a06-e317955541bc",
+      "titulo": "Sistema de visión artificial para la detección de somnolencia de conductores",
+      "portada": "https://www.mastersautomovil.com/wp-content/uploads/sueno-al-volante.jpg"
     },
-    "archivos": [
-        "https://training.github.com/downloads/es_ES/github-git-cheat-sheet.pdf",
-        "https://aprendeconalf.es/docencia/git/manual/manual-git.pdf"
-    ],
-    "portadas": [
-        "https://image.shutterstock.com/z/stock-vector-speech-recognition-infographics-smart-home-and-voice-assistance-system-concept-diagram-vector-768848461.jpg"
-    ],
-    "tags": [
-        "Ingenieria",
-        "Software",
-        "IA",
-        "Quechua"
-    ],
-    "similares": [
-        {
-            "id": 78,
-            "uuid": "1889ab52-52e4-4367-8a06-e317955541bc",
-            "titulo": "Sistema de visión artificial para la detección de somnolencia de conductores",
-            "portada": "https://www.mastersautomovil.com/wp-content/uploads/sueno-al-volante.jpg"
-        },
-        {
-            "id": 19,
-            "uuid": "9984212d-fea5-48cc-90a5-e1062dfede7b",
-            "titulo": "Sistema Work Flow para la gestión de certificados de estudios de la UNASAM.",
-            "portada": "https://www.r2docuo.com/es/wp-content/uploads/sites/3/2018/01/Pic_7.jpg"
-        },
-        {
-            "id": 799,
-            "uuid": "8ba8e6d5-cfa5-4378-99c5-2cc47e04e61f",
-            "titulo": "Sistema de optimización de rutas para la recolección basura en Huaraz aplicando el algoritmo de hormigas.",
-            "portada": "https://cdn.www.gob.pe/uploads/document/file/566564/standard_recojo-3-1024x682.jpeg"
-        },
-        {
-            "id": 1460,
-            "uuid": "459fd22d-db83-4f4e-89ba-f4ee9227344a",
-            "titulo": "La inteligencia artificial en la programación y coordinación del sistema eléctrico interconectado nacional peruana.",
-            "portada": "https://www.muniancud.cl/portal/wp-content/uploads/2020/10/electrificacion.jpg"
-        }
-    ]
+    {
+      "id": 19,
+      "uuid": "9984212d-fea5-48cc-90a5-e1062dfede7b",
+      "titulo": "Sistema Work Flow para la gestión de certificados de estudios de la UNASAM.",
+      "portada": "https://www.r2docuo.com/es/wp-content/uploads/sites/3/2018/01/Pic_7.jpg"
+    },
+    {
+      "id": 799,
+      "uuid": "8ba8e6d5-cfa5-4378-99c5-2cc47e04e61f",
+      "titulo": "Optimización de rutas para la recolección basura en Huaraz aplicando el algoritmo de hormigas.",
+      "portada": "https://cdn.www.gob.pe/uploads/document/file/566564/standard_recojo-3-1024x682.jpeg"
+    },
+    {
+      "id": 1460,
+      "uuid": "459fd22d-db83-4f4e-89ba-f4ee9227344a",
+      "titulo": "La IA en la programación y coordinación del sistema eléctrico interconectado nacional peruana.",
+      "portada": "https://www.muniancud.cl/portal/wp-content/uploads/2020/10/electrificacion.jpg"
+    }
+  ]
 }
