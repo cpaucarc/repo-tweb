@@ -1,16 +1,13 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
-  content: [
-    "./index.html",
-    "./src/**/*.{vue,js,ts}",
-  ],
+  content: ["./index.html", "./src/**/*.{vue,js,ts}"],
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: ["Inter", ...defaultTheme.fontFamily.sans],
       },
     },
   },
-  plugins: [],
-}
+  plugins: [require("@tailwindcss/forms"), require("@tailwindcss/line-clamp")],
+};

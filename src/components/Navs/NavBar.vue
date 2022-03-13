@@ -1,23 +1,25 @@
 <template>
-  <div class="h-16 bg-white border-b border-gray-300 flex items-center">
+  <div class="h-14 flex items-center">
     <div class="container mx-auto flex items-center justify-between">
       <div class="flex items-center gap-x-2">
-        <img class="h-10" src="../../assets/repotweb.svg" alt="Logo REPOTWEB" />
+        <img
+          class="h-10 flex-shrink-0"
+          src="../../assets/repotweb.svg"
+          alt="Logo REPOTWEB"
+        />
       </div>
 
-      <div>
-        <input type="text" placeholder="Buscar proyectos..." />
-      </div>
+      <BuscadorGeneral />
 
       <div class="flex items-center gap-x-2">
         <PrimaryLink>
-          <span class="material-icons"> add_circle_outline </span>
-          Subir mi proyecto
+          <PlusIcon class="h-5 w-5" />
+          <span class="hidden md:block">Subir mi proyecto</span>
         </PrimaryLink>
         <UsuarioConectado v-if="estaLogeado" />
-        <PrimaryLink v-else @click="estaLogeado = true"
-          >Iniciar Sesión</PrimaryLink
-        >
+        <PrimaryLink v-else @click="estaLogeado = true">
+          Iniciar Sesión
+        </PrimaryLink>
       </div>
     </div>
   </div>
@@ -27,10 +29,12 @@
 import { provide, ref } from "vue";
 import UsuarioConectado from "../Usuario/UsuarioConectado.vue";
 import PrimaryLink from "../Link/PrimaryLink.vue";
+import { PlusIcon } from "@heroicons/vue/solid";
+import BuscadorGeneral from "../BuscadorGeneral.vue";
 
 export default {
   name: "NavigationMenu",
-  components: { UsuarioConectado, PrimaryLink },
+  components: { UsuarioConectado, PrimaryLink, PlusIcon, BuscadorGeneral },
   setup() {
     const estaLogeado = ref(false);
 

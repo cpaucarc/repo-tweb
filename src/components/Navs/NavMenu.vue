@@ -1,42 +1,25 @@
 <template>
-  <Card p="0">
-    <div class="flex flex-col py-4">
-      <NavMenuLink v-for="(ruta, i) in rutas" :key="i" :href="ruta.ruta">
-        <span class="material-icons">{{ ruta.icono }}</span>
-        {{ ruta.nombre }}
+  <div class="w-full">
+    <div class="flex justify-center">
+      <NavMenuLink href="/">
+        <HomeIcon class="h-6 w-6" />Comunidad
+      </NavMenuLink>
+      <NavMenuLink href="proyecto">
+        <NewspaperIcon class="h-6 w-6" />Mis Proyectos
+      </NavMenuLink>
+      <NavMenuLink href="about">
+        <StarIcon class="h-6 w-6" />Mis favoritos
       </NavMenuLink>
     </div>
-  </Card>
+  </div>
 </template>
 
 <script>
 import NavMenuLink from "./NavMenuLink.vue";
-import Card from "../Card.vue";
-
-const rutas = [
-  // Definir mas rutas en el archivo router.js
-  {
-    nombre: "Inicio",
-    icono: "home",
-    ruta: "/",
-  },
-  {
-    nombre: "Proyecto",
-    icono: "task",
-    ruta: "proyecto",
-  },
-  {
-    nombre: "Acerca de",
-    icono: "help",
-    ruta: "about",
-  },
-];
+import { HomeIcon, NewspaperIcon, StarIcon } from "@heroicons/vue/outline";
 
 export default {
   name: "NavigationMenu",
-  components: { NavMenuLink, Card },
-  setup() {
-    return { rutas };
-  },
+  components: { NavMenuLink, HomeIcon, NewspaperIcon, StarIcon },
 };
 </script>

@@ -1,31 +1,28 @@
 <template>
   <router-link to="/proyecto">
-    <Card>
-      <div class="p-3 space-y-4">
-        <img
-          class="aspect-video object-cover rounded-md"
-          :src="proyecto.imagen"
-          :alt="proyecto.titulo"
-        />
+    <div>
+      <img
+        class="aspect-video object-cover rounded-md"
+        :src="proyecto.imagen"
+        :alt="proyecto.titulo"
+        :title="proyecto.titulo"
+      />
 
-        <div class="my-2 space-y-2 relative">
-          <h2 class="font-medium text-gray-700 leading-5">
+      <div class="gap-x-4 py-1 flex items-center">
+        <img
+          :src="proyecto.usuario.foto"
+          class="w-12 h-12 flex-shrink-0 object-cover rounded-full"
+        />
+        <div class="space-y-1">
+          <h2 class="font-bold text-sm text-slate-800 leading-5 line-clamp-2">
             {{ proyecto.titulo }}
           </h2>
-          <div class="flex flex-wrap gap-2">
-            <template v-for="(tag, i) in proyecto.tags" :key="i">
-              <BadgeTag :tag="tag" />
-            </template>
-          </div>
-          <div class="absolute -top-16 -left-1">
-            <img
-              :src="proyecto.usuario.foto"
-              class="w-14 h-14 object-cover rounded-full border-white border-2"
-            />
-          </div>
+          <p class="font-semibold text-sky-600 text-sm mr-2">
+            {{ proyecto.usuario.nombre }}
+          </p>
         </div>
       </div>
-    </Card>
+    </div>
   </router-link>
 </template>
 

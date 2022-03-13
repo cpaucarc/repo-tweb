@@ -1,46 +1,46 @@
 <template>
-  <div class="space-y-8">
-    <div class="space-y-2">
-      <div class="snap-center" v-for="(portada, i) in portadas" :key="i">
-        <img
-          class="aspect-video border border-gray-300 rounded-md overflow-hidden object-cover"
-          :src="portada"
-          alt="Portada"
-        />
+  <div class="space-y-6">
+    <div class="snap-center" v-for="(portada, i) in portadas" :key="i">
+      <img
+        class="aspect-video rounded-lg overflow-hidden object-cover"
+        :src="portada"
+        alt="Portada"
+      />
+    </div>
+
+    <div class="space-y-4">
+      <h3 class="font-bold text-xl leading-6 text-gray-800">{{ titulo }}</h3>
+
+      <div class="flex items-center justify-between">
+        <span class="text-slate-600 text-sm">
+          Publicado el {{ publicacion }}
+        </span>
+
+        <div class="flex items-center gap-x-1">
+          <TertiaryButton>
+            <ThumbUpIcon class="h-5 w-5" /> <span>Me gusta</span>
+          </TertiaryButton>
+
+          <TertiaryButton>
+            <HeartIcon class="h-5 w-5" />
+            <span>Añadir a favoritos</span>
+          </TertiaryButton>
+
+          <SecondaryButton>
+            <PaperClipIcon class="h-5 w-5" />
+            <span>Archivos</span>
+          </SecondaryButton>
+        </div>
       </div>
 
-      <h3 class="font-bold text-xl text-gray-800">{{ titulo }}</h3>
-      <div class="flex flex-wrap gap-2 mt-2">
+      <div class="flex flex-wrap gap-2">
         <BadgeTag v-for="(tag, i) in tags" :key="i" :tag="tag" />
       </div>
     </div>
 
-    <div class="space-y-3">
-      <div class="flex justify-between">
-        <h2 class="text-gray-500 text-lg font-bold">Resumen</h2>
-        <Dropdown>
-          <template #trigger>
-            <button
-              class="bg-rose-500 hover:bg-rose-600 text-white px-3 py-1 rounded-md"
-            >
-              Ver documentos
-            </button>
-          </template>
-          <template #opciones>
-            <ul>
-              <li
-                class="flex items-center text-gray-600 hover:text-blue-600 py-2"
-                v-for="(archivo, i) in archivos"
-                :key="i"
-              >
-                <span class="material-icons">description</span>
-                <a target="_blank" :href="archivo">Documento {{ i + 1 }}</a>
-              </li>
-            </ul>
-          </template>
-        </Dropdown>
-      </div>
-      <p class="leading-8">{{ resumen }}</p>
+    <div class="space-y-3 pt-3">
+      <h3 class="font-semibold text-slate-400">Resumen</h3>
+      <p class="leading-7 text-sm">{{ resumen }}</p>
     </div>
   </div>
 </template>
@@ -48,16 +48,28 @@
 <script>
 import BadgeTag from "../BadgeTag.vue";
 import Dropdown from "../Dropdown.vue";
+import { ThumbUpIcon, HeartIcon, PaperClipIcon } from "@heroicons/vue/outline";
+import SecondaryButton from "../Button/SecondaryButton.vue";
+import TertiaryButton from "../Button/TertiaryButton.vue";
 export default {
   name: "DatosProyecto",
   props: {
     titulo: String,
+    publicacion: String,
     resumen: String,
     archivos: Array,
     portadas: Array,
     tags: Array,
   },
-  components: { BadgeTag, Dropdown },
+  components: {
+    BadgeTag,
+    Dropdown,
+    ThumbUpIcon,
+    HeartIcon,
+    PaperClipIcon,
+    SecondaryButton,
+    TertiaryButton,
+  },
 };
 </script>
 

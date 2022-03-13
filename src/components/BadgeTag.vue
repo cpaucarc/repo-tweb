@@ -1,6 +1,6 @@
 <template>
   <p
-    class="text-xs inline-flex bg-blue-100 text-blue-600 font-semibold px-2 py-1 rounded-full"
+    class="text-xs inline-flex font-medium bg-sky-100 text-sky-800 px-2 py-1 rounded-full"
   >
     {{ tag }}
   </p>

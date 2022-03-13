@@ -1,7 +1,7 @@
 <template>
   <a
     :href="href"
-    class="text-sm bg-blue-500 hover:bg-blue-600 inline-flex items-center gap-x-2 text-white px-3 py-1 rounded-md"
+    class="text-sm bg-amber-400 hover:bg-amber-500 inline-flex items-center gap-x-2 text-slate-800 font-semibold px-3 py-1 rounded-md transition ease-in-out duration-300"
   >
     <slot></slot>
   </a>

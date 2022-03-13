@@ -1,56 +1,50 @@
 <template>
-  <div class="flex justify-between items-center">
-    <div class="relative">
-      <div class="flex items-center gap-x-2 bg-gray-50 px-3 py-2 rounded-lg">
-        <img
-          class="w-10 h-10 bg-blue-500 rounded-lg object-cover"
-          src="../../assets/Kakaroto.webp"
-          alt="Foto"
-          @mouseenter="mouseEnter"
-          @mouseleave="mouseLeave"
-        />
-        <div>
-          <h4 class="text-sm text-gray-600">
-            por
-            <span class="text-blue-600 font-semibold">{{ autor.nombre }}</span>
-          </h4>
-          <p class="text-xs text-gray-600">{{ autor.escuela }}</p>
-        </div>
-      </div>
-
-      <div
-        class="absolute top-12"
-        v-show="show"
-        @mouseenter="mouseEnter"
-        @mouseleave="mouseLeave"
-      >
-        <Card>
-          <div class="p-2">
-            <div class="flex">
-              <span class="material-icons">mail_outline</span>
-              <p>{{ autor.correo }}</p>
-            </div>
-            <div class="flex">
-              <span class="material-icons">phone</span>
-              <p>{{ autor.telefono }}</p>
-            </div>
-          </div>
-        </Card>
-      </div>
+  <div class="flex flex-col space-y-4 w-4/5 mx-auto items-center">
+    <div class="flex flex-col items-center space-y-2">
+      <img
+        class="w-24 h-24 flex-shrink-0 bg-amber-400 rounded-full object-cover"
+        :src="autor.avatar"
+        :alt="'Avatar ' + autor.nombre"
+      />
+      <a href="#" class="font-semibold text-center leading-4 text-slate-800">
+        {{ autor.nombre }}
+      </a>
     </div>
 
-    <button
-      class="bg-gray-50 text-sm px-3 py-2 rounded-lg inline-flex items-center text-gray-600 hover:text-amber-600"
-    >
-      <span class="material-icons mr-1"> star_border </span>
-      Añadir a favoritos
-    </button>
+    <div class="w-full text-center text-sm space-y-2">
+      <p class="text-slate-600 leading-4">
+        {{ autor.escuela }}
+      </p>
+      <p class="text-slate-400">
+        {{ autor.facultad }}
+      </p>
+    </div>
+
+    <div class="flex items-center justify-center gap-x-3 text-slate-400">
+      <DatosAutorIconoContacto @click="mouseEnter">
+        <PhoneIcon class="h-6 w-6" />
+      </DatosAutorIconoContacto>
+
+      <DatosAutorIconoContacto>
+        <MailIcon class="h-6 w-6" />
+      </DatosAutorIconoContacto>
+
+      <DatosAutorIconoContacto>
+        <svg class="h-6 w-6" role="img" viewBox="0 0 24 24" fill="currentColor">
+          <title>LinkedIn</title>
+          <path
+            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+          />
+        </svg>
+      </DatosAutorIconoContacto>
+    </div>
   </div>
 </template>
 
 <script>
 import { ref } from "vue";
-import Card from "../Card.vue";
+import { PhoneIcon, MailIcon } from "@heroicons/vue/solid";
+import DatosAutorIconoContacto from "./DatosAutorIconoContacto.vue";
 
 export default {
   name: "DatosAutor",
@@ -60,30 +54,13 @@ export default {
   setup() {
     const show = ref(false);
     const mouseEnter = () => {
-      show.value = true;
+      console.log("Has dado click crag");
     };
     const mouseLeave = () => {
       show.value = false;
     };
     return { mouseEnter, mouseLeave, show };
   },
-  components: { Card },
+  components: { PhoneIcon, MailIcon, DatosAutorIconoContacto },
 };
 </script>
-
-<style scoped>
-.flex {
-  align-items: center;
-  column-gap: 1rem;
-  display: flex;
-  position: relative;
-}
-.avatar {
-  border-radius: 999px;
-  height: 72px;
-  width: 72px;
-}
-.floating-card {
-  position: absolute;
-}
-</style>

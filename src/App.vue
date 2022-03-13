@@ -1,22 +1,22 @@
 <template>
   <div>
-    <NavegationBar />
+    <div class="flex flex-col gap-y-2">
+      <NavBar />
+      <NavMenu />
+    </div>
     <div
-      class="container mx-auto mt-6 mb-10 grid grid-cols-5 gap-x-6 items-start"
+      class="container mx-auto mt-14 mb-20 w-full sm:w-11/12 md:w-5/6 transition ease-in-out duration-300"
     >
-      <NavigationMenu />
-      <div class="col-span-4">
-        <router-view />
-      </div>
+      <router-view />
     </div>
   </div>
 </template>
 
 <script>
-import NavigationMenu from "./components/Navs/NavMenu.vue";
-import NavegationBar from "./components/Navs/NavBar.vue";
+import NavMenu from "./components/Navs/NavMenu.vue";
+import NavBar from "./components/Navs/NavBar.vue";
 export default {
   name: "App",
-  components: { NavigationMenu, NavegationBar },
+  components: { NavBar, NavMenu },
 };
 </script>

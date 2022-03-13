@@ -1,13 +1,15 @@
 <template>
   <div class="hover:cursor-pointer group">
-    <img
-      class="aspect-video rounded-md object-cover"
-      :src="portada"
-      alt="Portada"
-      :title="id"
-    />
+    <div class="overflow-hidden rounded-md">
+      <img
+        class="aspect-video group-hover:scale-105 object-cover transition ease-in-out duration-300"
+        :src="portada"
+        alt="Portada"
+        :title="id"
+      />
+    </div>
     <p
-      class="text-sm font-medium leading-4 mt-1 text-gray-600 group-hover:text-blue-600"
+      class="text-sm font-medium leading-4 mt-1 text-slate-600 group-hover:text-sky-600 transition ease-in-out duration-300 line-clamp-3"
     >
       {{ titulo }}
     </p>
@@ -19,14 +21,3 @@ export default {
   props: { id: Number, portada: String, titulo: String },
 };
 </script>
-
-<style scoped>
-.portada {
-  aspect-ratio: 3/2;
-  border-radius: 10px;
-  height: auto;
-  object-fit: cover;
-  overflow: hidden;
-  width: 100%;
-}
-</style>

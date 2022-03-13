@@ -1,6 +1,6 @@
 <template>
   <router-link
-    class="text-gray-400 py-4 px-4 border-l-2 border-transparent"
+    class="text-gray-400 py-3 px-3 border-l-2 border-transparent"
     :to="href"
   >
     <div class="flex items-center gap-x-2">
@@ -23,9 +23,8 @@ export default {
 
 <style scoped>
 .router-link-exact-active {
-  background-color: #fbfbfc;
-  border-left: 5px solid #1877f2;
-  color: #1877f2;
+  border-bottom: 3px solid #0284c7;
+  color: #0284c7;
   font-weight: bold;
 }
 </style>

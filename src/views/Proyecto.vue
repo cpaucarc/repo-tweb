@@ -1,35 +1,28 @@
 <template>
-  <div class="columnas-4">
-    <div class="espacio">
-      <Card>
-        <div class="p-6 space-y-4">
-          <DatosAutor :autor="proyecto.autor" />
+  <div class="grid grid-cols-5 gap-x-6 items-start">
+    <DatosAutor :autor="proyecto.autor" />
 
-          <DatosProyecto
-            :portadas="proyecto.portadas"
-            :titulo="proyecto.titulo"
-            :tags="proyecto.tags"
-            :archivos="proyecto.archivos"
-            :resumen="proyecto.resumen"
-          />
-        </div>
-      </Card>
+    <div class="col-span-3">
+      <DatosProyecto
+        :portadas="proyecto.portadas"
+        :publicacion="proyecto.publicacion"
+        :titulo="proyecto.titulo"
+        :tags="proyecto.tags"
+        :archivos="proyecto.archivos"
+        :resumen="proyecto.resumen"
+      />
     </div>
 
-    <Card>
-      <div class="p-4">
-        <h3 class="font-bold text-gray-500 mb-2">Te puede interesar</h3>
-        <div class="flex-col space-y-2">
-          <template v-for="similar in proyecto.similares" :key="similar.id">
-            <ProyectoRecomendado
-              :id="similar.id"
-              :portada="similar.portada"
-              :titulo="similar.titulo"
-            />
-          </template>
-        </div>
-      </div>
-    </Card>
+    <div class="space-y-6">
+      <h3 class="font-semibold text-slate-400">Te puede interesar</h3>
+      <template v-for="similar in proyecto.similares" :key="similar.id">
+        <ProyectoRecomendado
+          :id="similar.id"
+          :portada="similar.portada"
+          :titulo="similar.titulo"
+        />
+      </template>
+    </div>
   </div>
 </template>
 
@@ -37,7 +30,6 @@
 import proyectoData from "../hooks/proyecto.json";
 import DatosAutor from "../components/Proyecto/DatosAutor.vue";
 import DatosProyecto from "../components/Proyecto/DatosProyecto.vue";
-import Card from "../components/Card.vue";
 import ProyectoRecomendado from "../components/Proyecto/ProyectoRecomendado.vue";
 
 export default {
@@ -45,7 +37,6 @@ export default {
   components: {
     DatosAutor,
     DatosProyecto,
-    Card,
     ProyectoRecomendado,
   },
   setup() {
@@ -54,27 +45,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.columnas-4 {
-  align-items: flex-start;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 2rem;
-}
-.flex-col {
-  display: flex;
-  flex-direction: column;
-  row-gap: 1rem;
-}
-
-.espacio {
-  grid-column: span 3 / span 3;
-}
-
-.flex {
-  display: flex;
-  align-items: center;
-  column-gap: 1rem;
-}
-</style>

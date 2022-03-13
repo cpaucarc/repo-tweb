@@ -11,7 +11,7 @@
     <template #opciones>
       <ul class="text-sm">
         <li
-          class="flex items-center gap-x-1 text-gray-600 hover:text-rose-600 transition"
+          class="flex items-center gap-x-1 text-gray-600 hover:text-rose-600 transition duration-300"
           @click="estaLogeado = false"
         >
           <span class="material-icons">logout</span>
