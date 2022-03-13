@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "nombre": "Facultad de Administración y Turismo",
+    "abrev": "FAT"
+  },
+  {
+    "id": 2,
+    "nombre": "Facultad de Ciencias",
+    "abrev": "FC"
+  },
+  {
+    "id": 3,
+    "nombre": "Facultad de Ciencias Agrarias",
+    "abrev": "FCA"
+  },
+  {
+    "id": 4,
+    "nombre": "Facultad de Ciencias del Ambiente",
+    "abrev": "FCAM"
+  },
+  {
+    "id": 5,
+    "nombre": "Facultad de Ciencias Médicas",
+    "abrev": "FCM"
+  },
+  {
+    "id": 6,
+    "nombre": "Facultad de Ciencias Sociales, Educacion y Comunicación",
+    "abrev": "FCSEC"
+  },
+  {
+    "id": 7,
+    "nombre": "Facultad de Derecho y Ciencias Políticas",
+    "abrev": "FDCCPP"
+  },
+  {
+    "id": 8,
+    "nombre": "Facultad de Economia y Contabilidad",
+    "abrev": "FEC"
+  },
+  {
+    "id": 9,
+    "nombre": "Facultad de Ingeniería Civil",
+    "abrev": "FIC"
+  },
+  {
+    "id": 10,
+    "nombre": "Facultad de Ingeniería de Industria Alimentarias",
+    "abrev": "FIIA"
+  },
+  {
+    "id": 11,
+    "nombre": "Facultad de Ingeniería de Minas, Geología y Metalurgia",
+    "abrev": "FIMGM"
+  }
+]

@@ -1,0 +1,36 @@
+<template>
+  <label class="text-sm transition ease-in-out duration-300" :class="clases">
+    <input
+      type="checkbox"
+      v-model="active"
+      class="cursor-pointer text-sky-600 focus:outline-none focus:ring-0 border border-slate-400 focus:border-sky-600 rounded-sm transition ease-in-out duration-300"
+    />
+    {{ label }}
+  </label>
+</template>
+
+<script>
+import { computed } from "vue";
+
+export default {
+  name: "InputCheckbox",
+  props: {
+    label: {
+      type: String,
+      default: "",
+    },
+    active: {
+      type: Boolean,
+      default: true,
+    },
+  },
+  setup(props) {
+    const clases = computed(() => {
+      return props.active
+        ? "text-slate-900 font-medium"
+        : "text-slate-400 font-normal";
+    });
+    return { clases };
+  },
+};
+</script>
