@@ -1,18 +1,21 @@
 <template>
   <router-link to="/proyecto">
-    <div>
-      <img
-        class="aspect-video object-cover rounded-md"
-        :src="proyecto.imagen"
-        :alt="proyecto.titulo"
-        :title="proyecto.titulo"
-      />
+    <div class="group">
+      <div class="overflow-hidden rounded-md">
+        <img
+          class="aspect-video object-cover group-hover:scale-105 transition ease-in-out duration-500"
+          :src="proyecto.imagen"
+          :alt="proyecto.titulo"
+          :title="proyecto.titulo"
+        />
+      </div>
 
       <div class="gap-x-4 py-1 flex items-center">
         <img
           :src="proyecto.usuario.foto"
-          class="w-12 h-12 flex-shrink-0 object-cover rounded-full"
+          class="w-14 h-14 flex-shrink-0 object-cover rounded-full"
         />
+
         <div class="space-y-1">
           <h2 class="font-bold text-sm text-slate-800 leading-5 line-clamp-2">
             {{ proyecto.titulo }}
