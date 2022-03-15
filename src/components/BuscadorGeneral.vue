@@ -1,13 +1,18 @@
 <template>
-  <input
-    type="search"
-    class="rounded-md py-1 px-3 border border-slate-400 focus:border-sky-400 ring-2 ring-transparent focus:ring-sky-400/25 text-sm text-slate-400 focus:text-slate-900"
-    placeholder="Buscar proyectos..."
-  />
+  <InputSearch @onEnter="onEnter" />
 </template>
 
 <script>
+import InputSearch from "./Input/InputSearch.vue";
 export default {
   name: "BuscadorGeneral",
+  components: { InputSearch },
+  setup() {
+    const onEnter = (value) => {
+      alert(`Buscando el proyecto ${value}`);
+    };
+
+    return { onEnter };
+  },
 };
 </script>

@@ -8,7 +8,7 @@
     </div>
 
     <div
-      class="bg-white absolute shadow-xl border border-gray-300 text-sm rounded-md z-50 px-3 py-2 mt-1 right-0 w-48"
+      class="bg-white absolute shadow-xl border border-gray-300 text-sm rounded-md z-30 px-3 py-2 mt-1 right-0 w-48"
       v-show="verOpciones"
     >
       <slot name="opciones"></slot>

@@ -1,23 +1,29 @@
 <template>
-  <div class="hover:cursor-pointer group">
-    <div class="overflow-hidden rounded-md">
-      <img
-        class="aspect-video group-hover:scale-105 object-cover transition ease-in-out duration-300"
-        :src="portada"
-        alt="Portada"
-        :title="id"
-      />
-    </div>
-    <p
-      class="text-sm font-medium leading-4 mt-1 text-slate-600 group-hover:text-sky-600 transition ease-in-out duration-300 line-clamp-3"
+  <div>
+    <router-link
+      :to="{
+        name: 'Proyecto',
+        params: { username: proyecto.username },
+      }"
+      class="hover:cursor-pointer group"
     >
-      {{ titulo }}
-    </p>
+      <img
+        class="aspect-video rounded-md"
+        :src="proyecto.portada"
+        alt="Portada"
+        :title="proyecto.titulo"
+      />
+      <p
+        class="text-sm font-medium leading-4 mt-1 text-slate-600 group-hover:text-sky-600 transition ease-in-out duration-300 line-clamp-3"
+      >
+        {{ proyecto.titulo }}
+      </p>
+    </router-link>
   </div>
 </template>
 
 <script>
 export default {
-  props: { id: Number, portada: String, titulo: String },
+  props: { proyecto: Object },
 };
 </script>

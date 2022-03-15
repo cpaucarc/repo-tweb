@@ -25,18 +25,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.filtros-enter-from,
-.filtros-leave-to {
-  transform: translateX(-200px);
-  opacity: 0;
-}
-
-.filtros-enter-active {
-  transition: all 0.5s ease-in-out;
-}
-.filtros-leave-active {
-  transition: all 0.5s ease-in-out;
-}
-</style>

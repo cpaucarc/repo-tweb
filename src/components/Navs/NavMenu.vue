@@ -1,13 +1,18 @@
 <template>
   <div class="w-full">
     <div class="flex justify-center">
-      <NavMenuLink href="/">
+      <NavMenuLink :href="{ name: 'Home' }">
         <HomeIcon class="h-6 w-6" />Comunidad
       </NavMenuLink>
-      <NavMenuLink href="proyecto">
+      <NavMenuLink
+        :href="{
+          name: 'Proyecto',
+          params: { username: 'Kkroto', proy_id: 159 },
+        }"
+      >
         <NewspaperIcon class="h-6 w-6" />Mis Proyectos
       </NavMenuLink>
-      <NavMenuLink href="about">
+      <NavMenuLink :href="{ name: 'About' }">
         <StarIcon class="h-6 w-6" />Mis favoritos
       </NavMenuLink>
     </div>

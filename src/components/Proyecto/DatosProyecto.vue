@@ -26,10 +26,29 @@
             <span>Añadir a favoritos</span>
           </TertiaryButton>
 
-          <SecondaryButton>
-            <PaperClipIcon class="h-5 w-5" />
-            <span>Archivos</span>
-          </SecondaryButton>
+          <Dropdown>
+            <template #trigger>
+              <SecondaryButton>
+                <PaperClipIcon class="h-5 w-5" />
+                <span>Archivos</span>
+              </SecondaryButton>
+            </template>
+            <template #opciones>
+              <ul class="space-y-2">
+                <li v-for="(archivo, i) in archivos" :key="i">
+                  <a
+                    :href="archivo"
+                    target="_blank"
+                    class="flex items-center gap-x-1 text-slate-600 hover:text-slate-900 active:text-sky-600 active:underline transition ease-in-out duration-300"
+                    rel="noopener noreferrer"
+                  >
+                    <DocumentTextIcon class="h-5 w-5" />
+                    <span>Archivo adjunto {{ i + 1 }}</span>
+                  </a>
+                </li>
+              </ul>
+            </template>
+          </Dropdown>
         </div>
       </div>
 
@@ -48,7 +67,12 @@
 <script>
 import BadgeTag from "../BadgeTag.vue";
 import Dropdown from "../Dropdown.vue";
-import { ThumbUpIcon, HeartIcon, PaperClipIcon } from "@heroicons/vue/outline";
+import {
+  ThumbUpIcon,
+  HeartIcon,
+  PaperClipIcon,
+  DocumentTextIcon,
+} from "@heroicons/vue/outline";
 import SecondaryButton from "../Button/SecondaryButton.vue";
 import TertiaryButton from "../Button/TertiaryButton.vue";
 export default {
@@ -69,6 +93,7 @@ export default {
     PaperClipIcon,
     SecondaryButton,
     TertiaryButton,
+    DocumentTextIcon,
   },
 };
 </script>

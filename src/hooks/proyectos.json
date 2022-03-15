@@ -6,6 +6,7 @@
     "imagen": "https://prometheo.pe/wp-content/uploads/2021/01/Antenas-Celulares-768x432.png",
     "usuario": {
       "nombre": "Peter Castillo",
+      "username": "petercastle",
       "foto": "https://pbs.twimg.com/profile_images/1381474619132153858/Z6LULCsc_400x400.jpg"
     }
   },
@@ -16,6 +17,7 @@
     "imagen": "https://nexciencia.exactas.uba.ar/wp-content/uploads/2013/08/HongosCarmaran.jpg",
     "usuario": {
       "nombre": "Rosario Tamariz",
+      "username": "rosatam",
       "foto": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80"
     }
   },
@@ -26,6 +28,7 @@
     "imagen": "https://laley.pe/upload/images/10_2020/138_la-ley-70.png",
     "usuario": {
       "nombre": "Jorge Manrique",
+      "username": "jorgeman",
       "foto": "https://libero.cronosmedia.glr.pe/original/2021/06/08/60bff64ebbb951471b673273.jpg"
     }
   },
@@ -36,6 +39,7 @@
     "imagen": "https://larepublica.pe/resizer/j5Ae71kawzQCubuDSjfaCXvAdHU=/480x282/top/smart/arc-anglerfish-arc2-prod-gruporepublica.s3.amazonaws.com/public/Y6NGGNE77BHN3BRSE3IINUVF3Q.png",
     "usuario": {
       "nombre": "Isabel Flores",
+      "username": "isaflor",
       "foto": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80"
     }
   },
@@ -46,6 +50,7 @@
     "imagen": "https://ancashaldia.com/wp-content/uploads/2018/10/unasam-simulacro.jpg",
     "usuario": {
       "nombre": "Julian Quispe",
+      "username": "jquispe",
       "foto": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80"
     }
   },
@@ -56,6 +61,7 @@
     "imagen": "https://infomedios.org/wp-content/uploads/2021/05/Educacion-y-cultura-ambiental-en-Peru3-min.jpg",
     "usuario": {
       "nombre": "Eugenia Osorio",
+      "username": "eosorio",
       "foto": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80"
     }
   }

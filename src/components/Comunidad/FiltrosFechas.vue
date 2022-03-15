@@ -2,8 +2,8 @@
   <div class="space-y-2">
     <h2 class="font-semibold text-slate-600">Año de publicación</h2>
     <div class="flex justify-between items-center gap-x-4">
-      <InputDate />
-      <InputDate />
+      <InputDate @fechaCambiado="recibirFechaInicial" />
+      <InputDate @fechaCambiado="recibirFechaFinal" />
     </div>
     {{ fechaInicial }} |
     {{ fechaFinal }}
@@ -17,10 +17,17 @@ export default {
   name: "FiltrosFechas",
   components: { InputDate },
   setup() {
-    const fechaInicial = ref(new Date());
-    const fechaFinal = ref(new Date());
+    const fechaInicial = ref("");
+    const fechaFinal = ref("");
 
-    return { fechaInicial, fechaFinal };
+    const recibirFechaInicial = (fecha) => {
+      fechaInicial.value = fecha;
+    };
+    const recibirFechaFinal = (fecha) => {
+      fechaFinal.value = fecha;
+    };
+
+    return { fechaInicial, fechaFinal, recibirFechaInicial, recibirFechaFinal };
   },
 };
 </script>

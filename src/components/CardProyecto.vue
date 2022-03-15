@@ -1,14 +1,17 @@
 <template>
-  <router-link to="/proyecto">
-    <div class="group">
-      <div class="overflow-hidden rounded-md">
-        <img
-          class="aspect-video object-cover group-hover:scale-105 transition ease-in-out duration-500"
-          :src="proyecto.imagen"
-          :alt="proyecto.titulo"
-          :title="proyecto.titulo"
-        />
-      </div>
+  <router-link
+    :to="{
+      name: 'Proyecto',
+      params: { username: proyecto.usuario.username, proy_id: proyecto.id },
+    }"
+  >
+    <div>
+      <img
+        class="aspect-video object-cover rounded-lg"
+        :src="proyecto.imagen"
+        :alt="proyecto.titulo"
+        :title="proyecto.titulo"
+      />
 
       <div class="gap-x-4 py-1 flex items-center">
         <img

@@ -13,14 +13,10 @@
       />
     </div>
 
-    <div class="space-y-6">
+    <div class="space-y-4 px-3">
       <h3 class="font-semibold text-slate-400">Te puede interesar</h3>
       <template v-for="similar in proyecto.similares" :key="similar.id">
-        <ProyectoRecomendado
-          :id="similar.id"
-          :portada="similar.portada"
-          :titulo="similar.titulo"
-        />
+        <ProyectoRecomendado :proyecto="similar" />
       </template>
     </div>
   </div>
