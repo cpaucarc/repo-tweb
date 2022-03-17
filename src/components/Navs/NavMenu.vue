@@ -6,13 +6,15 @@
       </NavMenuLink>
       <NavMenuLink
         :href="{
-          name: 'Proyecto',
-          params: { username: 'Kkroto', proy_id: 159 },
+          name: 'UsuarioProyecto',
+          params: { username: 'Kkroto' },
         }"
       >
         <NewspaperIcon class="h-6 w-6" />Mis Proyectos
       </NavMenuLink>
-      <NavMenuLink :href="{ name: 'About' }">
+      <NavMenuLink
+        :href="{ name: 'Favoritos', params: { username: 'Kkroto' } }"
+      >
         <StarIcon class="h-6 w-6" />Mis favoritos
       </NavMenuLink>
     </div>

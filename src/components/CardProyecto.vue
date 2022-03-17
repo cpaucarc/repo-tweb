@@ -8,6 +8,7 @@
     <div>
       <img
         class="aspect-video object-cover rounded-lg"
+        loading="lazy"
         :src="proyecto.imagen"
         :alt="proyecto.titulo"
         :title="proyecto.titulo"
@@ -16,6 +17,7 @@
       <div class="gap-x-4 py-1 flex items-center">
         <img
           :src="proyecto.usuario.foto"
+          loading="lazy"
           class="w-14 h-14 flex-shrink-0 object-cover rounded-full"
         />
 

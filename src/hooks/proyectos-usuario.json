@@ -3,36 +3,42 @@
     "id": 15,
     "created_at": "2022-03-14",
     "titulo": "Simulaciones, inteligencia artificial y modelamiento",
+    "tags": ["IA", "Simulacion", "Modelamiento"],
     "portada": "https://img.interempresas.net/fotos/2036840.jpeg"
   },
   {
     "id": 18,
     "created_at": "2022-03-11",
     "titulo": "Los limites de la inteligencia artificial",
+    "tags": ["IA", "Limites"],
     "portada": "https://www.telcel.com/content/dam/telcelcom/empresas/tendencias/notas/limites-ia-bnm.jpg"
   },
   {
     "id": 165,
     "created_at": "2022-02-24",
     "titulo": "¿Jueces robots? Inteligencia artificial y derecho",
+    "tags": ["IA", "Robot", "Derecho"],
     "portada": "https://www.rcinet.ca/es/wp-content/uploads/sites/4/2017/12/istock-690423498-635x357.jpg"
   },
   {
     "id": 1165,
     "created_at": "2022-02-14",
     "titulo": "Inteligencia artificial en la industria minera",
+    "tags": ["IA", "Mineria", "Perú"],
     "portada": "https://outletminero.org/content/images/2020/04/IA-miner-a-2.jpg"
   },
   {
     "id": 7165,
     "created_at": "2022-01-04",
     "titulo": "El concepto de inteligencia artificial según Allen Newell",
+    "tags": ["IA", "Allen Newell"],
     "portada": "https://www.bbva.com/wp-content/uploads/2016/01/minsky_premio_fronteras-1920x1301.jpg"
   },
   {
     "id": 20187,
     "created_at": "2021-11-17",
     "titulo": "Aplicación de inteligencia artificial en diagnósticos de enfermedades",
+    "tags": ["IA", "Medicina", "Diagnóstico"],
     "portada": "https://www.lampadia.com/assets/uploads_images/images/a2%289%29.jpg"
   }
 ]

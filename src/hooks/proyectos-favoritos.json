@@ -1,0 +1,62 @@
+[
+  {
+    "id": 315,
+    "added_at": "2022-03-15",
+    "titulo": "Conocimientos y actitudes sobre la cultura turística en pobladores de la zona de San Ramón provincia de Cutervo Cajamarca 2019",
+    "portada": "https://www.regioncajamarca.gob.pe/media/portal/KJDIG/noticia/Catedral.jpg?r=1632840155",
+    "autor": {
+      "nombre": "Camacho Banda Jean",
+      "avatar": "https://media.istockphoto.com/vectors/vector-businessman-black-silhouette-isolated-vector-id610003972?k=20&m=610003972&s=612x612&w=0&h=-Nftbu4sDVavoJTq5REPpPpV-kXH9hXXE3xg_D3ViKE="
+    }
+  },
+  {
+    "id": 168,
+    "added_at": "2022-03-14",
+    "titulo": "Comportamiento del consumidor sobre el servicio del gas natural doméstico en las zonas urbanas del distrito de Chiclayo, 2019",
+    "portada": "https://gaslink.mx/wp-content/uploads/2020/09/Diferencias-entre-Gas-LP-y-natural-para-el-uso-del-hogar.jpg",
+    "autor": {
+      "nombre": "Niño Coronado Jimmy",
+      "avatar": "https://i.pinimg.com/474x/de/04/9b/de049bf71947406f51000e82bbd85879.jpg"
+    }
+  },
+  {
+    "id": 16,
+    "added_at": "2022-03-13",
+    "titulo": "Esquemas desadaptativos tempranos y resiliencia en estudiantes de secundaria de una institución educativa privada de Chiclayo, 2019",
+    "portada": "https://img.gestion.pe/files/article_content_ge_fotos/uploads/2019/07/16/5d2e804200f96.jpeg",
+    "autor": {
+      "nombre": "Yangua Jaramillo Rosa",
+      "avatar": "https://i1.wp.com/www.docker.com/blog/wp-content/uploads/2019/10/Renee-M.jpg?fit=753%2C1024&ssl=1"
+    }
+  },
+  {
+    "id": 765,
+    "added_at": "2022-03-11",
+    "titulo": "Creencias irracionales en estudiantes de secundaria de una institución educativa pública de José Leonardo Ortiz, 2019",
+    "portada": "https://elcomercio.pe/resizer/OBhz9e0y_k9_xAcQW5RPqCe2SVA=/580x330/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/34KYHQA6RBCYVLQTNSSHXPMBOI.jpg",
+    "autor": {
+      "nombre": "Rufasto Cotrina Mirian",
+      "avatar": "https://www.maxpixel.net/static/photo/1x/Woman-Girl-Female-Profile-Studio-Nose-Portrait-4444292.jpg"
+    }
+  },
+  {
+    "id": 196,
+    "added_at": "2022-03-04",
+    "titulo": "Neurociencias y Psiquiatría: La historia clínica integrada",
+    "portada": "http://escueladeexperiencias.com/wp-content/uploads/2017/09/neurociencia.png",
+    "autor": {
+      "nombre": "Aguilar Rivera William",
+      "avatar": "http://static5.bornrichimages.com/cdn2/500/500/91/c/wp-content/uploads/2014/04/ron_thumb.jpg"
+    }
+  },
+  {
+    "id": 985,
+    "added_at": "2022-03-04",
+    "titulo": "Determinación de la fórmula tarifaria, estructura tarifaria y metas de gestión aplicables a SEDAPAR S.A. para el quinquenio regulatorio 2015-2020",
+    "portada": "https://www.camaraocana.com/wp-content/uploads/2022/01/tarifas1.png",
+    "autor": {
+      "nombre": "Maguiña Vargas Ciro",
+      "avatar": "https://elbocon.pe/resizer/3oo1i0xh4mdLZkk9DFlwvarhZYs=/580x330/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/PZ7UTNCHIFD55LTZOK3BGSUSJQ.jpg"
+    }
+  }
+]

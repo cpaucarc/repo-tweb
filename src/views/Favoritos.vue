@@ -2,27 +2,25 @@
   <div class="space-y-8">
     <div class="text-slate-900">
       <div class="flex justify-between items-center">
-        <DatosAutorMinimal />
+        <p class="text-sm">Haz agregado 6 proyectos a tus favoritos</p>
         <InputSearch @onEnter="onEnter" />
       </div>
     </div>
 
-    <ListaProyectosUsuario />
+    <ListaProyectosFavoritos />
   </div>
 </template>
 
 <script>
 import { ref } from "vue";
 import InputSearch from "../components/Input/InputSearch.vue";
-import DatosAutorMinimal from "../components/Proyecto/DatosAutorMinimal.vue";
-import ListaProyectosUsuario from "../components/Proyecto/ListaProyectosUsuario.vue";
+import ListaProyectosFavoritos from "../components/Proyecto/ListaProyectosFavoritos.vue";
 
 export default {
-  name: "UsuarioProyecto",
+  name: "Favoritos",
   components: {
     InputSearch,
-    DatosAutorMinimal,
-    ListaProyectosUsuario,
+    ListaProyectosFavoritos,
   },
   setup() {
     const search = ref("");

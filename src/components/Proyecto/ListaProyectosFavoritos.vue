@@ -1,6 +1,6 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
-    <CardProyectoUsuario
+    <CardProyectoFavorito
       v-for="proyecto in proyectos"
       :key="proyecto.id"
       :proyecto="proyecto"
@@ -9,14 +9,14 @@
 </template>
 
 <script>
-import proyectosUsuario from "../../hooks/proyectos-usuario.json";
-import CardProyectoUsuario from "../Card/CardProyectoUsuario.vue";
+import proyectosFavoritos from "../../hooks/proyectos-favoritos.json";
+import CardProyectoFavorito from "../Card/CardProyectoFavorito.vue";
 export default {
-  name: "ListaProyectosUsuario",
+  name: "ListaProyectosFavoritos",
   setup() {
-    const proyectos = proyectosUsuario;
+    const proyectos = proyectosFavoritos;
     return { proyectos };
   },
-  components: { CardProyectoUsuario },
+  components: { CardProyectoFavorito },
 };
 </script>
