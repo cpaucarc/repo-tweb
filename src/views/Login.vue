@@ -17,39 +17,18 @@
       <div class="grid grid-cols-5">
         <div class="col-start-2 col-span-3">
           <div class="grid place-items-center h-screen">
-            <div class="w-full space-y-8">
-              <div class="flex flex-col items-center">
-                <div
-                  class="w-24 h-24 p-4 bg-slate-100 rounded-full grid place-items-center"
-                >
-                  <img class="" src="../assets/repotweb-min.svg" alt="Logo" />
-                </div>
-                <h1 class="font-semibold text-lg text-slate-900">Bienvenido</h1>
-              </div>
-              <form @submit.prevent="" class="space-y-4">
-                <div>
-                  <input class="w-full" type="email" />
-                </div>
-                <div>
-                  <input class="w-full" type="password" />
-                </div>
-                <button
-                  type="submit"
-                  class="bg-sky-800 text-white px-3 py-2 rounded-md w-full"
-                >
-                  Iniciar Sesión
-                </button>
-              </form>
-              <p class="text-sm text-center">
-                ¿Aún no tienes una cuenta?
-                <span class="cursor-pointer text-sky-800 font-bold"
-                  >Registrarse</span
-                >
-              </p>
-            </div>
+            <LoginSeccion />
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+import LoginSeccion from "../components/Login/LoginSeccion.vue";
+export default {
+  name: "Login",
+  components: { LoginSeccion },
+};
+</script>

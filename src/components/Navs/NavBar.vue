@@ -17,9 +17,7 @@
           <span class="hidden md:block">Subir mi proyecto</span>
         </PrimaryLink>
         <UsuarioConectado v-if="estaLogeado" />
-        <PrimaryLink v-else @click="estaLogeado = true">
-          Iniciar Sesión
-        </PrimaryLink>
+        <PrimaryLink v-else href="/login"> Iniciar Sesión </PrimaryLink>
       </div>
     </div>
   </div>

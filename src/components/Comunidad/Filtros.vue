@@ -25,7 +25,7 @@
     <transition name="fade">
       <div
         v-show="verFiltros"
-        class="bg-sky-900/25 fixed top-0 left-0 w-full h-full z-40 backdrop-blur-xs"
+        class="bg-slate-900/25 fixed top-0 left-0 w-full h-full z-40 backdrop-blur-xs"
       ></div>
     </transition>
   </div>

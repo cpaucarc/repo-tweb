@@ -5,8 +5,6 @@
       <InputDate @fechaCambiado="recibirFechaInicial" />
       <InputDate @fechaCambiado="recibirFechaFinal" />
     </div>
-    {{ fechaInicial }} |
-    {{ fechaFinal }}
   </div>
 </template>
 
