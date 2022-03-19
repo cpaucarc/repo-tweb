@@ -14,7 +14,7 @@
     />
     <button
       type="submit"
-      class="bg-sky-800 text-white px-3 py-2 rounded-md w-full"
+      class="bg-sky-800 text-white px-3 py-2 font-medium text-sm rounded-md w-full"
     >
       Iniciar Sesión
     </button>

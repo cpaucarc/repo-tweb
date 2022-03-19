@@ -1,57 +1,122 @@
 [
   {
     "id": 1,
-    "nombre": "Facultad de Administración y Turismo",
+    "nombre": "Administración",
     "abrev": "FAT"
   },
   {
     "id": 2,
-    "nombre": "Facultad de Ciencias",
-    "abrev": "FC"
+    "nombre": "Turismo",
+    "abrev": "FAT"
   },
   {
     "id": 3,
-    "nombre": "Facultad de Ciencias Agrarias",
-    "abrev": "FCA"
+    "nombre": "Estadistica e Informática",
+    "abrev": "FC"
   },
   {
     "id": 4,
-    "nombre": "Facultad de Ciencias del Ambiente",
-    "abrev": "FCAM"
+    "nombre": "Ingeniería de Sistemas e Informática",
+    "abrev": "FC"
   },
   {
     "id": 5,
-    "nombre": "Facultad de Ciencias Médicas",
-    "abrev": "FCM"
+    "nombre": "Matemática",
+    "abrev": "FC"
   },
   {
     "id": 6,
-    "nombre": "Facultad de Ciencias Sociales, Educacion y Comunicación",
-    "abrev": "FCSEC"
+    "nombre": "Agronomía",
+    "abrev": "FCA"
   },
   {
     "id": 7,
-    "nombre": "Facultad de Derecho y Ciencias Políticas",
-    "abrev": "FDCCPP"
+    "nombre": "Ingeniería Agrícola",
+    "abrev": "FCA"
   },
   {
     "id": 8,
-    "nombre": "Facultad de Economia y Contabilidad",
-    "abrev": "FEC"
+    "nombre": "Ingeniería Ambiental",
+    "abrev": "FCAM"
   },
   {
     "id": 9,
-    "nombre": "Facultad de Ingeniería Civil",
-    "abrev": "FIC"
+    "nombre": "Ingeniería Sanitaria",
+    "abrev": "FCAM"
   },
   {
     "id": 10,
-    "nombre": "Facultad de Ingeniería de Industria Alimentarias",
-    "abrev": "FIIA"
+    "nombre": "Enfermería",
+    "abrev": "FCM"
   },
   {
     "id": 11,
-    "nombre": "Facultad de Ingeniería de Minas, Geología y Metalurgia",
+    "nombre": "Obstetricia",
+    "abrev": "FCM"
+  },
+  {
+    "id": 12,
+    "nombre": "Arqueología",
+    "abrev": "FCSEC"
+  },
+  {
+    "id": 13,
+    "nombre": "Ciencias de la Comunicación",
+    "abrev": "FCSEC"
+  },
+  {
+    "id": 14,
+    "nombre": "Comunicación Lingüistica y Literatura",
+    "abrev": "FCSEC"
+  },
+  {
+    "id": 15,
+    "nombre": "Educación Primaria Bilingüe Intercultural",
+    "abrev": "FCSEC"
+  },
+  {
+    "id": 16,
+    "nombre": "Lengua Extranjera Inglés",
+    "abrev": "FCSEC"
+  },
+  {
+    "id": 17,
+    "nombre": "Derecho y Ciencias Políticas",
+    "abrev": "FDCCPP"
+  },
+  {
+    "id": 18,
+    "nombre": "Contabilidad",
+    "abrev": "FEC"
+  },
+  {
+    "id": 19,
+    "nombre": "Economia",
+    "abrev": "FEC"
+  },
+  {
+    "id": 20,
+    "nombre": "Arquitectura y Urbanismo",
+    "abrev": "FIC"
+  },
+  {
+    "id": 21,
+    "nombre": "Ingeniería Civil",
+    "abrev": "FIC"
+  },
+  {
+    "id": 22,
+    "nombre": "Ingeniería de Industria Alimentarias",
+    "abrev": "FIIA"
+  },
+  {
+    "id": 23,
+    "nombre": "Ingeniería Industrial",
+    "abrev": "FIIA"
+  },
+  {
+    "id": 24,
+    "nombre": "Ingeniería de Minas",
     "abrev": "FIMGM"
   }
 ]

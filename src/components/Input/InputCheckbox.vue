@@ -1,9 +1,12 @@
 <template>
-  <label class="text-sm transition ease-in-out duration-300" :class="clases">
+  <label
+    class="text-sm cursor-pointer transition ease-in-out duration-300"
+    :class="clases"
+  >
     <input
       type="checkbox"
       v-model="active"
-      class="cursor-pointer text-sky-600 focus:outline-none focus:ring-0 border border-slate-400 focus:border-sky-600 rounded-sm transition ease-in-out duration-300"
+      class="text-sky-600 mr-1 cursor-pointer rounded focus:outline-none focus:ring-0 border border-slate-400 focus:border-sky-600 transition ease-in-out duration-300"
     />
     {{ label }}
   </label>

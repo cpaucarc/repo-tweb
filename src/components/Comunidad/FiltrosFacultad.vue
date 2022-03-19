@@ -1,14 +1,18 @@
 <template>
   <div class="space-y-2">
-    <h2 class="font-semibold text-slate-600">Facultades</h2>
-    <p class="text-xs text-slate-400">{{ cantidadSeleccionados }}</p>
-    <ul class="space-y-1">
+    <h2 class="font-semibold text-slate-600">Escuelas</h2>
+    <p class="text-xs text-slate-400 ml-4">{{ cantidadSeleccionados }}</p>
+    <ul class="space-y-1 ml-4">
       <li v-for="facultad in facultades" :key="facultad.id">
         <InputCheckbox
           @click="seleccionarFacultad(facultad.id)"
           :active="elementos.includes(facultad.id)"
           :label="
-            facultad.nombre.substring(0, 36) + ' (' + facultad.abrev + ')'
+            facultad.nombre.substring(0, 36) +
+            (facultad.nombre.length > 35 ? '...' : '') +
+            ' (' +
+            facultad.abrev +
+            ')'
           "
         />
       </li>
@@ -17,7 +21,7 @@
 </template>
 
 <script>
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import facultadesData from "../../hooks/facultades.json";
 import InputCheckbox from "../Input/InputCheckbox.vue";
 import useArray from "../../composables/useArray";
@@ -34,7 +38,7 @@ export default {
     };
 
     const cantidadSeleccionados = computed(() => {
-      return elementos.value.length + " facultades seleccionados";
+      return elementos.value.length + " escuelas seleccionados";
     });
 
     return {

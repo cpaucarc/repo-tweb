@@ -1,20 +1,21 @@
 <template>
-  <div class="absolute -left-4 -mt-10">
+  <div class="relative h-full min-h-full">
     <AdjustmentsIcon
       @click="verFiltros = !verFiltros"
-      class="h-6 w-6 cursor-pointer flex-shrink-0 text-slate-400 hover:text-slate-600 transition ease-in-out duration-300"
+      class="h-6 w-6 cursor-pointer flex-shrink-0 absolute -top-8 text-slate-400 hover:text-slate-600 transition ease-in-out duration-300"
     />
+
     <transition name="filtros">
       <div
         v-show="verFiltros"
-        class="p-4 w-96 -top-8 border z-50 bg-white rounded-md relative shadow-2xl"
+        class="absolute -top-44 left-0 sm:-left-20 lg:-left-28 p-8 w-4/5 lg:w-2/5 z-50 min-h-full bg-white shadow-2xl"
       >
-        <ChevronDoubleLeftIcon
+        <XIcon
           @click="verFiltros = !verFiltros"
-          class="h-6 w-6 absolute top-2 right-2 cursor-pointer flex-shrink-0 text-slate-400 hover:text-rose-500 transition ease-in-out duration-300"
+          class="h-6 w-6 absolute top-4 -right-8 cursor-pointer flex-shrink-0 text-white border border-transparent active:border-white rounded transition ease-in-out duration-300"
         />
         <div class="space-y-4">
-          <h1 class="font-bold text-lg text-slate-900">Filtrar proyectos</h1>
+          <h1 class="font-bold text-lg text-slate-800">Filtrar proyectos</h1>
           <FiltrosFechas />
 
           <FiltrosFacultad />
@@ -25,7 +26,7 @@
     <transition name="fade">
       <div
         v-show="verFiltros"
-        class="bg-slate-900/25 fixed top-0 left-0 w-full h-full z-40 backdrop-blur-xs"
+        class="bg-slate-900/50 fixed top-0 left-0 w-full h-full z-40 backdrop-blur-xs"
       ></div>
     </transition>
   </div>
@@ -33,7 +34,7 @@
 
 <script>
 import { ref } from "vue";
-import { AdjustmentsIcon, ChevronDoubleLeftIcon } from "@heroicons/vue/outline";
+import { AdjustmentsIcon, XIcon } from "@heroicons/vue/outline";
 import FiltrosFacultad from "./FiltrosFacultad.vue";
 import FiltrosFechas from "./FiltrosFechas.vue";
 export default {
@@ -42,7 +43,7 @@ export default {
     AdjustmentsIcon,
     FiltrosFacultad,
     FiltrosFechas,
-    ChevronDoubleLeftIcon,
+    XIcon,
   },
   setup() {
     const verFiltros = ref(false);

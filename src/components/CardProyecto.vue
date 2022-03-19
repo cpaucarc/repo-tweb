@@ -5,7 +5,7 @@
       params: { username: proyecto.usuario.username, proy_id: proyecto.id },
     }"
   >
-    <div>
+    <div class="group">
       <img
         class="aspect-video object-cover rounded-lg"
         loading="lazy"
@@ -21,11 +21,15 @@
           class="w-14 h-14 flex-shrink-0 object-cover rounded-full"
         />
 
-        <div class="space-y-1">
-          <h2 class="font-bold text-sm text-slate-800 leading-5 line-clamp-2">
+        <div class="space-y-0">
+          <h2
+            class="font-bold text-sm text-slate-800 group-hover:text-sky-600 leading-5 line-clamp-2 transition ease-in-out duration-300"
+          >
             {{ proyecto.titulo }}
           </h2>
-          <p class="font-semibold text-sky-600 text-sm mr-2">
+          <p
+            class="text-slate-400 group-hover:text-slate-600 text-sm mr-2 transition ease-in-out duration-300"
+          >
             {{ proyecto.usuario.nombre }}
           </p>
         </div>

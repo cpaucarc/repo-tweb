@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", ...defaultTheme.fontFamily.sans],
+        sans: ["Rubik", ...defaultTheme.fontFamily.sans],
       },
       blur: {
         xs: "1.5px",

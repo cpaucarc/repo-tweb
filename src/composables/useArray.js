@@ -5,7 +5,9 @@ export default function useArray() {
 
   // agregar un elemento al array
   function agregarElemento(elemento) {
-    elementos.value.push(elemento);
+    if (!elementos.value.includes(elemento)) {
+      elementos.value.push(elemento);
+    }
   }
 
   // quitar 1 elemento de una posicion arbitraria

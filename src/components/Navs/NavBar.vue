@@ -5,19 +5,21 @@
         <img
           class="h-10 flex-shrink-0"
           src="../../assets/repotweb.svg"
-          alt="Logo REPOTWEB"
+          alt="Logo RepoTWeb"
         />
       </div>
 
       <BuscadorGeneral />
 
       <div class="flex items-center gap-x-2">
-        <PrimaryLink>
+        <PrimaryLink :href="{ name: 'CrearProyecto' }">
           <PlusIcon class="h-5 w-5" />
           <span class="hidden md:block">Subir mi proyecto</span>
         </PrimaryLink>
         <UsuarioConectado v-if="estaLogeado" />
-        <PrimaryLink v-else href="/login"> Iniciar Sesión </PrimaryLink>
+        <PrimaryLink v-else :href="{ name: 'Login' }">
+          Iniciar Sesión
+        </PrimaryLink>
       </div>
     </div>
   </div>

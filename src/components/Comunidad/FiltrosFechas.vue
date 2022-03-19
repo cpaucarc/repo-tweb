@@ -1,7 +1,7 @@
 <template>
   <div class="space-y-2">
-    <h2 class="font-semibold text-slate-600">Año de publicación</h2>
-    <div class="flex justify-between items-center gap-x-4">
+    <h2 class="font-semibold text-slate-600">Fecha de publicación</h2>
+    <div class="grid grid-cols-2 gap-x-4 ml-4">
       <InputDate @fechaCambiado="recibirFechaInicial" />
       <InputDate @fechaCambiado="recibirFechaFinal" />
     </div>
