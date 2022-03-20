@@ -8,12 +8,12 @@
         :alt="proyecto.titulo"
         :title="proyecto.titulo"
       />
-      <button
+      <DeleteButton
+        class="absolute -top-3 -right-3"
         @click="eliminarProyecto(proyecto.id, proyecto.titulo)"
-        class="absolute cursor-pointer h-8 w-8 rounded-full flex-shrink-0 bg-white text-slate-900 hover:text-rose-500 active:bg-rose-500 active:text-slate-900 shadow transition ease-in-out duration-300 text-xs grid place-items-center -top-4 -right-4"
       >
         <XIcon class="h-5 w-5 flex-shrink-0" />
-      </button>
+      </DeleteButton>
     </div>
     <div class="flex items-center space-x-2">
       <img
@@ -45,9 +45,10 @@
 </template>
 <script>
 import { CalendarIcon, XIcon } from "@heroicons/vue/outline";
+import DeleteButton from "../Button/DeleteButton.vue";
 export default {
   name: "CardProyectoFavorito",
-  components: { CalendarIcon, XIcon },
+  components: { CalendarIcon, XIcon, DeleteButton },
   props: {
     proyecto: Object,
   },

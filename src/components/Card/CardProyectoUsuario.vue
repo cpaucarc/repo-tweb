@@ -8,12 +8,13 @@
         :alt="proyecto.titulo"
         :title="proyecto.titulo"
       />
-      <button
+
+      <DeleteButton
+        class="absolute -top-3 -right-3"
         @click="eliminarProyecto(proyecto.id, proyecto.titulo)"
-        class="absolute cursor-pointer h-10 w-10 rounded-full flex-shrink-0 bg-white text-slate-900 hover:text-rose-500 active:bg-rose-500 active:text-slate-900 shadow transition ease-in-out duration-300 text-xs grid place-items-center -top-4 -right-4"
       >
-        <TrashIcon class="h-6 w-6 flex-shrink-0" />
-      </button>
+        <TrashIcon class="h-5 w-5 flex-shrink-0" />
+      </DeleteButton>
     </div>
     <div>
       <h4
@@ -40,9 +41,10 @@
 <script>
 import { CalendarIcon, TrashIcon } from "@heroicons/vue/outline";
 import BadgeTag from "../BadgeTag.vue";
+import DeleteButton from "../Button/DeleteButton.vue";
 export default {
   name: "CardProyectoUsuario",
-  components: { CalendarIcon, TrashIcon, BadgeTag },
+  components: { CalendarIcon, TrashIcon, BadgeTag, DeleteButton },
   props: {
     proyecto: Object,
   },

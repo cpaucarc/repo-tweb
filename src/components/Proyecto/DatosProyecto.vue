@@ -39,7 +39,7 @@
                   <a
                     :href="archivo"
                     target="_blank"
-                    class="flex items-center gap-x-1 text-slate-600 hover:text-slate-900 active:text-sky-600 active:underline transition ease-in-out duration-300"
+                    class="flex items-center gap-x-1 text-slate-600 hover:text-slate-900 active:text-sky-600 active:underline transition-eio-300"
                     rel="noopener noreferrer"
                   >
                     <DocumentTextIcon class="h-5 w-5" />

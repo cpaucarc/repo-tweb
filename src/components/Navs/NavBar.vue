@@ -11,12 +11,18 @@
 
       <BuscadorGeneral />
 
+      <p class="text-sm text-slate-900">
+        |{{ user.username }}|{{ user.isLogged ? "Logeado" : "Guest" }}|{{
+          user.user_id
+        }}|
+      </p>
+
       <div class="flex items-center gap-x-2">
         <PrimaryLink :href="{ name: 'CrearProyecto' }">
-          <PlusIcon class="h-5 w-5" />
-          <span class="hidden md:block">Subir mi proyecto</span>
+          <PlusIcon class="h-6 w-6" />
+          <span class="hidden md:block">Publicar</span>
         </PrimaryLink>
-        <UsuarioConectado v-if="estaLogeado" />
+        <UsuarioConectado v-if="user.isLogged" />
         <PrimaryLink v-else :href="{ name: 'Login' }">
           Iniciar Sesión
         </PrimaryLink>
@@ -31,6 +37,7 @@ import UsuarioConectado from "../Usuario/UsuarioConectado.vue";
 import PrimaryLink from "../Link/PrimaryLink.vue";
 import { PlusIcon } from "@heroicons/vue/solid";
 import BuscadorGeneral from "../BuscadorGeneral.vue";
+import { useUserStore } from "../../stores/useUser";
 
 export default {
   name: "NavigationMenu",
@@ -38,9 +45,12 @@ export default {
   setup() {
     const estaLogeado = ref(false);
 
+    const store = useUserStore();
+    const { user } = store;
+
     provide("estaLogeado", estaLogeado);
 
-    return { estaLogeado };
+    return { estaLogeado, user };
   },
 };
 </script>

@@ -24,7 +24,9 @@
 <script>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { useUserStore } from "../../stores/useUser";
 import InputBasic from "../Input/InputBasic.vue";
+
 export default {
   name: "LoginFormulario",
   components: { InputBasic },
@@ -32,20 +34,23 @@ export default {
     const username = ref("");
     const password = ref("");
     const router = useRouter();
+    const store = useUserStore();
 
     const getUsername = (value) => {
       username.value = value;
-      console.log("EL usuario es: " + username.value);
+      console.log(username.value);
     };
     const getPassword = (value) => {
       password.value = value;
-      console.log("EL password es: " + password.value);
+      console.log(password.value);
     };
+
     const iniciarSesion = () => {
+      store.login(username.value, password.value);
       router.push({ name: "Home" });
     };
 
-    return { getUsername, getPassword, iniciarSesion };
+    return { username, password, iniciarSesion, getUsername, getPassword };
   },
 };
 </script>

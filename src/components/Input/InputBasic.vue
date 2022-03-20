@@ -13,7 +13,7 @@
       :id="id"
       :type="tipo"
       v-model="entrada"
-      @keyup="emitirEntrada"
+      @input="emitirEntrada"
       class="input-form"
       :maxlength="limite"
       :placeholder="placeholder"
