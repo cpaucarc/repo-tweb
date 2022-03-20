@@ -1,7 +1,5 @@
 <template>
-  <button
-    class="text-sm bg-amber-400 hover:bg-amber-500 inline-flex items-center gap-x-1 text-slate-800 font-semibold px-3 py-1 rounded-md transition ease-in-out duration-300"
-  >
+  <button class="bg-amber-400 hover:bg-amber-500 text-slate-800 btn">
     <slot></slot>
   </button>
 </template>

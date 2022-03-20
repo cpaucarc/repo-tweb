@@ -43,7 +43,7 @@ export default {
     const entrada = ref("");
 
     const emitirEntrada = () => {
-      if (entrada.value.trim().length) emit("emitInput", entrada.value.trim());
+      emit("emitInput", entrada.value.trim());
     };
 
     // watch(entrada, (newValue) => {

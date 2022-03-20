@@ -1,10 +1,10 @@
 <template>
-  <div class="relative">
-    <label for="search" class="absolute mt-1 ml-2 text-slate-400">
+  <div class="relative flex items-center">
+    <label for="search" class="absolute ml-2 text-slate-400">
       <SearchIcon class="h-5 w-5" />
     </label>
     <input
-      class="pl-9 rounded-md py-1 px-3 border border-slate-300 focus:border-sky-400 ring-2 focus:ring-2 ring-transparent focus:ring-sky-400/25 text-sm text-slate-400 focus:text-slate-900 transition ease-in-out duration-300"
+      class="pl-9 input-form"
       id="search"
       placeholder="Buscar proyectos..."
       type="search"

@@ -1,22 +1,28 @@
 <template>
   <div class="my-1 space-y-1">
-    <label class="text-slate-600 text-sm" v-if="label.length" :for="id">{{
-      label
-    }}</label>
+    <div class="flex items-center justify-between">
+      <label class="text-slate-600 text-sm" v-if="label.length" :for="id">
+        {{ label }}
+      </label>
+      <span class="text-xs text-slate-600 mr-1" v-if="limite !== '255'">
+        {{ limit }}/{{ limite }}
+      </span>
+    </div>
 
     <input
       :id="id"
       :type="tipo"
       v-model="entrada"
       @keyup="emitirEntrada"
-      class="rounded-md w-full py-1.5 px-3 font-medium border placeholder-slate-400 border-slate-300 focus:border-sky-400 ring-2 focus:ring-2 ring-transparent focus:ring-sky-400/25 text-sm text-slate-600 focus:text-slate-900 transition ease-in-out duration-300"
+      class="input-form"
+      :maxlength="limite"
       :placeholder="placeholder"
     />
   </div>
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, watch } from "vue";
 
 export default {
   name: "InputBasic",
@@ -37,19 +43,24 @@ export default {
       type: String,
       default: "",
     },
+    limite: {
+      type: String,
+      default: "255",
+    },
   },
   setup(props, { emit }) {
     const entrada = ref("");
+    const limit = ref(parseInt(props.limite));
 
     const emitirEntrada = () => {
-      if (entrada.value.trim().length) emit("emitInput", entrada.value.trim());
+      emit("emitInput", entrada.value.trim());
     };
 
-    // watch(entrada, (newValue) => {
-    //   entrada.value = newValue.trim();
-    // });
+    watch(entrada, () => {
+      limit.value = parseInt(props.limite) - entrada.value.length;
+    });
 
-    return { entrada, emitirEntrada };
+    return { entrada, emitirEntrada, limit };
   },
 };
 </script>

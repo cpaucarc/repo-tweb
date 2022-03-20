@@ -1,7 +1,10 @@
 <template>
   <div class="w-1/2 mx-auto space-y-6">
     <InputBasic label="Título del proyecto" />
-    <TextArea label="Resumen del proyecto" />
+    <TextArea
+      @emitInput="(value) => (desc = value)"
+      label="Resumen del proyecto"
+    />
     <InputTags
       label="Palabras claves del proyecto *(separados por comas)"
       placeholder="Ancash,Mineria,IA"
@@ -24,6 +27,7 @@ import InputTags from "../components/Input/InputTags.vue";
 import InputFile from "../components/Input/InputFile.vue";
 import PrimaryButton from "../components/Button/PrimaryButton.vue";
 import { DocumentTextIcon } from "@heroicons/vue/outline";
+import { ref } from "vue";
 export default {
   components: {
     InputBasic,
@@ -34,10 +38,12 @@ export default {
     DocumentTextIcon,
   },
   setup() {
+    const desc = ref("5212");
+
     const saluda = () => {
       alert("Hola");
     };
-    return { saluda };
+    return { saluda, desc };
   },
 };
 </script>

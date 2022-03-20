@@ -46,6 +46,6 @@ export default {
   position: absolute; /* for move transition after item leaves */
 }
 .list-move {
-  transition: all 0.5s ease;
+  transition: all 1s ease;
 }
 </style>

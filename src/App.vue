@@ -27,7 +27,7 @@ export default {
   components: { NavBar, NavMenu },
   setup() {
     const route = useRoute();
-    const guest = computed(() => ["Login"].indexOf(route.name) > -1);
+    const guest = computed(() => ["Login", "SignUp"].indexOf(route.name) > -1);
 
     return { guest };
   },
