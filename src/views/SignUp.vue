@@ -1,6 +1,6 @@
 <template>
-  <div class="grid place-items-center w-2/5 mx-auto relative">
-    <div class="space-y-8 mt-12 w-10/12">
+  <div class="grid place-items-center w-2/5 mx-auto relative mb-20">
+    <div class="space-y-8 mt-8 w-10/12">
       <PasosIconos />
 
       <LoginSeccionLogo :titulo="nombrePaso" />
@@ -31,6 +31,17 @@
           {{ temas_interes }}
         </div>
       </div>
+    </div>
+    <div
+      class="fixed bg-white bottom-0 w-full py-2 text-center text-sm text-slate-900"
+    >
+      ¿Ya tienes una cuenta?
+      <router-link
+        class="cursor-pointer text-sky-800 font-semibold"
+        :to="{ name: 'Login' }"
+      >
+        Iniciar Sesión
+      </router-link>
     </div>
   </div>
 </template>
