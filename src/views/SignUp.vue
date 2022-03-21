@@ -88,6 +88,7 @@ export default {
     provide("paso", paso);
     provide("datos_basicos", datos_basicos);
     provide("datos_contacto", datos_contacto);
+    provide("temas_interes", temas_interes);
 
     return { paso, nombrePaso, datos_basicos, datos_contacto, temas_interes };
   },

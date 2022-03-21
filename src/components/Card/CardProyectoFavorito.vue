@@ -12,14 +12,14 @@
         class="absolute -top-3 -right-3"
         @click="eliminarProyecto(proyecto.id, proyecto.titulo)"
       >
-        <XIcon class="h-5 w-5 flex-shrink-0" />
+        <XIcon class="icon-5" />
       </DeleteButton>
     </div>
     <div class="flex items-center space-x-2">
       <img
         :src="proyecto.autor.avatar"
         loading="lazy"
-        class="w-14 h-14 flex-shrink-0 object-cover rounded-full"
+        class="w-14 h-14 avatar"
       />
       <div>
         <h4
@@ -35,7 +35,7 @@
             title="Fecha de agregado a favoritos"
             class="flex items-center text-slate-600 text-sm pr-2"
           >
-            <CalendarIcon class="h-5 w-5 mr-1" />
+            <CalendarIcon class="icon-5 mr-1" />
             <span>{{ proyecto.added_at }}</span>
           </div>
         </div>

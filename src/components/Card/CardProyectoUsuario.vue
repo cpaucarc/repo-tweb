@@ -13,7 +13,7 @@
         class="absolute -top-3 -right-3"
         @click="eliminarProyecto(proyecto.id, proyecto.titulo)"
       >
-        <TrashIcon class="h-5 w-5 flex-shrink-0" />
+        <TrashIcon class="icon-5" />
       </DeleteButton>
     </div>
     <div>
@@ -27,7 +27,7 @@
           title="Fecha de publicación"
           class="flex items-center text-slate-600 text-sm"
         >
-          <CalendarIcon class="h-5 w-5 mr-1" />
+          <CalendarIcon class="icon-5 mr-1" />
           <span>{{ proyecto.created_at }}</span>
         </div>
 

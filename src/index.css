@@ -8,12 +8,26 @@
   .transition-eio-300 {
     @apply transition ease-in-out duration-300;
   }
-
+  /* Inputs */
   .input-form {
     @apply rounded-md w-full py-1.5 px-3 border border-slate-300 focus:border-sky-400 ring-2 focus:ring-2 ring-transparent focus:ring-sky-400/25 text-sm text-slate-600 focus:text-slate-900 placeholder-slate-400 transition-eio-300;
   }
 
+  /* Buttons */
   .btn {
     @apply text-sm inline-flex items-center gap-x-1 px-3 py-1.5 rounded-md transition-eio-300;
+  }
+
+  /* Icons */
+  .icon-4 {
+    @apply h-4 w-4 flex-shrink-0;
+  }
+  .icon-5 {
+    @apply h-5 w-5 flex-shrink-0;
+  }
+
+  /* Avatar */
+  .avatar {
+    @apply flex-shrink-0 bg-amber-400 rounded-full object-cover;
   }
 }

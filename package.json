@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/vue": "^1.5.0",
     "@heroicons/vue": "^1.0.6",
     "gsap": "^3.9.1",
     "moment": "^2.29.1",

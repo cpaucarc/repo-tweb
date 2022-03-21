@@ -18,17 +18,17 @@
         <img
           :src="proyecto.usuario.foto"
           loading="lazy"
-          class="w-14 h-14 flex-shrink-0 object-cover rounded-full"
+          class="w-12 h-12 avatar"
         />
 
         <div class="space-y-0">
           <h2
-            class="font-bold text-sm text-slate-800 group-hover:text-sky-600 leading-5 line-clamp-2 transition ease-in-out duration-300"
+            class="font-bold text-sm text-slate-800 group-hover:text-sky-600 leading-4 line-clamp-3 transition-eio-300"
           >
             {{ proyecto.titulo }}
           </h2>
           <p
-            class="text-slate-400 group-hover:text-slate-600 text-sm mr-2 transition ease-in-out duration-300"
+            class="text-slate-400 group-hover:text-slate-600 text-sm mr-2 transition-eio-300"
           >
             {{ proyecto.usuario.nombre }}
           </p>

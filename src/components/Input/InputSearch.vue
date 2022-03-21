@@ -1,7 +1,7 @@
 <template>
   <div class="relative flex items-center">
     <label for="search" class="absolute ml-2 text-slate-400">
-      <SearchIcon class="h-5 w-5" />
+      <SearchIcon class="icon-5" />
     </label>
     <input
       class="pl-9 input-form"

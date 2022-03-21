@@ -1,0 +1,113 @@
+[
+  {
+    "area": "Ingeniería",
+    "temas": [
+      {
+        "id": 1,
+        "tema": "Estructuras"
+      },
+      {
+        "id": 2,
+        "tema": "Software"
+      },
+      {
+        "id": 3,
+        "tema": "Electrónica"
+      },
+      {
+        "id": 4,
+        "tema": "Petróleo"
+      },
+      {
+        "id": 5,
+        "tema": "Minería"
+      },
+      {
+        "id": 6,
+        "tema": "Sismos"
+      },
+      {
+        "id": 7,
+        "tema": "Procesos"
+      },
+      {
+        "id": 8,
+        "tema": "Sistemas Blandos"
+      }
+    ]
+  },
+  {
+    "area": "Medicina",
+    "temas": [
+      {
+        "id": 9,
+        "tema": "Covid-19"
+      },
+      {
+        "id": 10,
+        "tema": "Habitos Alimenticios"
+      },
+      {
+        "id": 11,
+        "tema": "Depresión"
+      },
+      {
+        "id": 12,
+        "tema": "Cáncer"
+      },
+      {
+        "id": 13,
+        "tema": "Salud Mental"
+      },
+      {
+        "id": 14,
+        "tema": "Salud Laboral"
+      },
+      {
+        "id": 15,
+        "tema": "TOC"
+      },
+      {
+        "id": 16,
+        "tema": "Embarazo"
+      }
+    ]
+  },
+  {
+    "area": "Finanzas, Economia y Administración",
+    "temas": [
+      {
+        "id": 17,
+        "tema": "Sistema Tributario"
+      },
+      {
+        "id": 18,
+        "tema": "SUNAT"
+      },
+      {
+        "id": 19,
+        "tema": "Inversión Pública"
+      },
+      {
+        "id": 20,
+        "tema": "Inversión Privada"
+      },
+      {
+        "id": 21,
+        "tema": "Reingeniería Empresarial"
+      },
+      {
+        "id": 22,
+        "tema": "Procesos de Producción"
+      },
+      {
+        "id": 23,
+        "tema": "Planeación estratégico"
+      },
+      {
+        "id": 24,
+        "tema": "Constitución de empresas"
+      }
+    ]
+  }
+]

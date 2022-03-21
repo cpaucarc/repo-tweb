@@ -2,7 +2,7 @@
   <div class="flex flex-col space-y-4 w-4/5 mx-auto items-center">
     <div class="flex flex-col items-center space-y-2">
       <img
-        class="w-24 h-24 flex-shrink-0 bg-amber-400 rounded-full object-cover"
+        class="w-24 h-24 avatar"
         :src="autor.avatar"
         :alt="'Avatar ' + autor.nombre"
       />
@@ -25,10 +25,10 @@
 
     <div class="flex items-center justify-center gap-x-3 text-slate-400">
       <RedSocialLink href="#">
-        <PhoneIcon class="h-5 w-5" />
+        <PhoneIcon class="icon-5" />
       </RedSocialLink>
       <RedSocialLink href="#">
-        <MailIcon class="h-5 w-5" />
+        <MailIcon class="icon-5" />
       </RedSocialLink>
       <RedSocialLink href="#">
         <svg class="h-6 w-6" role="img" viewBox="0 0 24 24" fill="currentColor">

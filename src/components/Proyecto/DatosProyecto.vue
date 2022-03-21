@@ -18,35 +18,30 @@
 
         <div class="flex items-center gap-x-1">
           <TertiaryButton>
-            <ThumbUpIcon class="h-5 w-5" /> <span>Me gusta</span>
+            <ThumbUpIcon class="icon-5" /> <span>Me gusta</span>
           </TertiaryButton>
 
           <TertiaryButton>
-            <HeartIcon class="h-5 w-5" />
+            <HeartIcon class="icon-5" />
             <span>Añadir a favoritos</span>
           </TertiaryButton>
 
           <Dropdown>
             <template #trigger>
               <SecondaryButton>
-                <PaperClipIcon class="h-5 w-5" />
+                <PaperClipIcon class="icon-5" />
                 <span>Archivos</span>
               </SecondaryButton>
             </template>
-            <template #opciones>
-              <ul class="space-y-2">
-                <li v-for="(archivo, i) in archivos" :key="i">
-                  <a
-                    :href="archivo"
-                    target="_blank"
-                    class="flex items-center gap-x-1 text-slate-600 hover:text-slate-900 active:text-sky-600 active:underline transition-eio-300"
-                    rel="noopener noreferrer"
-                  >
-                    <DocumentTextIcon class="h-5 w-5" />
-                    <span>Archivo adjunto {{ i + 1 }}</span>
-                  </a>
-                </li>
-              </ul>
+            <template #items>
+              <DropdownExternalLink
+                v-for="(archivo, i) in archivos"
+                :key="i"
+                :to="archivo"
+              >
+                <DocumentTextIcon class="icon-4" />
+                <span>Archivo adjunto {{ i + 1 }}</span>
+              </DropdownExternalLink>
             </template>
           </Dropdown>
         </div>
@@ -66,7 +61,6 @@
 
 <script>
 import BadgeTag from "../BadgeTag.vue";
-import Dropdown from "../Dropdown.vue";
 import {
   ThumbUpIcon,
   HeartIcon,
@@ -75,6 +69,9 @@ import {
 } from "@heroicons/vue/outline";
 import SecondaryButton from "../Button/SecondaryButton.vue";
 import TertiaryButton from "../Button/TertiaryButton.vue";
+import Dropdown from "../Util/Dropdown.vue";
+import DropdownExternalLink from "../Link/DropdownExternalLink.vue";
+
 export default {
   name: "DatosProyecto",
   props: {
@@ -94,6 +91,7 @@ export default {
     SecondaryButton,
     TertiaryButton,
     DocumentTextIcon,
+    DropdownExternalLink,
   },
 };
 </script>

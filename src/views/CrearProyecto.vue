@@ -13,7 +13,7 @@
     <InputFile label="Archivos adjuntos" />
     <div class="flex justify-center">
       <PrimaryButton @click="saluda">
-        <DocumentTextIcon class="h-5 w-5" />
+        <DocumentTextIcon class="icon-5" />
         Subir proyecto
       </PrimaryButton>
     </div>
@@ -38,7 +38,7 @@ export default {
     DocumentTextIcon,
   },
   setup() {
-    const desc = ref("5212");
+    const desc = ref("");
 
     const saluda = () => {
       alert("Hola");

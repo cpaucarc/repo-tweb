@@ -4,7 +4,7 @@
   >
     {{ tag }}
     <button class="text-sky-700 hover:text-sky-800 ml-2">
-      <XIcon class="h-4 w-4" @click="remove" />
+      <XIcon class="icon-4" @click="remove" />
     </button>
   </div>
 </template>

@@ -5,15 +5,15 @@
     />
     <div class="flex justify-between items-center space-x-10">
       <StepButton @click="paso = 1" :active="paso === 1">
-        <UserIcon class="h-5 w-5 flex-shrink-0" />
+        <UserIcon class="icon-5" />
       </StepButton>
 
       <StepButton @click="paso = 2" :active="paso === 2">
-        <AtSymbolIcon class="h-5 w-5 flex-shrink-0" />
+        <AtSymbolIcon class="icon-5" />
       </StepButton>
 
       <StepButton @click="paso = 3" :active="paso === 3">
-        <TagIcon class="h-5 w-5 flex-shrink-0" />
+        <TagIcon class="icon-5" />
       </StepButton>
     </div>
   </div>
