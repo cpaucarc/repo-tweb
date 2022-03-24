@@ -1,12 +1,12 @@
 <template>
   <label
-    class="text-sm cursor-pointer transition ease-in-out duration-300"
+    class="text-sm cursor-pointer transition-eio-300 inline-flex items-center gap-x-1 select-none"
     :class="clases"
   >
     <input
       type="checkbox"
       v-model="active"
-      class="text-sky-600 mr-1 cursor-pointer rounded focus:outline-none focus:ring-0 border border-slate-400 focus:border-sky-600 transition ease-in-out duration-300"
+      class="text-sky-600 mr-1 cursor-pointer rounded focus:outline-none focus:ring-0 border border-slate-400 focus:border-sky-600 transition-eio-300"
     />
     {{ label }}
   </label>
@@ -30,7 +30,7 @@ export default {
   setup(props) {
     const clases = computed(() => {
       return props.active
-        ? "text-slate-900 font-medium"
+        ? "text-slate-900 font-bold"
         : "text-slate-400 font-normal";
     });
     return { clases };

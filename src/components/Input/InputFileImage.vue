@@ -6,8 +6,8 @@
 
     <input
       :id="id"
-      accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/pdf"
       type="file"
+      accept="image/png, image/gif, image/jpeg"
       multiple
       @keyup="emitirEntrada"
       class="cursor-pointer focus:outline-none file:cursor-pointer file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-slate-100 file:text-slate-400 hover:file:text-sky-600 hover:file:bg-sky-100 input-form"

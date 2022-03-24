@@ -47,9 +47,13 @@ export default {
       type: String,
       default: "255",
     },
+    value: {
+      type: String,
+      default: "",
+    },
   },
   setup(props, { emit }) {
-    const entrada = ref("");
+    const entrada = ref(props.value);
     const limit = ref(parseInt(props.limite));
 
     const emitirEntrada = () => {

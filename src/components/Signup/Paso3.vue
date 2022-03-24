@@ -2,16 +2,20 @@
   <div>
     <div class="space-y-4">
       <div v-for="(topico, i) in topicos" :key="i">
-        <h1 class="font-bold text-slate-900 mb-1">{{ topico.area }}</h1>
-        <div class="flex flex-wrap gap-2">
-          <SignupTag
-            @click="toggleTag(tag.id)"
-            :active="temas_interes.includes(tag.id)"
-            v-for="(tag, index) in topico.temas"
-            :key="index"
-            :tag="tag.tema"
-          />
-        </div>
+        <details :open="i < 2" class="appearance-none">
+          <summary class="cursor-pointer font-bold text-slate-900 mb-2">
+            {{ topico.area }}
+          </summary>
+          <div class="flex flex-wrap gap-3">
+            <SignupTag
+              @click="toggleTag(tag.id)"
+              :active="temas_interes.includes(tag.id)"
+              v-for="(tag, index) in topico.temas"
+              :key="index"
+              :tag="tag.tema"
+            />
+          </div>
+        </details>
       </div>
     </div>
   </div>
@@ -29,11 +33,7 @@ export default {
     const topicos = temasRecomendados;
     const temas_interes = inject("temas_interes");
 
-    console.log(`Temas Default: ${temas_interes.value}`);
-
     const toggleTag = (id) => {
-      console.log(`Id: ${id}`);
-      console.log(`Temas: ${temas_interes.value}`);
       if (!temas_interes.value.includes(id)) {
         temas_interes.value.push(id);
       } else {

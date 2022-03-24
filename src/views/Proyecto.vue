@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-5 gap-x-6 items-start">
+  <div class="grid grid-cols-5 gap-x-8 items-start">
     <DatosAutor :autor="proyecto.autor" />
 
     <div class="col-span-3">
@@ -13,8 +13,8 @@
       />
     </div>
 
-    <div class="space-y-4 px-3">
-      <h3 class="font-semibold text-slate-400">Te puede interesar</h3>
+    <div class="space-y-5">
+      <h3 class="font-bold text-slate-400">Te pueden interesar</h3>
       <template v-for="similar in proyecto.similares" :key="similar.id">
         <ProyectoRecomendado :proyecto="similar" />
       </template>

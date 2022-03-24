@@ -9,7 +9,7 @@
       label="Palabras claves del proyecto *(separados por comas)"
       placeholder="Ancash,Mineria,IA"
     />
-    <InputFile label="Imagenes de portada" />
+    <InputFileImage label="Imagenes de portada" />
     <InputFile label="Archivos adjuntos" />
     <div class="flex justify-center">
       <PrimaryButton @click="saluda">
@@ -28,6 +28,7 @@ import InputFile from "../components/Input/InputFile.vue";
 import PrimaryButton from "../components/Button/PrimaryButton.vue";
 import { DocumentTextIcon } from "@heroicons/vue/outline";
 import { ref } from "vue";
+import InputFileImage from "../components/Input/InputFileImage.vue";
 export default {
   components: {
     InputBasic,
@@ -36,6 +37,7 @@ export default {
     InputFile,
     PrimaryButton,
     DocumentTextIcon,
+    InputFileImage,
   },
   setup() {
     const desc = ref("");

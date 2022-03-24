@@ -14,7 +14,7 @@
         :title="proyecto.titulo"
       />
       <p
-        class="text-sm font-medium leading-4 mt-1 text-slate-600 group-hover:text-sky-600 transition ease-in-out duration-300 line-clamp-3"
+        class="text-sm font-bold leading-4 mt-1 text-slate-400 group-hover:text-sky-600 transition-eio-300 line-clamp-3"
       >
         {{ proyecto.titulo }}
       </p>

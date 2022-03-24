@@ -9,12 +9,27 @@
       <Paso2 v-if="paso === 2" />
       <Paso3 v-if="paso === 3" />
 
-      <div class="flex justify-end">
+      <div class="flex justify-between items-center">
+        <span v-if="paso === 1" class="select-none text-white">Paso 1</span>
         <button
-          @click="paso = 2"
+          v-if="paso !== 1"
+          @click="paso--"
+          class="bg-white text-sky-600 active:opacity-90 btn"
+        >
+          Anterior
+        </button>
+        <button
+          v-if="paso !== 3"
+          @click="paso++"
           class="bg-sky-800 text-white active:opacity-90 btn"
         >
           Siguiente
+        </button>
+        <button
+          v-if="paso === 3"
+          class="bg-sky-800 text-white active:opacity-90 btn"
+        >
+          Finalizar
         </button>
       </div>
 

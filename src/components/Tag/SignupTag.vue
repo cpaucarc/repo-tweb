@@ -1,7 +1,9 @@
 <template>
   <span
-    class="px-2 py-1 rounded-md text-sm cursor-pointer select-none"
-    :class="active ? 'bg-sky-400 text-slate-900' : 'bg-sky-100 text-sky-800'"
+    class="px-2 py-1 rounded-lg text-sm cursor-pointer select-none text-slate-800 transition-eio-300"
+    :class="
+      active ? 'bg-sky-200 font-medium' : 'bg-slate-100 hover:bg-slate-200'
+    "
   >
     {{ tag }}
   </span>
