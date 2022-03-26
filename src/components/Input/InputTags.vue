@@ -1,12 +1,8 @@
 <template>
   <div class="my-1 space-y-1 relative">
-    <label class="text-slate-600 text-sm" v-if="label.length" :for="id">
-      {{ label }}
-    </label>
-
     <input
       :id="id"
-      :type="tipo"
+      type="text"
       v-model="entrada"
       @keyup.enter="agregarTags"
       class="input-form"
@@ -39,14 +35,7 @@ export default {
       type: String,
       default: "text",
     },
-    id: {
-      type: String,
-      default: Math.random().toString(36).slice(2),
-    },
-    label: {
-      type: String,
-      default: "",
-    },
+    id: String,
     placeholder: {
       type: String,
       default: "",
@@ -58,17 +47,19 @@ export default {
     const { elementos, agregarElemento, quitarElemento } = useArray();
 
     const agregarTags = () => {
-      let tags = entrada.value.split(",");
-      tags.forEach((tag) => {
-        agregarElemento(tag);
-      });
+      if (entrada.value.trim().length) {
+        let tags = entrada.value.split(",");
+        tags.forEach((tag) => {
+          agregarElemento(tag);
+        });
+        emit("tags", elementos.value);
+      }
       entrada.value = "";
-      //   emitir el array de tags
     };
 
     const quitarTag = (tag) => {
       quitarElemento(tag);
-      //   emitir el array de tags
+      emit("tags", elementos.value);
     };
 
     return {

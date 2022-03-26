@@ -1,24 +1,15 @@
 <template>
-  <div class="my-1 space-y-1">
-    <label class="text-slate-600 text-sm" v-if="label.length" :for="id">
-      {{ label }}
-    </label>
-
-    <input
-      :id="id"
-      type="file"
-      accept="image/png, image/gif, image/jpeg"
-      multiple
-      @keyup="emitirEntrada"
-      class="cursor-pointer focus:outline-none file:cursor-pointer file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-slate-100 file:text-slate-400 hover:file:text-sky-600 hover:file:bg-sky-100 input-form"
-      :placeholder="placeholder"
-    />
-  </div>
+  <input
+    :id="id"
+    type="file"
+    accept="image/png, image/gif, image/jpeg"
+    multiple
+    @change="onChange"
+    class="cursor-pointer focus:outline-none file:cursor-pointer file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-slate-100 file:text-slate-400 hover:file:text-sky-600 hover:file:bg-sky-100 input-form"
+  />
 </template>
 
 <script>
-import { ref } from "vue";
-
 export default {
   name: "InputFile",
   props: {
@@ -26,27 +17,13 @@ export default {
       type: String,
       default: Math.random().toString(36).slice(2),
     },
-    label: {
-      type: String,
-      default: "",
-    },
-    placeholder: {
-      type: String,
-      default: "",
-    },
   },
   setup(props, { emit }) {
-    const entrada = ref("");
-
-    const emitirEntrada = () => {
-      if (entrada.value.trim().length) emit("emitInput", entrada.value.trim());
+    const onChange = (e) => {
+      emit("getImages", e.target.files);
     };
 
-    // watch(entrada, (newValue) => {
-    //   entrada.value = newValue.trim();
-    // });
-
-    return { entrada, emitirEntrada };
+    return { onChange };
   },
 };
 </script>
