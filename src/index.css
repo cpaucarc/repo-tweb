@@ -30,4 +30,9 @@
   .avatar {
     @apply flex-shrink-0 bg-amber-400 rounded-full object-cover;
   }
+
+  /* Tags */
+  .tag {
+    @apply text-xs bg-sky-100 text-sky-800 px-2 py-0.5 rounded flex items-center;
+  }
 }

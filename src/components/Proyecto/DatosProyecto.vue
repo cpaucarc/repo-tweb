@@ -9,7 +9,7 @@
     </div>
 
     <div class="space-y-4">
-      <h3 class="font-bold text-xl leading-6 text-gray-800">{{ titulo }}</h3>
+      <h3 class="font-bold text-xl leading-6 text-slate-900">{{ titulo }}</h3>
 
       <div class="flex items-center justify-between">
         <span class="text-slate-600 text-sm">

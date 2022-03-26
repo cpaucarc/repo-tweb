@@ -8,7 +8,7 @@
       />
       <router-link
         :to="{ name: 'UsuarioProyecto', params: { username: autor.username } }"
-        class="font-semibold text-center leading-4 text-slate-800"
+        class="font-semibold text-center leading-4 text-slate-900"
       >
         {{ autor.nombre }}
       </router-link>

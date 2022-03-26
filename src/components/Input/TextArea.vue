@@ -10,7 +10,7 @@
       :type="tipo"
       v-model="entrada"
       @keyup="emitirEntrada"
-      class="rounded-md w-full py-1.5 px-3 font-medium border placeholder-slate-400 border-slate-300 focus:border-sky-400 ring-2 focus:ring-2 ring-transparent focus:ring-sky-400/25 text-sm text-slate-600 focus:text-slate-900 transition ease-in-out duration-300"
+      class="input-form"
       :placeholder="placeholder"
     ></textarea>
   </div>

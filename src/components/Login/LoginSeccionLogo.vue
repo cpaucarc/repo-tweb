@@ -5,7 +5,7 @@
     >
       <img src="../../assets/repotweb-min.svg" alt="Logo" />
     </div>
-    <h1 class="font-semibold text-lg text-slate-800">{{ titulo }}</h1>
+    <h1 class="font-semibold text-lg text-slate-900">{{ titulo }}</h1>
   </div>
 </template>
 

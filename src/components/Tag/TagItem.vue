@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="bg-sky-100 text-sky-800 px-2 py-0.5 text-sm rounded flex items-center"
-  >
+  <div class="tag">
     {{ tag }}
     <button class="text-sky-700 hover:text-sky-800 ml-2">
       <XIcon class="icon-4" @click="remove" />

@@ -15,7 +15,7 @@
           class="h-6 w-6 absolute top-4 -right-8 cursor-pointer flex-shrink-0 text-white border border-transparent active:border-white rounded transition ease-in-out duration-300"
         />
         <div class="space-y-4">
-          <h1 class="font-bold text-lg text-slate-800">Filtrar proyectos</h1>
+          <h1 class="font-bold text-lg text-slate-900">Filtrar proyectos</h1>
           <FiltrosFechas />
 
           <FiltrosFacultad />

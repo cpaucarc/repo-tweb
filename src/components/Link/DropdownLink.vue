@@ -3,7 +3,7 @@
     <router-link
       :to="to"
       :class="[
-        active ? 'bg-slate-100 text-slate-800' : 'bg-white text-slate-600',
+        active ? 'bg-slate-100 text-slate-900' : 'bg-white text-slate-600',
         'group flex items-center gap-x-1 w-full px-3 py-2 text-sm transition-eio-300',
       ]"
     >

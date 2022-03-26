@@ -23,7 +23,7 @@
 
         <div class="space-y-0">
           <h2
-            class="font-bold text-sm text-slate-800 group-hover:text-sky-600 leading-4 line-clamp-3 transition-eio-300"
+            class="font-bold text-sm text-slate-900 group-hover:text-sky-600 leading-4 line-clamp-3 transition-eio-300"
           >
             {{ proyecto.titulo }}
           </h2>
