@@ -1,30 +1,24 @@
 <template>
   <div class="relative">
+    <!-- <div v-if="loading">Cargando...</div> -->
+    <!-- <div v-else> -->
     <Filtros />
+    <ListaProyectosHome />
+    <!-- </div> -->
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-      <template v-for="(proyecto, i) in proyectos" :key="proyecto.id">
-        <CardProyecto
-          :proyecto="proyecto"
-          :class="(i + 1) % 3 === 0 ? 'row-span-2' : ''"
-        />
-      </template>
-    </div>
+    <!-- <code class="text-xs">
+      {{ loading ? "loading" : "not loading" }} | {{ proyectos }}
+    </code> -->
   </div>
 </template>
 
 <script>
-import CardProyecto from "../components/CardProyecto.vue";
-import proyectosData from "../hooks/proyectos.json";
+// import { defineAsyncComponent, onMounted, ref } from "vue";
 import Filtros from "../components/Comunidad/Filtros.vue";
+import ListaProyectosHome from "../components/Proyecto/ListaProyectosHome.vue";
 
 export default {
   name: "Home",
-  components: { CardProyecto, Filtros },
-  setup() {
-    const proyectos = proyectosData;
-
-    return { proyectos };
-  },
+  components: { Filtros, ListaProyectosHome },
 };
 </script>

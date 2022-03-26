@@ -1,32 +1,40 @@
 <template>
-  <div class="grid grid-cols-5 gap-x-8 items-start">
-    <DatosAutor :autor="proyecto.autor" />
+  <div v-if="isLoading">Cargando</div>
+
+  <div v-else class="grid grid-cols-5 gap-x-8 items-start">
+    <DatosAutor :autor="proyecto.estudiante" />
 
     <div class="col-span-3">
       <DatosProyecto
-        :portadas="proyecto.portadas"
-        :publicacion="proyecto.publicacion"
+        :portadas="proyecto.proyecto_imagen"
+        :publicacion="proyecto.fecha_publicacion"
         :titulo="proyecto.titulo"
-        :tags="proyecto.tags"
-        :archivos="proyecto.archivos"
+        :tags="proyecto.tag"
+        :archivos="proyecto.proyecto_archivo"
         :resumen="proyecto.resumen"
       />
+      <code class="text-xs text-rose-500">
+        {{ proyecto }}
+      </code>
     </div>
 
     <div class="space-y-5">
       <h3 class="font-bold text-slate-400">Te pueden interesar</h3>
-      <template v-for="similar in proyecto.similares" :key="similar.id">
+      <!-- <template v-for="similar in proyecto.similares" :key="similar.id">
         <ProyectoRecomendado :proyecto="similar" />
-      </template>
+      </template> -->
     </div>
   </div>
 </template>
 
 <script>
-import proyectoData from "../hooks/proyecto.json";
+import { onMounted } from "vue";
+import { useRoute } from "vue-router";
+// import proyectoData from "../hooks/proyecto.json";
 import DatosAutor from "../components/Proyecto/DatosAutor.vue";
 import DatosProyecto from "../components/Proyecto/DatosProyecto.vue";
 import ProyectoRecomendado from "../components/Proyecto/ProyectoRecomendado.vue";
+import useProyectosHome from "../composables/useProyectosHome";
 
 export default {
   name: "Proyecto",
@@ -36,8 +44,15 @@ export default {
     ProyectoRecomendado,
   },
   setup() {
-    const proyecto = proyectoData;
-    return { proyecto };
+    const router = useRoute();
+    // const proyecto = proyectoData;
+    const { proyecto, isLoading, getProyecto } = useProyectosHome();
+
+    onMounted(getProyecto(router.params.proy_id));
+
+    // console.log(router.params.proy_id);
+
+    return { proyecto, isLoading };
   },
 };
 </script>

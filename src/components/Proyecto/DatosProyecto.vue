@@ -3,8 +3,8 @@
     <div class="snap-center" v-for="(portada, i) in portadas" :key="i">
       <img
         class="aspect-video rounded-lg overflow-hidden object-cover"
-        :src="portada"
-        alt="Portada"
+        :src="'http://localhost:8000/storage/' + portada.link_imagen"
+        :alt="portada.titulo"
       />
     </div>
 
@@ -37,7 +37,7 @@
               <DropdownExternalLink
                 v-for="(archivo, i) in archivos"
                 :key="i"
-                :to="archivo"
+                :to="'http://localhost:8000/storage/' + archivo.link_archivo"
               >
                 <DocumentTextIcon class="icon-4" />
                 <span>Archivo adjunto {{ i + 1 }}</span>
@@ -48,7 +48,7 @@
       </div>
 
       <div class="flex flex-wrap gap-2">
-        <BadgeTag v-for="(tag, i) in tags" :key="i" :tag="tag" />
+        <BadgeTag v-for="(tag, i) in tags" :key="i" :tag="tag.nombre" />
       </div>
     </div>
 
