@@ -6,9 +6,8 @@ export const useUserStore = defineStore("user", () => {
     isLogged: false,
     user_id: 0,
     username: "",
-    fullName: "Paucar Colonia Frank",
-    avatar:
-      "https://i.pinimg.com/originals/49/0d/0e/490d0ecd903ffccff783652214c7d738.jpg",
+    fullName: "",
+    avatar: "",
   });
 
   if (localStorage.getItem("user")) {
@@ -23,15 +22,19 @@ export const useUserStore = defineStore("user", () => {
     { deep: true }
   );
 
-  const login = (username, password) => {
-    user.value.username = username;
-    user.value.user_id = password;
+  const login = (usuario, fullname, id, avatar) => {
+    user.value.username = usuario;
+    user.value.fullName = fullname;
+    user.value.user_id = id;
     user.value.isLogged = true;
     user.avatar =
+      avatar ??
       "https://i.pinimg.com/originals/49/0d/0e/490d0ecd903ffccff783652214c7d738.jpg";
   };
+
   const logout = () => {
     user.value.username = "";
+    user.value.fullName = "";
     user.value.user_id = 0;
     user.value.isLogged = false;
     user.avatar =
