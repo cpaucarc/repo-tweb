@@ -1,15 +1,11 @@
 <template>
-  <div class="space-y-6">
-    <div class="snap-center" v-for="(portada, i) in portadas" :key="i">
-      <img
-        class="aspect-video rounded-lg overflow-hidden object-cover"
-        :src="'http://localhost:8000/storage/' + portada.link_imagen"
-        :alt="portada.titulo"
-      />
-    </div>
+  <div class="space-y-4">
+    <Slider :portadas="portadas" />
 
     <div class="space-y-4">
-      <h3 class="font-bold text-xl leading-6 text-slate-900">{{ titulo }}</h3>
+      <h3 class="font-extrabold line-clamp-3 text-xl leading-6 text-slate-900">
+        {{ titulo }}
+      </h3>
 
       <div class="flex items-center justify-between">
         <span class="text-slate-600 text-sm">
@@ -17,16 +13,25 @@
         </span>
 
         <div class="flex items-center gap-x-1">
-          <TertiaryButton>
-            <ThumbUpIcon class="icon-5" /> <span>Me gusta</span>
+          <TertiaryButton
+            :color="like ? 'sky' : 'slate'"
+            @click="() => (like = !like)"
+          >
+            <LikeSolid class="icon-5" v-if="like" />
+            <ThumbUpIcon class="icon-5" v-else />
+            <span>Me gusta</span>
           </TertiaryButton>
 
-          <TertiaryButton>
-            <HeartIcon class="icon-5" />
-            <span>Añadir a favoritos</span>
+          <TertiaryButton
+            :color="fav ? 'rose' : 'slate'"
+            @click="() => (fav = !fav)"
+          >
+            <HeartSolid class="icon-5" v-if="fav" />
+            <HeartIcon class="icon-5" v-else />
+            <span>Favorito</span>
           </TertiaryButton>
 
-          <Dropdown>
+          <Dropdown v-if="archivos.length > 0">
             <template #trigger>
               <SecondaryButton>
                 <PaperClipIcon class="icon-5" />
@@ -39,7 +44,7 @@
                 :key="i"
                 :to="'http://localhost:8000/storage/' + archivo.link_archivo"
               >
-                <DocumentTextIcon class="icon-4" />
+                <DocumentTextIcon class="icon-5" />
                 <span>Archivo adjunto {{ i + 1 }}</span>
               </DropdownExternalLink>
             </template>
@@ -54,7 +59,7 @@
 
     <div class="space-y-3 pt-3">
       <h3 class="font-semibold text-slate-400">Resumen</h3>
-      <p class="leading-7 text-sm">{{ resumen }}</p>
+      <p class="leading-7">{{ resumen }}</p>
     </div>
   </div>
 </template>
@@ -67,10 +72,17 @@ import {
   PaperClipIcon,
   DocumentTextIcon,
 } from "@heroicons/vue/outline";
+import {
+  ThumbUpIcon as LikeSolid,
+  HeartIcon as HeartSolid,
+} from "@heroicons/vue/solid";
+
 import SecondaryButton from "../Button/SecondaryButton.vue";
 import TertiaryButton from "../Button/TertiaryButton.vue";
 import Dropdown from "../Util/Dropdown.vue";
 import DropdownExternalLink from "../Link/DropdownExternalLink.vue";
+import Slider from "../Util/Slider.vue";
+import { ref } from "vue";
 
 export default {
   name: "DatosProyecto",
@@ -92,6 +104,15 @@ export default {
     TertiaryButton,
     DocumentTextIcon,
     DropdownExternalLink,
+    Slider,
+    LikeSolid,
+    HeartSolid,
+  },
+  setup() {
+    const like = ref(false);
+    const fav = ref(false);
+
+    return { like, fav };
   },
 };
 </script>
