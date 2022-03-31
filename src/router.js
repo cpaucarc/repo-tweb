@@ -7,9 +7,11 @@ import Proyecto from "./views/Proyecto.vue";
 import CrearProyecto from "./views/CrearProyecto.vue";
 import UsuarioProyecto from "./views/UsuarioProyecto.vue";
 import Favoritos from "./views/Favoritos.vue";
+import Perfil from "./views/Perfil.vue";
 
 const routes = [
   { path: "/about", name: "About", component: About },
+  { path: "/perfil", name: "Perfil", component: Perfil },
   { path: "/", name: "Home", component: Home },
   { path: "/iniciar-sesion", name: "Login", component: Login },
   { path: "/crear-cuenta", name: "SignUp", component: SignUp },

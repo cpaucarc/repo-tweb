@@ -7,7 +7,7 @@
       </div>
     </template>
     <template #items>
-      <DropdownLink to="#">
+      <DropdownLink :to="{ name: 'Perfil' }">
         <UserIcon class="icon-5" />
         Mi Perfíl
       </DropdownLink>

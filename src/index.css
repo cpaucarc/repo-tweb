@@ -17,6 +17,9 @@
   .btn {
     @apply text-sm font-bold inline-flex items-center gap-x-1 px-3 py-1.5 rounded-md transition-eio-300;
   }
+  .btn-sky {
+    @apply cursor-pointer bg-sky-800 hover:bg-sky-900 transition-eio-300 grid place-items-center text-white;
+  }
 
   /* Icons */
   .icon-4 {
@@ -34,5 +37,10 @@
   /* Tags */
   .tag {
     @apply text-xs bg-sky-100 text-sky-800 px-2.5 py-1 rounded flex items-center;
+  }
+
+  /* Skeleton */
+  .skeleton {
+    @apply animate-pulse bg-gray-300;
   }
 }

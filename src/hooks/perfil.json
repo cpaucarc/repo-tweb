@@ -1,0 +1,24 @@
+{
+  "apellidos": "Paucar Colonia",
+  "nombres": "Frank César",
+  "escuela_id": 4,
+  "escuela": "Ingenieria de Sistemas e Informatica",
+  "correo": null,
+  "telefono": "987654321",
+  "linkedin": null,
+  "avatar": "https://i.pinimg.com/originals/49/0d/0e/490d0ecd903ffccff783652214c7d738.jpg",
+  "usuario": "fpaucar",
+  "temas_interes": [
+    { "id": 1, "tag": "Machine Learning" },
+    { "id": 2, "tag": "Ancash" },
+    { "id": 3, "tag": "IA" },
+    { "id": 4, "tag": "Scrum" },
+    { "id": 5, "tag": "XP Methodology" },
+    { "id": 6, "tag": "Six Sigma" },
+    { "id": 7, "tag": "MBS" },
+    { "id": 8, "tag": "Kubernetes" },
+    { "id": 9, "tag": "Linux" },
+    { "id": 10, "tag": "Microcontroladores" },
+    { "id": 11, "tag": "HTML" }
+  ]
+}

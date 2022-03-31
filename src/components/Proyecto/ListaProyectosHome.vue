@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div v-if="isLoading">Cargando proyectos...</div>
+    <div v-if="isLoading">
+      <SkeletonHome />
+    </div>
     <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <template v-for="(proyecto, i) in proyectos" :key="proyecto.id">
         <CardProyecto
@@ -17,8 +19,9 @@
 import { onMounted } from "vue";
 import CardProyecto from "../CardProyecto.vue";
 import useProyectosHome from "../../composables/useProyectosHome";
+import SkeletonHome from "../Skeleton/SkeletonHome.vue";
 export default {
-  components: { CardProyecto },
+  components: { CardProyecto, SkeletonHome },
   setup() {
     const larges = [3, 4, 10, 11];
     const { isLoading, proyectos, getProyectos } = useProyectosHome();

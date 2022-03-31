@@ -1,5 +1,7 @@
 <template>
-  <div v-if="isLoading">Cargando</div>
+  <div v-if="isLoading">
+    <SkeletonDetalle />
+  </div>
 
   <div v-else class="grid grid-cols-5 gap-x-8 items-start">
     <DatosAutor :autor="proyecto.estudiante" />
@@ -13,9 +15,6 @@
         :archivos="proyecto.proyecto_archivo"
         :resumen="proyecto.resumen"
       />
-      <code class="text-xs text-rose-500">
-        {{ proyecto }}
-      </code>
     </div>
 
     <div class="space-y-5">
@@ -35,6 +34,7 @@ import DatosAutor from "../components/Proyecto/DatosAutor.vue";
 import DatosProyecto from "../components/Proyecto/DatosProyecto.vue";
 import ProyectoRecomendado from "../components/Proyecto/ProyectoRecomendado.vue";
 import useProyectosHome from "../composables/useProyectosHome";
+import SkeletonDetalle from "../components/Skeleton/SkeletonDetalle.vue";
 
 export default {
   name: "Proyecto",
@@ -42,6 +42,7 @@ export default {
     DatosAutor,
     DatosProyecto,
     ProyectoRecomendado,
+    SkeletonDetalle,
   },
   setup() {
     const router = useRoute();
