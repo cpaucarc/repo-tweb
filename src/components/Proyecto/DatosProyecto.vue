@@ -1,6 +1,6 @@
 <template>
   <div class="space-y-4">
-    <Slider :portadas="portadas" />
+    <Slider :portadas="portadas" v-if="portadas.length" />
 
     <div class="space-y-4">
       <h3 class="font-extrabold line-clamp-3 text-xl leading-6 text-slate-900">
@@ -42,7 +42,7 @@
               <DropdownExternalLink
                 v-for="(archivo, i) in archivos"
                 :key="i"
-                :to="'http://localhost:8000/storage/' + archivo.link_archivo"
+                :to="archivo.link_archivo"
               >
                 <DocumentTextIcon class="icon-5" />
                 <span>Archivo adjunto {{ i + 1 }}</span>

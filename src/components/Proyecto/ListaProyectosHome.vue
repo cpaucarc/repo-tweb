@@ -3,6 +3,7 @@
     <div v-if="isLoading">
       <SkeletonHome />
     </div>
+
     <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <template v-for="(proyecto, i) in proyectos" :key="proyecto.id">
         <CardProyecto

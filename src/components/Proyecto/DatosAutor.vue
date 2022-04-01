@@ -1,12 +1,12 @@
 <template>
   <div class="flex flex-col space-y-4 w-4/5 mx-auto items-center">
-    <div class="flex flex-col items-center space-y-2">
+    <div class="flex flex-col items-center mt-1">
       <router-link
         :to="{
           name: 'UsuarioProyecto',
-          params: { username: 'autor.username' },
+          params: { username: autor.username ?? 'usuario-sin-nombre' },
         }"
-        class="text-center leading-4 text-slate-900"
+        class="text-center leading-4 text-slate-600"
       >
         <div class="flex flex-col items-center">
           <img
@@ -14,25 +14,27 @@
             :src="avatar"
             :alt="'Avatar ' + autor.nombres"
           />
-          <h3 class="font-extrabold">{{ autor.apellidos }}</h3>
-          <h4>{{ autor.nombres }}</h4>
+          <h3 class="font-bold mt-2">{{ autor.apellidos }}</h3>
+          <h4 class="font-light mt-1 text-sm">{{ autor.nombres }}</h4>
         </div>
       </router-link>
     </div>
 
     <div class="w-full text-center text-sm space-y-2">
-      <p class="text-slate-800 leading-4">Escuela</p>
-      <p class="text-slate-600">Facultad</p>
+      <p class="text-slate-800 leading-4">
+        {{ autor.escuela.nombre }}
+      </p>
+      <p class="text-slate-600">( {{ autor.escuela.facultad_abrev }} )</p>
     </div>
 
     <div class="flex items-center justify-center gap-x-3 text-slate-400">
-      <RedSocialLink :href="'mailto:' + autor.correo">
+      <RedSocialLink v-if="autor.telefono" :href="'mailto:' + autor.telefono">
         <PhoneIcon class="icon-5" />
       </RedSocialLink>
-      <RedSocialLink :href="'tel:' + autor.telefono">
+      <RedSocialLink v-if="autor.correo" :href="'tel:' + autor.correo">
         <MailIcon class="icon-5" />
       </RedSocialLink>
-      <RedSocialLink :href="autor.linkedin">
+      <RedSocialLink v-if="autor.linkedin" :href="autor.linkedin">
         <svg class="h-5 w-5" role="img" viewBox="0 0 24 24" fill="currentColor">
           <title>LinkedIn</title>
           <path
@@ -58,7 +60,7 @@ export default {
     const avatar = computed(() => {
       return props.autor.avatar
         ? props.autor.avatar
-        : "https://ps.w.org/metronet-profile-picture/assets/icon-256x256.png?rev=2464419";
+        : "https://buster-darragh-major.github.io/res/Simpsons-Faces/1.png";
     });
     return { avatar };
   },

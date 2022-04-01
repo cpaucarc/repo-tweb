@@ -1,14 +1,13 @@
 <template>
-  <div v-if="isLoading">
-    <SkeletonDetalle />
-  </div>
-
-  <div v-else class="grid grid-cols-5 gap-x-8 items-start">
-    <DatosAutor :autor="proyecto.estudiante" />
+  <div class="grid grid-cols-5 gap-10 items-start">
+    <SkeletonDetalleAutor v-if="isLoading" />
+    <DatosAutor v-else :autor="proyecto.estudiante" />
 
     <div class="col-span-3">
+      <SkeletonDetalleProyecto v-if="isLoading" />
       <DatosProyecto
-        :portadas="proyecto.proyecto_imagen"
+        v-else
+        :portadas="proyecto.portadas"
         :publicacion="proyecto.fecha_publicacion"
         :titulo="proyecto.titulo"
         :tags="proyecto.tag"
@@ -17,24 +16,28 @@
       />
     </div>
 
-    <div class="space-y-5">
+    <SkeletonDetalleRecomendaciones v-if="isLoadingRecomendado" />
+    <div v-else class="space-y-5">
       <h3 class="font-bold text-slate-400">Te pueden interesar</h3>
-      <!-- <template v-for="similar in proyecto.similares" :key="similar.id">
-        <ProyectoRecomendado :proyecto="similar" />
-      </template> -->
+      <template v-for="recomendado in recomendados" :key="recomendado.id">
+        <ProyectoRecomendado :proyecto="recomendado" />
+      </template>
+      <!-- {{ recomendados }} -->
     </div>
   </div>
 </template>
 
 <script>
-import { onMounted } from "vue";
+import { onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
-// import proyectoData from "../hooks/proyecto.json";
 import DatosAutor from "../components/Proyecto/DatosAutor.vue";
 import DatosProyecto from "../components/Proyecto/DatosProyecto.vue";
 import ProyectoRecomendado from "../components/Proyecto/ProyectoRecomendado.vue";
 import useProyectosHome from "../composables/useProyectosHome";
-import SkeletonDetalle from "../components/Skeleton/SkeletonDetalle.vue";
+import useProyectoRecomendado from "../composables/useProyectoRecomendado";
+import SkeletonDetalleAutor from "../components/Skeleton/SkeletonDetalleAutor.vue";
+import SkeletonDetalleProyecto from "../components/Skeleton/SkeletonDetalleProyecto.vue";
+import SkeletonDetalleRecomendaciones from "../components/Skeleton/SkeletonDetalleRecomendaciones.vue";
 
 export default {
   name: "Proyecto",
@@ -42,18 +45,30 @@ export default {
     DatosAutor,
     DatosProyecto,
     ProyectoRecomendado,
-    SkeletonDetalle,
+    SkeletonDetalleAutor,
+    SkeletonDetalleProyecto,
+    SkeletonDetalleRecomendaciones,
   },
   setup() {
     const router = useRoute();
-    // const proyecto = proyectoData;
     const { proyecto, isLoading, getProyecto } = useProyectosHome();
+    const { isLoadingRecomendado, getRecomendados, recomendados } =
+      useProyectoRecomendado();
 
-    onMounted(getProyecto(router.params.proy_id));
+    onMounted(() => {
+      getProyecto(router.params.proy_id);
+      getRecomendados(router.params.proy_id);
+    });
 
-    // console.log(router.params.proy_id);
+    watch(router, (nuevo) => {
+      console.log(nuevo);
+      isLoading.value = true;
+      isLoadingRecomendado.value = true;
+      getProyecto(nuevo.params.proy_id);
+      getRecomendados(nuevo.params.proy_id);
+    });
 
-    return { proyecto, isLoading };
+    return { proyecto, isLoading, recomendados, isLoadingRecomendado };
   },
 };
 </script>

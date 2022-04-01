@@ -15,10 +15,7 @@
         class="object-cover rounded-lg aspect-video"
         :class="large ? 'lg:aspect-[7/10]' : ''"
         loading="lazy"
-        :src="
-          'http://localhost:8000/storage/' +
-          proyecto.proyecto_imagen[0].link_imagen
-        "
+        :src="proyecto.portada ? proyecto.portada.link_imagen : default_portada"
         :alt="proyecto.titulo"
         :title="proyecto.titulo"
         onerror="this.onerror=null;this.src='https://pandagila.com/wp-content/uploads/2020/08/error-404-not-found.jpg';"
@@ -26,10 +23,7 @@
 
       <div class="gap-x-4 py-1 flex items-center">
         <img
-          :src="
-            proyecto.estudiante.avatar ??
-            'https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=170667a&w=0&h=kEAA35Eaz8k8A3qAGkuY8OZxpfvn9653gDjQwDHZGPE='
-          "
+          :src="proyecto.estudiante.avatar ?? default_avatar"
           loading="lazy"
           class="w-12 h-12 avatar"
         />
@@ -55,9 +49,18 @@
 import AutorImagen from "./AutorImagen.vue";
 import BadgeTag from "./BadgeTag.vue";
 import Card from "./Card.vue";
+
+const default_portada =
+  "https://josefacchin.com/wp-content/uploads/2018/09/http-not-found-error-404.png";
+const default_avatar =
+  "https://buster-darragh-major.github.io/res/Simpsons-Faces/1.png";
+
 export default {
   name: "CardProyecto",
   components: { BadgeTag, AutorImagen, Card },
   props: { proyecto: Object, large: { type: Boolean, default: false } },
+  setup() {
+    return { default_portada, default_avatar };
+  },
 };
 </script>

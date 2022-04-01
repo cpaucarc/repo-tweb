@@ -41,6 +41,6 @@
 
   /* Skeleton */
   .skeleton {
-    @apply animate-pulse bg-gray-300;
+    @apply animate-pulse_fast bg-gray-300;
   }
 }

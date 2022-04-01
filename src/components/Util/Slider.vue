@@ -15,7 +15,7 @@
       >
         <img
           class="shrink-0 w-full aspect-video object-cover rounded-md bg-white"
-          :src="'http://localhost:8000/storage/' + portada.link_imagen"
+          :src="portada.link_imagen"
         />
       </div>
     </div>
