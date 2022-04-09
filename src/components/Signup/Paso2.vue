@@ -1,40 +1,70 @@
 <template>
   <div class="space-y-4 w-full">
-    <InputBasic
-      :value="datos_contacto.correo"
-      @emitInput="(v) => (datos_contacto.correo = v)"
-      label="Correo Electrónico (*Opcional)"
-      tipo="email"
-      id="email"
-    />
-    <InputBasic
-      :value="datos_contacto.telefono"
-      @emitInput="(v) => (datos_contacto.telefono = v)"
-      label="Teléfono (*Opcional)"
-      tipo="text"
-      limite="9"
-      id="telefono"
-    />
-    <InputBasic
-      :value="datos_contacto.linkedin"
-      @emitInput="(v) => (datos_contacto.linkedin = v)"
-      label="Linkedin (*Opcional)"
-      tipo="text"
-      id="linkedin"
-    />
+    <InputForm>
+      <InputLabel for="email">
+        Correo Electrónico
+        <OptionalAlert />
+      </InputLabel>
+      <input
+        type="email"
+        id="email"
+        class="input-form"
+        v-model="datos.correo"
+      />
+    </InputForm>
+
+    <InputForm>
+      <div class="flex items-center justify-between">
+        <InputLabel for="telefono">
+          N° de Telefono
+          <OptionalAlert />
+        </InputLabel>
+        <InputLabelSize limite="9" :texto="datos.telefono" />
+      </div>
+      <input
+        type="text"
+        id="telefono"
+        maxlength="9"
+        class="input-form"
+        v-model="datos.telefono"
+      />
+    </InputForm>
+
+    <InputForm>
+      <InputLabel for="linkedin">
+        Linkedin
+        <OptionalAlert />
+      </InputLabel>
+      <input
+        type="url"
+        id="linkedin"
+        class="input-form"
+        v-model="datos.linkedin"
+      />
+    </InputForm>
   </div>
 </template>
 
 <script>
 import { inject } from "vue";
 import InputBasic from "../Input/InputBasic.vue";
+import InputForm from "../Input/InputForm.vue";
+import InputLabel from "../Input/InputLabel.vue";
+import InputLabelSize from "../Input/InputLabelSize.vue";
+import OptionalAlert from "../Input/OptionalAlert.vue";
 export default {
   name: "Paso2",
-  components: { InputBasic },
+  components: {
+    InputBasic,
+    InputForm,
+    InputLabel,
+    InputLabelSize,
+    OptionalAlert,
+  },
   setup() {
-    const datos_contacto = inject("datos_contacto");
+    const datos = inject("datos");
 
-    return { datos_contacto };
+    return { datos };
   },
 };
 </script>

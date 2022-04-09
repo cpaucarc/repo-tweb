@@ -9,7 +9,7 @@
       :class="
         guest
           ? ''
-          : 'container mx-auto mt-14 mb-20 w-full sm:w-11/12 md:w-5/6 transition ease-in-out duration-300'
+          : 'container mx-auto mt-14 mb-16 w-full sm:w-11/12 md:w-5/6 transition ease-in-out duration-300'
       "
     >
       <router-view />

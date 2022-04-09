@@ -47,10 +47,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.dropdown-link {
-  text-decoration: none;
-  padding: 5px 0;
-}
-</style>

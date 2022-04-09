@@ -51,7 +51,7 @@ import BadgeTag from "./BadgeTag.vue";
 import Card from "./Card.vue";
 
 const default_portada =
-  "https://josefacchin.com/wp-content/uploads/2018/09/http-not-found-error-404.png";
+  "http://iaphare.org/wp-content/uploads/2018/11/Project-BG-2005.jpg";
 const default_avatar =
   "https://buster-darragh-major.github.io/res/Simpsons-Faces/1.png";
 

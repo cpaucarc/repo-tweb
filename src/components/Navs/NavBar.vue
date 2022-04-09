@@ -11,14 +11,14 @@
 
       <BuscadorGeneral />
 
-      <p class="text-sm text-slate-900">
+      <!-- <p class="text-sm text-slate-900">
         |{{ user.username }}|{{ user.isLogged ? "Logeado" : "Guest" }}|{{
           user.user_id
         }}|
-      </p>
+      </p> -->
 
       <div class="flex items-center gap-x-2">
-        <PrimaryLink :href="{ name: 'CrearProyecto' }">
+        <PrimaryLink v-if="user.isLogged" :href="{ name: 'CrearProyecto' }">
           <PlusIcon class="h-6 w-6" />
           <span class="hidden md:block">Publicar</span>
         </PrimaryLink>

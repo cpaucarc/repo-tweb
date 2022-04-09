@@ -36,9 +36,11 @@
 
       <button
         type="submit"
-        class="bg-sky-800 text-white px-3 py-2 font-medium text-sm rounded-md w-full"
+        class="bg-sky-800 text-white px-3 py-2 font-medium text-sm rounded-md w-full flex justify-center disabled:cursor-not-allowed disabled:bg-opacity-80"
+        :disabled="isLoading"
       >
-        Iniciar Sesión
+        <LoadingState v-show="isLoading" texto="Iniciando Sesión..." />
+        <span v-show="!isLoading">Iniciar Sesión</span>
       </button>
     </form>
   </div>
@@ -52,12 +54,14 @@ import InputBasic from "../Input/InputBasic.vue";
 import InputForm from "../Input/InputForm.vue";
 import InputLabel from "../Input/InputLabel.vue";
 import useUsuario from "../../composables/useUsuario";
+import LoadingState from "../Input/LoadingState.vue";
 
 export default {
   name: "LoginFormulario",
-  components: { InputBasic, InputForm, InputLabel },
+  components: { InputBasic, InputForm, InputLabel, LoadingState },
   setup() {
     const respuesta = ref(null);
+    const isLoading = ref(false);
     const user = reactive({
       usuario: "estudiante10",
       password: "12345678",
@@ -67,6 +71,7 @@ export default {
     const { login } = useUsuario();
 
     const iniciarSesion = async () => {
+      isLoading.value = true;
       respuesta.value = await login({ ...user });
       if (respuesta.value.respuesta) {
         store.login(
@@ -75,13 +80,14 @@ export default {
             " " +
             respuesta.value.mensaje.estudiante.nombres,
           respuesta.value.mensaje.id,
-          respuesta.value.mensaje.avatar
+          respuesta.value.mensaje.estudiante.avatar
         );
         router.push({ name: "Home" });
       }
+      isLoading.value = false;
     };
 
-    return { respuesta, user, iniciarSesion };
+    return { respuesta, user, iniciarSesion, isLoading };
   },
 };
 </script>

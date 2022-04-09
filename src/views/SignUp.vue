@@ -3,7 +3,9 @@
     <div class="space-y-8 mt-8 w-10/12">
       <PasosIconos />
 
-      <LoginSeccionLogo :titulo="nombrePaso" />
+      <h1 class="font-extrabold text-xl text-slate-900 text-center">
+        {{ nombrePaso }}
+      </h1>
 
       <Paso1 v-if="paso === 1" />
       <Paso2 v-if="paso === 2" />
@@ -28,25 +30,39 @@
         <button
           v-if="paso === 3"
           class="bg-sky-800 text-white active:opacity-90 btn"
+          @click="crearUsuario"
         >
           Finalizar
         </button>
       </div>
 
-      <div class="absolute -right-56 top-0 border w-52 flex flex-col">
-        <div class="text-sm bg-amber-200 text-amber-800 rounded p-4">
-          {{ datos_basicos }}
-        </div>
-        <br />
-        <div class="text-sm bg-amber-200 text-amber-800 rounded p-4">
-          {{ datos_contacto }}
-        </div>
-        <br />
-        <div class="text-sm bg-amber-200 text-amber-800 rounded p-4">
-          {{ temas_interes }}
+      <div
+        class="absolute -right-56 top-0 border border-rose-500 rounded w-52 flex flex-col"
+      >
+        <div>
+          {{ datos }}
         </div>
       </div>
     </div>
+
+    <Modal :isOpen="isOpen" @closeModal="closeModal">
+      <p v-show="isLoading">Cargando...</p>
+      <div v-show="!isLoading">
+        <ErrorSignup
+          v-if="!respuesta.respuesta"
+          :titulo="respuesta.mensaje"
+          :errores="respuesta.error"
+        />
+      </div>
+      <button
+        v-show="!isLoading"
+        class="p-2 w-full text-slate-800 hover:text-slate-900 font-bold transition-eio-300"
+        @click="closeModal"
+      >
+        Aceptar
+      </button>
+    </Modal>
+
     <div
       class="fixed bg-white bottom-0 w-full py-2 text-center text-sm text-slate-900"
     >
@@ -60,13 +76,26 @@
     </div>
   </div>
 </template>
+
 <script>
-import { computed, provide, ref } from "vue";
+import { computed, provide, reactive, ref } from "vue";
 import LoginSeccionLogo from "../components/Login/LoginSeccionLogo.vue";
 import PasosIconos from "../components/Signup/PasosIconos.vue";
 import Paso1 from "../components/Signup/Paso1.vue";
 import Paso2 from "../components/Signup/Paso2.vue";
 import Paso3 from "../components/Signup/Paso3.vue";
+import useUsuario from "../composables/useUsuario";
+import Modal from "../components/Util/Modal.vue";
+import ErrorSignup from "../components/Validacion/ErrorSignup.vue";
+import { useRouter } from "vue-router";
+import { useUserStore } from "../stores/useUser";
+
+const nombrePasos = [
+  "Datos Básicos", //Paso 1
+  "Datos de Contacto", //Paso 2
+  "Temas de Interés", //Paso 3
+];
+
 export default {
   name: "SignUp",
   components: {
@@ -75,37 +104,69 @@ export default {
     Paso1,
     Paso2,
     Paso3,
+    Modal,
+    ErrorSignup,
   },
   setup() {
     const paso = ref(1);
-    const datos_basicos = ref({
-      nombres: null,
-      apellidos: null,
+    const isOpen = ref(false);
+    const isLoading = ref(false);
+    const datos = reactive({
+      nombres: "",
+      apellidos: "",
       escuela_id: 0,
-      username: null,
-      password: null,
-    });
-    const datos_contacto = ref({
+      username: "",
+      password: "",
       correo: null,
       telefono: null,
       linkedin: null,
+      tags: [],
     });
-    const temas_interes = ref([]);
+    const router = useRouter();
+    const store = useUserStore();
+    const { respuesta, signup } = useUsuario();
 
     const nombrePaso = computed(() => {
-      return paso.value === 1
-        ? "Datos Básicos"
-        : paso.value === 2
-        ? "Datos de Contacto"
-        : "Temas de Interés";
+      return nombrePasos[paso.value - 1];
     });
 
-    provide("paso", paso);
-    provide("datos_basicos", datos_basicos);
-    provide("datos_contacto", datos_contacto);
-    provide("temas_interes", temas_interes);
+    const closeModal = () => {
+      isOpen.value = false;
+    };
 
-    return { paso, nombrePaso, datos_basicos, datos_contacto, temas_interes };
+    const crearUsuario = async () => {
+      isOpen.value = true;
+      isLoading.value = true;
+      await signup({ ...datos });
+
+      if (respuesta.value.respuesta) {
+        store.login(
+          respuesta.value.mensaje.usuario,
+          respuesta.value.mensaje.estudiante.apellidos +
+            " " +
+            respuesta.value.mensaje.estudiante.nombres,
+          respuesta.value.mensaje.id,
+          respuesta.value.mensaje.estudiante.avatar
+        );
+        router.push({ name: "Home" });
+      }
+
+      isLoading.value = false;
+    };
+
+    provide("paso", paso);
+    provide("datos", datos);
+
+    return {
+      paso,
+      nombrePaso,
+      datos,
+      crearUsuario,
+      respuesta,
+      isOpen,
+      closeModal,
+      isLoading,
+    };
   },
 };
 </script>

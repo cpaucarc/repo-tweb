@@ -20,7 +20,7 @@ export default {
   },
   setup(props) {
     const restante = computed(() => {
-      return parseInt(props.limite) - props.texto.length;
+      return parseInt(props.limite) - (props.texto ? props.texto.length : 0);
     });
 
     return { restante };

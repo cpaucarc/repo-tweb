@@ -20,6 +20,9 @@
   .btn-sky {
     @apply cursor-pointer bg-sky-800 hover:bg-sky-900 transition-eio-300 grid place-items-center text-white;
   }
+  .btn-rose {
+    @apply cursor-pointer bg-rose-500 hover:bg-rose-600;
+  }
 
   /* Icons */
   .icon-4 {

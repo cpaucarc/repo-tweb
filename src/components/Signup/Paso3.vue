@@ -9,7 +9,7 @@
           <div class="flex flex-wrap gap-3">
             <SignupTag
               @click="toggleTag(tag.id)"
-              :active="temas_interes.includes(tag.id)"
+              :active="datos.tags.includes(tag.id)"
               v-for="(tag, index) in topico.temas"
               :key="index"
               :tag="tag.tema"
@@ -31,19 +31,19 @@ export default {
   components: { SignupTag },
   setup() {
     const topicos = temasRecomendados;
-    const temas_interes = inject("temas_interes");
+    const datos = inject("datos");
 
     const toggleTag = (id) => {
-      if (!temas_interes.value.includes(id)) {
-        temas_interes.value.push(id);
+      if (!datos.tags.includes(id)) {
+        datos.tags.push(id);
       } else {
-        temas_interes.value = temas_interes.value.filter(function (value) {
+        datos.tags = datos.tags.filter(function (value) {
           return value !== id;
         });
       }
     };
 
-    return { topicos, temas_interes, toggleTag };
+    return { topicos, datos, toggleTag };
   },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <InputSearch @onEnter="onEnter" />
+  <InputSearch class="w-96" @onEnter="onEnter" />
 </template>
 
 <script>

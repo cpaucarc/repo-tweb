@@ -27,7 +27,7 @@ export const useUserStore = defineStore("user", () => {
     user.value.fullName = fullname;
     user.value.user_id = id;
     user.value.isLogged = true;
-    user.avatar =
+    user.value.avatar =
       avatar ??
       "https://i.pinimg.com/originals/49/0d/0e/490d0ecd903ffccff783652214c7d738.jpg";
   };
@@ -37,8 +37,7 @@ export const useUserStore = defineStore("user", () => {
     user.value.fullName = "";
     user.value.user_id = 0;
     user.value.isLogged = false;
-    user.avatar =
-      "https://i.pinimg.com/originals/49/0d/0e/490d0ecd903ffccff783652214c7d738.jpg";
+    user.avatar = "";
   };
 
   return { user, login, logout };
