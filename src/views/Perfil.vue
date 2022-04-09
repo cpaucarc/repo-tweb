@@ -77,23 +77,7 @@
     </div>
 
     <div class="space-y-6 mt-2">
-      <SkeletonPerfilAvatar v-if="isLoadingAvatar" />
-      <div class="relative mx-auto h-32 w-32" v-else>
-        <img class="h-32 w-32 avatar" :src="avatar" alt="Foto de perfil" />
-        <label
-          for="imagen"
-          class="btn-sky bottom-0 right-0 absolute rounded-full border-2 border-white w-10 h-10"
-        >
-          <PencilIcon class="icon-5" />
-        </label>
-      </div>
-
-      <input
-        id="imagen"
-        class="hidden overflow-hidden"
-        type="file"
-        @change="cambiarFoto"
-      />
+      <PerfilAvatar />
 
       <div>
         <input
@@ -104,103 +88,50 @@
         />
       </div>
 
-      <div class="text-center space-y-2">
-        <h3 class="font-semibold text-slate-900 text-lg">Temas de Interes</h3>
-        <SkeletonPerfilTags v-if="isLoadingTags" />
-        <div v-else class="flex justify-center flex-wrap gap-2">
-          <TagItem
-            v-for="tema in tags"
-            :key="tema.id"
-            :tag="tema.nombre"
-            @remove="quitarTag(tema.nombre, tema.pivot.id)"
-          />
-        </div>
-      </div>
+      <PerfilTags />
     </div>
   </div>
 </template>
 
 <script>
 import { onMounted, ref } from "vue";
-// import datosPerfil from "../hooks/perfil.json";
 import datosEscuelas from "../hooks/facultades.json";
-import { PencilIcon } from "@heroicons/vue/outline";
-import TagItem from "../components/Tag/TagItem.vue";
 import InputForm from "../components/Input/InputForm.vue";
 import InputLabel from "../components/Input/InputLabel.vue";
 import { useUserStore } from "../stores/useUser";
 import useUsuario from "../composables/useUsuario";
-import SkeletonPerfilAvatar from "../components/Skeleton/SkeletonPerfilAvatar.vue";
-import SkeletonPerfilTags from "../components/Skeleton/SkeletonPerfilTags.vue";
 import SkeletonPerfilDatos from "../components/Skeleton/SkeletonPerfilDatos.vue";
+import PerfilAvatar from "../components/Perfil/PerfilAvatar.vue";
+import PerfilTags from "../components/Perfil/PerfilTags.vue";
 export default {
   name: "Perfil",
   components: {
-    PencilIcon,
-    TagItem,
     InputForm,
     InputLabel,
-    SkeletonPerfilAvatar,
-    SkeletonPerfilTags,
     SkeletonPerfilDatos,
+    PerfilAvatar,
+    PerfilTags,
   },
   setup() {
-    // const perfil = ref({ ...datosPerfil });
     const isLoadingPerfil = ref(true);
     const perfil = ref([]);
-    const isLoadingAvatar = ref(true);
-    const avatar = ref([]);
-    const isLoadingTags = ref(true);
-    const tags = ref([]);
     const escuelas = datosEscuelas;
     const store = useUserStore();
     const { user } = store;
-    const { obtenerDatosUsuario, obtenerTemasInteres, obtenerAvatar } =
-      useUsuario();
+    const { getDatosUsuario } = useUsuario();
 
     onMounted(async () => {
-      let res1 = await obtenerDatosUsuario(user.user_id);
-      let res2 = await obtenerTemasInteres(user.user_id);
-      let res3 = await obtenerAvatar(user.user_id);
+      let res1 = await getDatosUsuario(user.user_id);
       if (res1.respuesta) {
         perfil.value = res1.mensaje;
         isLoadingPerfil.value = false;
       }
-      if (res2.respuesta) {
-        tags.value = res2.mensaje;
-        isLoadingTags.value = false;
-      }
-      if (res3.respuesta) {
-        avatar.value =
-          res3.mensaje ??
-          "https://i.pinimg.com/originals/49/0d/0e/490d0ecd903ffccff783652214c7d738.jpg";
-        isLoadingAvatar.value = false;
-      }
     });
-
-    const cambiarFoto = (e) => {
-      let file = e.target.files[0];
-      if (file) {
-        console.log(avatar.value);
-        avatar.value = URL.createObjectURL(file);
-        console.log(avatar.value);
-      }
-    };
-
-    const quitarTag = (tema, id) => {
-      console.log("Quitando ", tema, "con ID ", id);
-    };
 
     return {
       perfil,
       isLoadingPerfil,
-      tags,
-      isLoadingTags,
-      avatar,
-      isLoadingAvatar,
       escuelas,
-      quitarTag,
-      cambiarFoto,
     };
   },
 };

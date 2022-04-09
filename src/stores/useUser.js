@@ -1,7 +1,9 @@
 import { defineStore } from "pinia";
 import { ref, watch } from "vue";
+import { useRouter } from "vue-router";
 
 export const useUserStore = defineStore("user", () => {
+  const router = useRouter();
   const user = ref({
     isLogged: false,
     user_id: 0,
@@ -32,13 +34,20 @@ export const useUserStore = defineStore("user", () => {
       "https://i.pinimg.com/originals/49/0d/0e/490d0ecd903ffccff783652214c7d738.jpg";
   };
 
+  const avatarUpdated = (avatar) => {
+    user.value.avatar =
+      avatar ??
+      "https://i.pinimg.com/originals/49/0d/0e/490d0ecd903ffccff783652214c7d738.jpg";
+  };
+
   const logout = () => {
     user.value.username = "";
     user.value.fullName = "";
     user.value.user_id = 0;
     user.value.isLogged = false;
     user.avatar = "";
+    router.push({ name: "Home" });
   };
 
-  return { user, login, logout };
+  return { user, login, logout, avatarUpdated };
 });
