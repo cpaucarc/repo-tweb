@@ -13,23 +13,7 @@
         </span>
 
         <div class="flex items-center gap-x-1">
-          <TertiaryButton
-            :color="like ? 'sky' : 'slate'"
-            @click="() => (like = !like)"
-          >
-            <LikeSolid class="icon-5" v-if="like" />
-            <ThumbUpIcon class="icon-5" v-else />
-            <span>Me gusta</span>
-          </TertiaryButton>
-
-          <TertiaryButton
-            :color="fav ? 'rose' : 'slate'"
-            @click="() => (fav = !fav)"
-          >
-            <HeartSolid class="icon-5" v-if="fav" />
-            <HeartIcon class="icon-5" v-else />
-            <span>Favorito</span>
-          </TertiaryButton>
+          <ValoracionProyecto :proyecto="id" />
 
           <Dropdown v-if="archivos.length > 0">
             <template #trigger>
@@ -65,28 +49,21 @@
 </template>
 
 <script>
+import { onMounted, ref } from "vue";
 import BadgeTag from "../BadgeTag.vue";
-import {
-  ThumbUpIcon,
-  HeartIcon,
-  PaperClipIcon,
-  DocumentTextIcon,
-} from "@heroicons/vue/outline";
-import {
-  ThumbUpIcon as LikeSolid,
-  HeartIcon as HeartSolid,
-} from "@heroicons/vue/solid";
-
+import { PaperClipIcon, DocumentTextIcon } from "@heroicons/vue/outline";
 import SecondaryButton from "../Button/SecondaryButton.vue";
-import TertiaryButton from "../Button/TertiaryButton.vue";
 import Dropdown from "../Util/Dropdown.vue";
 import DropdownExternalLink from "../Link/DropdownExternalLink.vue";
 import Slider from "../Util/Slider.vue";
-import { ref } from "vue";
+import useFavLike from "../../composables/useFavLike";
+import { useUserStore } from "../../stores/useUser";
+import ValoracionProyecto from "./ValoracionProyecto.vue";
 
 export default {
   name: "DatosProyecto",
   props: {
+    id: Number,
     titulo: String,
     publicacion: String,
     resumen: String,
@@ -97,22 +74,12 @@ export default {
   components: {
     BadgeTag,
     Dropdown,
-    ThumbUpIcon,
-    HeartIcon,
     PaperClipIcon,
     SecondaryButton,
-    TertiaryButton,
     DocumentTextIcon,
     DropdownExternalLink,
     Slider,
-    LikeSolid,
-    HeartSolid,
-  },
-  setup() {
-    const like = ref(false);
-    const fav = ref(false);
-
-    return { like, fav };
+    ValoracionProyecto,
   },
 };
 </script>

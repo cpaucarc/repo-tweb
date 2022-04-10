@@ -23,6 +23,9 @@
   .btn-rose {
     @apply cursor-pointer bg-rose-500 hover:bg-rose-600;
   }
+  .btn-sm {
+    @apply text-sm rounded-md py-1 px-2 inline-flex gap-x-1 items-center transition-eio-300;
+  }
 
   /* Icons */
   .icon-4 {

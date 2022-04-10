@@ -7,10 +7,11 @@
       <SkeletonDetalleProyecto v-if="isLoading" />
       <DatosProyecto
         v-else
+        :id="proyecto.id"
         :portadas="proyecto.portadas"
         :publicacion="proyecto.fecha_publicacion"
         :titulo="proyecto.titulo"
-        :tags="proyecto.tag"
+        :tags="proyecto.tags"
         :archivos="proyecto.proyecto_archivo"
         :resumen="proyecto.resumen"
       />
@@ -61,11 +62,12 @@ export default {
     });
 
     watch(router, (nuevo) => {
-      console.log(nuevo);
-      isLoading.value = true;
-      isLoadingRecomendado.value = true;
-      getProyecto(nuevo.params.proy_id);
-      getRecomendados(nuevo.params.proy_id);
+      if (typeof nuevo.params.proy_id !== "undefined") {
+        isLoading.value = true;
+        isLoadingRecomendado.value = true;
+        getProyecto(nuevo.params.proy_id);
+        getRecomendados(nuevo.params.proy_id);
+      }
     });
 
     return { proyecto, isLoading, recomendados, isLoadingRecomendado };

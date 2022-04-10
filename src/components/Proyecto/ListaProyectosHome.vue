@@ -21,13 +21,15 @@ import { onMounted } from "vue";
 import CardProyecto from "../CardProyecto.vue";
 import useProyectosHome from "../../composables/useProyectosHome";
 import SkeletonHome from "../Skeleton/SkeletonHome.vue";
+import { useUserStore } from "../../stores/useUser";
 export default {
   components: { CardProyecto, SkeletonHome },
   setup() {
     const larges = [3, 4, 10, 11];
     const { isLoading, proyectos, getProyectos } = useProyectosHome();
+    const { user } = useUserStore();
 
-    onMounted(getProyectos);
+    onMounted(getProyectos(user.user_id));
 
     return { isLoading, proyectos, larges };
   },

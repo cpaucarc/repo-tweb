@@ -24,6 +24,14 @@ export default function useUsuario() {
     return res1.data;
   };
 
+  const updateDatosUsuario = async (id, data) => {
+    let rsp = await axios.post(
+      "http://localhost:8000/api/usuario/perfil/update/" + id,
+      data
+    );
+    return rsp.data;
+  };
+
   const getTemasInteres = async (id) => {
     let res2 = await axios.get(
       "http://localhost:8000/api/usuario/perfil/interes/" + id
@@ -64,6 +72,7 @@ export default function useUsuario() {
     login,
     signup,
     getDatosUsuario,
+    updateDatosUsuario,
     getTemasInteres,
     getAvatar,
     updateAvatar,

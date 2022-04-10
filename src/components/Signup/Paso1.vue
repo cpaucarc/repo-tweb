@@ -37,7 +37,7 @@
           :value="escuela.id"
           :key="escuela.id"
         >
-          {{ escuela.nombre }}
+          {{ escuela.nombre }} ({{ escuela.abrev }})
         </option>
       </select>
     </InputForm>

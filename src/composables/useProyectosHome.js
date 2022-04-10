@@ -6,8 +6,8 @@ export default function useProyectosHome() {
   const proyectos = ref([]);
   const proyecto = ref([]);
 
-  const getProyectos = async () => {
-    let response = await axios.get("http://localhost:8000/api/home");
+  const getProyectos = async (id) => {
+    let response = await axios.get("http://localhost:8000/api/home/" + id);
     proyectos.value = response.data.mensaje;
     isLoading.value = false;
   };

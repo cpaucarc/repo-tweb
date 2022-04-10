@@ -1,5 +1,5 @@
 <template>
-  <div class="h-14 flex items-center">
+  <div class="h-16 flex items-center">
     <div class="container mx-auto flex items-center justify-between">
       <div class="flex items-center gap-x-2">
         <img
@@ -17,12 +17,14 @@
         }}|
       </p> -->
 
-      <div class="flex items-center gap-x-2">
+      <div class="flex items-center gap-x-3">
         <PrimaryLink v-if="user.isLogged" :href="{ name: 'CrearProyecto' }">
-          <PlusIcon class="h-6 w-6" />
+          <PlusIcon class="icon-5" />
           <span class="hidden md:block">Publicar</span>
         </PrimaryLink>
+
         <UsuarioConectado v-if="user.isLogged" />
+
         <PrimaryLink v-else :href="{ name: 'Login' }">
           Iniciar Sesión
         </PrimaryLink>

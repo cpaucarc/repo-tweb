@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full">
+  <div class="w-full border-b">
     <div class="flex justify-center">
       <NavMenuLink :href="{ name: 'Home' }">
         <HomeIcon class="h-6 w-6" />Comunidad
