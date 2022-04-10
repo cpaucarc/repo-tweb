@@ -1,10 +1,8 @@
 <template>
   <div class="space-y-4">
-    <div v-if="respuesta">
-      <p
-        v-if="!respuesta.respuesta"
-        class="text-rose-500 font-semibold text-center w-3/4 mx-auto"
-      >
+    <div v-if="respuesta" class="w-3/4 mx-auto text-center">
+      <p v-if="!respuesta.respuesta" class="text-rose-500 font-semibold">
+        <span class="text-2xl">😥</span>
         {{ respuesta.mensaje }}
       </p>
       <p v-else>Welcome {{ respuesta.mensaje }}</p>

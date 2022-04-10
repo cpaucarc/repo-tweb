@@ -35,28 +35,21 @@
           Finalizar
         </button>
       </div>
-
-      <div
-        class="absolute -right-56 top-0 border border-rose-500 rounded w-52 flex flex-col"
-      >
-        <div>
-          {{ datos }}
-        </div>
-      </div>
     </div>
 
     <Modal :isOpen="isOpen" @closeModal="closeModal">
-      <p v-show="isLoading">Cargando...</p>
+      <LoadingMessage v-show="isLoading" />
       <div v-show="!isLoading">
-        <ErrorSignup
+        <ErrorMessage
           v-if="!respuesta.respuesta"
           :titulo="respuesta.mensaje"
           :errores="respuesta.error"
         />
       </div>
+
       <button
         v-show="!isLoading"
-        class="p-2 w-full text-slate-800 hover:text-slate-900 font-bold transition-eio-300"
+        class="px-2 py-4 w-full text-slate-700 hover:text-slate-900 font-bold transition-eio-300"
         @click="closeModal"
       >
         Aceptar
@@ -86,9 +79,10 @@ import Paso2 from "../components/Signup/Paso2.vue";
 import Paso3 from "../components/Signup/Paso3.vue";
 import useUsuario from "../composables/useUsuario";
 import Modal from "../components/Util/Modal.vue";
-import ErrorSignup from "../components/Validacion/ErrorSignup.vue";
+import ErrorMessage from "../components/Validacion/ErrorMessage.vue";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/useUser";
+import LoadingMessage from "../components/Validacion/LoadingMessage.vue";
 
 const nombrePasos = [
   "Datos Básicos", //Paso 1
@@ -105,7 +99,8 @@ export default {
     Paso2,
     Paso3,
     Modal,
-    ErrorSignup,
+    ErrorMessage,
+    LoadingMessage,
   },
   setup() {
     const paso = ref(1);
