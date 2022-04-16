@@ -1,18 +1,19 @@
 <template>
   <div class="space-y-8">
     <div class="text-slate-900">
-      <div class="flex justify-between items-center">
-        <DatosAutorMinimal />
+      <div class="flex flex-col md:flex-row gap-4 justify-between items-center">
+        <DatosAutorMinimal :usuario="usuario" />
         <InputSearch @onEnter="onEnter" />
       </div>
     </div>
 
-    <ListaProyectosUsuario />
+    <ListaProyectosUsuario :usuario="usuario" />
   </div>
 </template>
 
 <script>
-import { ref } from "vue";
+import { provide, ref } from "vue";
+import { useRoute } from "vue-router";
 import InputSearch from "../components/Input/InputSearch.vue";
 import DatosAutorMinimal from "../components/Proyecto/DatosAutorMinimal.vue";
 import ListaProyectosUsuario from "../components/Proyecto/ListaProyectosUsuario.vue";
@@ -26,12 +27,18 @@ export default {
   },
   setup() {
     const search = ref("");
+    const route = useRoute();
+    const usuario = route.params.username;
+
+    console.log(route.params.username);
+
+    provide("search", search);
 
     const onEnter = (value) => {
       search.value = value;
     };
 
-    return { search, onEnter };
+    return { search, usuario, onEnter };
   },
 };
 </script>

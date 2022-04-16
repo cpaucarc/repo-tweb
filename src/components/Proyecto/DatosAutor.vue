@@ -4,7 +4,11 @@
       <router-link
         :to="{
           name: 'UsuarioProyecto',
-          params: { username: autor.username ?? 'usuario-sin-nombre' },
+          params: {
+            username: autor.usuario
+              ? autor.usuario.usuario
+              : 'usuario-sin-nombre',
+          },
         }"
         class="text-center leading-4 text-slate-600"
       >
@@ -28,10 +32,10 @@
     </div>
 
     <div class="flex items-center justify-center gap-x-3 text-slate-400">
-      <RedSocialLink v-if="autor.telefono" :href="'mailto:' + autor.telefono">
+      <RedSocialLink v-if="autor.telefono" :href="'tel:' + autor.telefono">
         <PhoneIcon class="icon-5" />
       </RedSocialLink>
-      <RedSocialLink v-if="autor.correo" :href="'tel:' + autor.correo">
+      <RedSocialLink v-if="autor.correo" :href="'mailto:' + autor.correo">
         <MailIcon class="icon-5" />
       </RedSocialLink>
       <RedSocialLink v-if="autor.linkedin" :href="autor.linkedin">

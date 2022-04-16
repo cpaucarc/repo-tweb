@@ -1,38 +1,71 @@
 <template>
   <div class="space-y-2">
     <div class="relative">
-      <img
-        loading="lazy"
-        class="aspect-video w-full object-cover rounded-lg"
-        :src="proyecto.portada"
-        :alt="proyecto.titulo"
-        :title="proyecto.titulo"
-      />
+      <router-link
+        :to="{
+          name: 'Proyecto',
+          params: {
+            username: proyecto.estudiante.usuario
+              ? proyecto.estudiante.usuario.usuario
+              : 'usuario-sin-nombre',
+            proy_id: proyecto.id,
+          },
+        }"
+      >
+        <img
+          loading="lazy"
+          class="aspect-video w-full object-cover rounded-lg"
+          :src="
+            proyecto.portada
+              ? proyecto.portada.link_imagen
+              : 'https://kapei.pe/wp-content/uploads/2021/01/error-404.jpg'
+          "
+          :alt="proyecto.titulo"
+          :title="proyecto.titulo"
+        />
+      </router-link>
 
       <DeleteButton
-        class="absolute -top-3 -right-3"
+        v-if="logeado === proyecto.estudiante.usuario.id"
+        class="absolute -top-3 -right-3 z-30"
         @click="eliminarProyecto(proyecto.id, proyecto.titulo)"
       >
         <TrashIcon class="icon-5" />
       </DeleteButton>
     </div>
     <div>
-      <h4
-        class="font-bold text-slate-900 text-base lg:text-sm leading-5 line-clamp-3"
+      <router-link
+        :to="{
+          name: 'Proyecto',
+          params: {
+            username: proyecto.estudiante.usuario
+              ? proyecto.estudiante.usuario.usuario
+              : 'usuario-sin-nombre',
+            proy_id: proyecto.id,
+          },
+        }"
       >
-        {{ proyecto.titulo }}
-      </h4>
-      <div class="flex items-center justify-between">
+        <h4
+          class="font-bold text-slate-900 text-base lg:text-sm leading-5 line-clamp-2"
+        >
+          {{ proyecto.titulo }}
+        </h4>
+      </router-link>
+      <div class="flex items-center gap-x-4 justify-between">
         <div
           title="Fecha de publicación"
-          class="flex items-center text-slate-600 text-sm"
+          class="flex items-center text-slate-600 text-sm whitespace-nowrap"
         >
           <CalendarIcon class="icon-5 mr-1" />
-          <span>{{ proyecto.created_at }}</span>
+          <span>{{ proyecto.fecha_publicacion }}</span>
         </div>
 
-        <div class="flex flex-wrap space-x-2">
-          <BadgeTag v-for="(tag, i) in proyecto.tags" :key="i" :tag="tag" />
+        <div class="flex items-center overflow-x-scroll space-x-2">
+          <BadgeTag
+            v-for="(tag, i) in proyecto.tags"
+            :key="i"
+            :tag="tag.nombre"
+          />
         </div>
       </div>
     </div>
@@ -47,6 +80,7 @@ export default {
   components: { CalendarIcon, TrashIcon, BadgeTag, DeleteButton },
   props: {
     proyecto: Object,
+    logeado: Number,
   },
   setup() {
     const eliminarProyecto = (id, titulo) => {
