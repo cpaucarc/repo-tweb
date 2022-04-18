@@ -2,18 +2,13 @@
   <div class="space-y-2">
     <h2 class="font-semibold text-slate-600">Escuelas</h2>
     <p class="text-xs text-slate-400 ml-4">{{ cantidadSeleccionados }}</p>
+
     <ul class="space-y-1 ml-4">
-      <li v-for="facultad in facultades" :key="facultad.id">
+      <li v-for="escuela in listaEscuelas" :key="escuela.id">
         <InputCheckbox
-          @click="seleccionarFacultad(facultad.id)"
-          :active="elementos.includes(facultad.id)"
-          :label="
-            facultad.nombre.substring(0, 36) +
-            (facultad.nombre.length > 35 ? '...' : '') +
-            ' (' +
-            facultad.abrev +
-            ')'
-          "
+          @click="seleccionarEscuela(escuela.id)"
+          :active="escuelas.includes(escuela.id)"
+          :label="nombreEscuela(escuela.nombre, escuela.abrev)"
         />
       </li>
     </ul>
@@ -21,30 +16,50 @@
 </template>
 
 <script>
-import { computed } from "vue";
-import facultadesData from "../../hooks/facultades.json";
+import { computed, inject } from "vue";
+import escuelasData from "../../hooks/facultades.json";
 import InputCheckbox from "../Input/InputCheckbox.vue";
-import useArray from "../../composables/useArray";
 
 export default {
   name: "FiltrosFacultad",
   components: { InputCheckbox },
   setup() {
-    const facultades = facultadesData;
-    const { elementos, agregarElemento, quitarElemento } = useArray();
+    const listaEscuelas = escuelasData;
+    const escuelas = inject("escuelas");
 
-    const seleccionarFacultad = (id) => {
-      elementos.value.includes(id) ? quitarElemento(id) : agregarElemento(id);
+    const seleccionarEscuela = (id) => {
+      escuelas.value.includes(id) ? quitarEscuela(id) : agregarEscuela(id);
     };
 
+    function agregarEscuela(elemento) {
+      escuelas.value.push(elemento);
+    }
+
+    function quitarEscuela(elemento) {
+      escuelas.value = escuelas.value.filter(function (value) {
+        return value !== elemento;
+      });
+    }
+
     const cantidadSeleccionados = computed(() => {
-      return elementos.value.length + " escuelas seleccionados";
+      return escuelas.value.length + " escuelas seleccionados";
     });
 
+    const nombreEscuela = (escuela, facultad) => {
+      return (
+        escuela.substring(0, 45) +
+        (escuela.length > 44 ? "..." : "") +
+        " (" +
+        facultad +
+        ")"
+      );
+    };
+
     return {
-      facultades,
-      elementos,
-      seleccionarFacultad,
+      listaEscuelas,
+      escuelas,
+      seleccionarEscuela,
+      nombreEscuela,
       cantidadSeleccionados,
     };
   },

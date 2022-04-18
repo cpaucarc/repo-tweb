@@ -7,6 +7,7 @@
       class="pl-9 input-form"
       id="search"
       placeholder="Buscar proyectos..."
+      autocomplete="off"
       type="search"
       @keyup.enter="enviarTexto"
       v-model="search"

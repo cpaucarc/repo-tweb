@@ -4,11 +4,11 @@
 
 <script>
 import { ref } from "vue";
-import moment from "moment";
 export default {
   name: "InputDate",
+  props: { fechaDefault: String },
   setup(props, { emit }) {
-    const fecha = ref(moment().format("YYYY-MM-DD"));
+    const fecha = ref(props.fechaDefault);
 
     const emitirFecha = () => {
       emit("fechaCambiado", fecha.value);

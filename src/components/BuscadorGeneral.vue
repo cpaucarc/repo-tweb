@@ -1,15 +1,19 @@
 <template>
-  <InputSearch class="w-96" @onEnter="onEnter" />
+  <InputSearch class="max-w-lg w-auto" @onEnter="onEnter" />
 </template>
 
 <script>
+import { useBusquedaStore } from "../stores/busqueda";
 import InputSearch from "./Input/InputSearch.vue";
 export default {
   name: "BuscadorGeneral",
   components: { InputSearch },
-  setup() {
+  setup(props, { emit }) {
+    const busqueda = useBusquedaStore();
+
     const onEnter = (value) => {
-      alert(`Buscando el proyecto ${value}`);
+      busqueda.setSearch(value);
+      emit("buscarProyectos");
     };
 
     return { onEnter };

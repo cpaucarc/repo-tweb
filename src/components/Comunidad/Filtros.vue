@@ -2,41 +2,38 @@
   <div class="relative h-full min-h-full">
     <AdjustmentsIcon
       @click="verFiltros = !verFiltros"
-      class="h-6 w-6 cursor-pointer flex-shrink-0 absolute -top-8 text-slate-400 hover:text-slate-600 transition ease-in-out duration-300"
+      class="icon-5 cursor-pointer absolute -top-8 right-0 text-slate-400 hover:text-slate-600 transition-eio-300"
     />
 
-    <transition name="filtros">
-      <div
-        v-show="verFiltros"
-        class="absolute -top-44 left-0 sm:-left-20 lg:-left-28 p-8 w-4/5 lg:w-2/5 z-50 min-h-full bg-white shadow-2xl"
-      >
+    <Modal :isOpen="verFiltros" @closeModal="verFiltros = !verFiltros">
+      <div class="relative py-4 px-6 flex flex-col items-start gap-y-4">
         <XIcon
           @click="verFiltros = !verFiltros"
-          class="h-6 w-6 absolute top-4 -right-8 cursor-pointer flex-shrink-0 text-white border border-transparent active:border-white rounded transition ease-in-out duration-300"
+          class="icon-6 absolute top-2 right-2 cursor-pointer text-slate-300 hover:text-rose-500 rounded-full transition-eio-300"
         />
-        <div class="space-y-4">
-          <h1 class="font-bold text-lg text-slate-900">Filtrar proyectos</h1>
-          <FiltrosFechas />
+        <FiltrosFechas />
 
-          <FiltrosFacultad />
+        <FiltrosFacultad />
+
+        <div class="ml-4">
+          <PrimaryButton @click="aplicarFiltros">
+            Filtrar proyectos
+          </PrimaryButton>
         </div>
       </div>
-    </transition>
-
-    <transition name="fade">
-      <div
-        v-show="verFiltros"
-        class="bg-slate-900/50 fixed top-0 left-0 w-full h-full z-40 backdrop-blur-xs"
-      ></div>
-    </transition>
+    </Modal>
   </div>
 </template>
 
 <script>
-import { ref } from "vue";
+import { provide, ref } from "vue";
 import { AdjustmentsIcon, XIcon } from "@heroicons/vue/outline";
 import FiltrosFacultad from "./FiltrosFacultad.vue";
 import FiltrosFechas from "./FiltrosFechas.vue";
+import Modal from "../Util/Modal.vue";
+import PrimaryButton from "../Button/PrimaryButton.vue";
+import { useBusquedaStore } from "../../stores/busqueda";
+
 export default {
   name: "Filtros",
   components: {
@@ -44,36 +41,30 @@ export default {
     FiltrosFacultad,
     FiltrosFechas,
     XIcon,
+    Modal,
+    PrimaryButton,
   },
-  setup() {
+  setup(props, { emit }) {
     const verFiltros = ref(false);
-    return { verFiltros };
+    const busqueda = useBusquedaStore();
+
+    const escuelas = ref(busqueda.escuelas);
+    const inicio = ref(busqueda.inicio);
+    const fin = ref(busqueda.fin);
+
+    provide("escuelas", escuelas);
+    provide("inicio", inicio);
+    provide("fin", fin);
+
+    const aplicarFiltros = async () => {
+      console.log("Filtrando por: ", escuelas.value, inicio.value, fin.value);
+      busqueda.setInicio(inicio.value);
+      busqueda.setFin(fin.value);
+      busqueda.setEscuelas(escuelas.value);
+      emit("aplicarFiltros");
+    };
+
+    return { verFiltros, aplicarFiltros };
   },
 };
 </script>
-
-<style scoped>
-.filtros-enter-from,
-.filtros-leave-to {
-  transform: translateX(-200px);
-  opacity: 0;
-}
-
-.filtros-enter-active {
-  transition: all 0.5s ease-in-out;
-}
-.filtros-leave-active {
-  transition: all 0.5s ease-in-out;
-}
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.fade-enter-active {
-  transition: all 0.5s ease-in-out;
-}
-.fade-leave-active {
-  transition: all 0.5s ease-in-out;
-}
-</style>

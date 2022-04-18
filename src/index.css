@@ -10,7 +10,7 @@
   }
   /* Inputs */
   .input-form {
-    @apply rounded-md w-full py-1.5 px-3 border caret-sky-400 border-slate-300 focus:border-sky-400 ring-2 focus:ring-2 ring-transparent focus:ring-sky-400/25 text-sm text-slate-600 focus:text-slate-900 placeholder-slate-400 transition-eio-300;
+    @apply rounded-md w-full py-1.5 px-3 border caret-sky-400 border-slate-300 focus:border-sky-400 ring-4 focus:ring-2 ring-transparent focus:ring-sky-400/50 text-sm text-slate-600 focus:text-slate-900 placeholder-slate-400 transition-eio-300;
   }
 
   /* Buttons */
@@ -33,6 +33,9 @@
   }
   .icon-5 {
     @apply h-5 w-5 flex-shrink-0;
+  }
+  .icon-6 {
+    @apply h-6 w-6 flex-shrink-0;
   }
 
   /* Avatar */
