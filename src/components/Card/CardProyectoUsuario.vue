@@ -73,8 +73,10 @@
 </template>
 <script>
 import { CalendarIcon, TrashIcon } from "@heroicons/vue/outline";
+import useProyecto from "../../composables/useProyecto";
 import BadgeTag from "../BadgeTag.vue";
 import DeleteButton from "../Button/DeleteButton.vue";
+
 export default {
   name: "CardProyectoUsuario",
   components: { CalendarIcon, TrashIcon, BadgeTag, DeleteButton },
@@ -82,11 +84,13 @@ export default {
     proyecto: Object,
     logeado: Number,
   },
-  setup() {
-    const eliminarProyecto = (id, titulo) => {
-      let rsta = confirm(`Desea eliminar el proyecto con llamado ${titulo}`);
-      if (rsta) {
-        alert(`API para eliminar proy: ${id} | ${titulo}`);
+  setup(props, { emit }) {
+    const { deleteProject } = useProyecto();
+
+    const eliminarProyecto = async (id, titulo) => {
+      if (confirm(`Desea eliminar el proyecto con llamado ${titulo}`)) {
+        await deleteProject(id);
+        emit("eliminado", id);
       }
     };
 

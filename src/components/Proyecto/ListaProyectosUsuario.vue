@@ -1,18 +1,22 @@
 <template>
-  <div>
+  <div class="relative">
     <SkeletonMisProyectos v-if="isLoading" />
     <div v-else>
-      <div
+      <TransitionGroup
         v-if="respuesta"
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10"
+        tag="div"
+        name="lista"
+        appear
+        class="relative p-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10"
       >
         <CardProyectoUsuario
           v-for="proyecto in proyectos"
           :key="proyecto.id"
           :proyecto="proyecto"
           :logeado="user.user_id"
+          @eliminado="proyectoEliminado"
         />
-      </div>
+      </TransitionGroup>
       <div
         v-else
         class="rounded-lg w-full aspect-[16/4] grid place-items-center"
@@ -29,7 +33,6 @@
 <script>
 import { inject, onMounted, ref, watch } from "vue";
 import useProyecto from "../../composables/useProyecto";
-import proyectosUsuario from "../../hooks/proyectos-usuario.json";
 import { useUserStore } from "../../stores/useUser";
 import CardProyectoUsuario from "../Card/CardProyectoUsuario.vue";
 import SkeletonMisProyectos from "../Skeleton/SkeletonMisProyectos.vue";
@@ -38,7 +41,6 @@ export default {
   props: { usuario: { type: String, required: true } },
   components: { CardProyectoUsuario, SkeletonMisProyectos },
   setup(props) {
-    // const proyectos = proyectosUsuario;
     const { getUserProjects } = useProyecto();
     const isLoading = ref(true);
     const error = ref("");
@@ -67,7 +69,44 @@ export default {
       isLoading.value = false;
     };
 
-    return { proyectos, error, respuesta, isLoading, search, user };
+    const proyectoEliminado = (id) => {
+      proyectos.value = proyectos.value.filter(function (proyecto) {
+        return proyecto.id !== id;
+      });
+    };
+
+    return {
+      proyectos,
+      error,
+      respuesta,
+      isLoading,
+      search,
+      user,
+      proyectoEliminado,
+    };
   },
 };
 </script>
+
+<style scoped>
+.lista-enter-from {
+  opacity: 0;
+  transform: scale(0.6);
+}
+
+.lista-enter-active {
+  transition: all 0.4s ease;
+}
+
+.lista-leave-to {
+  opacity: 0;
+  transform: scale(0.5);
+}
+.lista-leave-active {
+  transition: all 0.5s ease;
+  /* position: absolute; */
+}
+.lista-move {
+  transition: all 0.8s ease;
+}
+</style>

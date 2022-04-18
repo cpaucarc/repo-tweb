@@ -18,7 +18,7 @@
       <InputLabel for="resumen">Resumen del proyecto</InputLabel>
       <textarea
         id="resumen"
-        rows="3"
+        rows="6"
         v-model="proyecto.resumen"
         class="input-form"
       ></textarea>
@@ -63,7 +63,7 @@
         />
         <SuccessMessage v-else titulo="Proyecto creado con exito">
           <p class="text-sm">
-            Tu proyecto ya está disponible para otros lo vean
+            Tu proyecto ya está disponible para que otras personas lo vean.
           </p>
         </SuccessMessage>
       </div>
@@ -94,6 +94,7 @@ import Modal from "../components/Util/Modal.vue";
 import SuccessMessage from "../components/Validacion/SuccessMessage.vue";
 import ErrorMessage from "../components/Validacion/ErrorMessage.vue";
 import LoadingMessage from "../components/Validacion/LoadingMessage.vue";
+import { useRouter } from "vue-router";
 export default {
   components: {
     InputTags,
@@ -122,6 +123,7 @@ export default {
     const respuesta = ref([]);
     const isSaving = ref(false);
     const isOpen = ref(false);
+    const router = useRouter();
     const { saveProyecto } = useProyectosHome();
 
     const enviarProyecto = async () => {
@@ -145,6 +147,12 @@ export default {
 
     const closeModal = () => {
       isOpen.value = false;
+      if (respuesta.value.respuesta) {
+        router.push({
+          name: "UsuarioProyecto",
+          params: { username: user.username },
+        });
+      }
     };
 
     return {

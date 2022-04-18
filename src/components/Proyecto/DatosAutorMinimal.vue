@@ -2,7 +2,7 @@
   <div>
     <SkeletonMisProyectosAutor v-if="isLoading" />
     <div v-else>
-      <div v-if="respuesta" class="inline-flex items-center gap-x-3">
+      <div v-if="respuesta" class="inline-flex items-center gap-x-4">
         <img
           class="w-16 h-16 avatar"
           :src="userinfo.estudiante.avatar"
@@ -17,9 +17,9 @@
             {{ userinfo.estudiante.escuela.nombre }}
             <strong>({{ userinfo.estudiante.escuela.facultad_abrev }})</strong>
           </h4>
-          <p>{{ userinfo.estudiante.proyecto_count }} proyectos publicados</p>
+          <!-- <p>{{ userinfo.estudiante.proyecto_count }} proyectos publicados</p> -->
         </div>
-        <div class="flex items-center space-x-1 text-slate-400">
+        <div class="flex items-center space-x-2 text-slate-400">
           <RedSocialLink
             v-if="userinfo.estudiante.telefono"
             :href="'tel:' + userinfo.estudiante.telefono"

@@ -32,11 +32,11 @@ export default function useProyectosHome() {
     for (const documento of Object.values(data.documentos)) {
       formData.append("documentos[]", documento);
     }
-    console.log("formData: ", ...formData);
 
     const headers = { "Content-Type": "multipart/form-data" };
+
     let response = await axios.post(
-      "http://localhost:8000/api/proyecto/",
+      "http://localhost:8000/api/proyecto/crear",
       formData,
       { headers }
     );

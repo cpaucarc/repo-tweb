@@ -14,7 +14,7 @@
       >
         <img
           loading="lazy"
-          class="aspect-video w-full object-cover rounded-lg"
+          class="aspect-video w-full object-cover rounded-lg overflow-hidden"
           :src="
             proyecto.portada
               ? proyecto.portada.link_imagen
@@ -46,6 +46,7 @@
         <img
           :src="proyecto.estudiante.avatar"
           loading="lazy"
+          alt="Avatar del usuario"
           class="w-14 h-14 avatar"
         />
       </router-link>
@@ -105,9 +106,8 @@ export default {
         `Desea quitar el proyecto con llamado ${titulo} de sus favoritos`
       );
       if (rsta) {
-        // alert(`API para eliminar proy: ${props.usuario_id} ${id} | ${titulo}`);
         await setFav(id, props.usuario_id);
-        emit("eliminado");
+        emit("eliminado", id);
       }
     };
 

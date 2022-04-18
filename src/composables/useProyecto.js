@@ -1,5 +1,4 @@
 import axios from "axios";
-// import { ref } from "vue";
 
 export default function useProyecto() {
   // Función para enviar un nuevo proyecto
@@ -8,7 +7,6 @@ export default function useProyecto() {
       "http://localhost:8000/api/proyecto/",
       data
     );
-    // console.warn("Response: ", response);
     return response.data;
   };
 
@@ -36,5 +34,19 @@ export default function useProyecto() {
     return response.data;
   };
 
-  return { saveProject, getUserProjects, getUserInfo, getUserFavorites };
+  // TODO: Endpoint para eliminar un proyecto
+  const deleteProject = async (id) => {
+    let response = await axios.delete(
+      `http://localhost:8000/api/proyecto/eliminar/${id}`
+    );
+    return response.data;
+  };
+
+  return {
+    saveProject,
+    getUserProjects,
+    getUserInfo,
+    getUserFavorites,
+    deleteProject,
+  };
 }

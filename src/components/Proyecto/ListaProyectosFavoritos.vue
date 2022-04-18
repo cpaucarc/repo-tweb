@@ -1,19 +1,22 @@
 <template>
-  <div>
+  <div class="relative">
     <SkeletonFavoritos v-if="isLoading" />
     <div v-else>
-      <div
+      <TransitionGroup
         v-if="respuesta"
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12"
+        tag="div"
+        name="lista"
+        appear
+        class="relative p-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12"
       >
         <CardProyectoFavorito
           v-for="proyecto in proyectos"
           :key="proyecto.id"
           :usuario_id="id"
           :proyecto="proyecto"
-          @eliminado="getFavoritos"
+          @eliminado="proyectoEliminado"
         />
-      </div>
+      </TransitionGroup>
       <div v-else>
         {{ error }}
       </div>
@@ -65,7 +68,37 @@ export default {
       isLoading.value = false;
     };
 
-    return { proyectos, error, isLoading, respuesta, getFavoritos };
+    const proyectoEliminado = (id) => {
+      proyectos.value = proyectos.value.filter(function (proyecto) {
+        return proyecto.id !== id;
+      });
+      cantidad.value = Object.keys(proyectos.value).length;
+    };
+
+    return { proyectos, error, isLoading, respuesta, proyectoEliminado };
   },
 };
 </script>
+
+<style scoped>
+.lista-enter-from {
+  opacity: 0;
+  transform: scale(0.6);
+}
+
+.lista-enter-active {
+  transition: all 0.4s ease;
+}
+
+.lista-leave-to {
+  opacity: 0;
+  transform: scale(0.5);
+}
+.lista-leave-active {
+  transition: all 0.5s ease;
+  /* position: absolute; */
+}
+.lista-move {
+  transition: all 0.8s ease;
+}
+</style>
