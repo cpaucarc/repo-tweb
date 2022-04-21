@@ -19,8 +19,7 @@
 <script>
 import { useRouter } from "vue-router";
 
-const default_portada =
-  "https://dinahosting.com/blog/cont/uploads/2021/03/error-404.jpg";
+const default_portada = "/static/default_cover.svg";
 export default {
   props: { proyecto: Object },
   setup(props) {

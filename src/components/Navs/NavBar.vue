@@ -1,21 +1,15 @@
 <template>
-  <div class="h-16 flex items-center">
-    <div class="container mx-auto flex items-center justify-between">
-      <div class="flex items-center gap-x-2">
+  <div class="h-16 flex items-center border-b bg-white">
+    <div class="container mx-auto flex justify-between">
+      <router-link :to="{ name: 'Home' }" class="flex items-center gap-x-2">
         <img
           class="h-10 flex-shrink-0"
           src="../../assets/repotweb.svg"
           alt="Logo RepoTWeb"
         />
-      </div>
+      </router-link>
 
-      <BuscadorGeneral />
-
-      <!-- <p class="text-sm text-slate-900">
-        |{{ user.username }}|{{ user.isLogged ? "Logeado" : "Guest" }}|{{
-          user.user_id
-        }}|
-      </p> -->
+      <NavMenu v-if="user.isLogged" />
 
       <div class="flex items-center gap-x-3">
         <PrimaryLink v-if="user.isLogged" :href="{ name: 'CrearProyecto' }">
@@ -38,12 +32,12 @@ import { provide, ref } from "vue";
 import UsuarioConectado from "../Usuario/UsuarioConectado.vue";
 import PrimaryLink from "../Link/PrimaryLink.vue";
 import { PlusIcon } from "@heroicons/vue/solid";
-import BuscadorGeneral from "../BuscadorGeneral.vue";
 import { useUserStore } from "../../stores/useUser";
+import NavMenu from "./NavMenu.vue";
 
 export default {
   name: "NavigationMenu",
-  components: { UsuarioConectado, PrimaryLink, PlusIcon, BuscadorGeneral },
+  components: { UsuarioConectado, PrimaryLink, PlusIcon, NavMenu },
   setup() {
     const estaLogeado = ref(false);
 

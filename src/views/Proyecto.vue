@@ -14,6 +14,7 @@
         :tags="proyecto.tags"
         :archivos="proyecto.proyecto_archivo"
         :resumen="proyecto.resumen"
+        :reportes="proyecto.reportes"
       />
     </div>
 

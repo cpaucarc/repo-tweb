@@ -18,8 +18,7 @@
           <Dropdown v-if="archivos.length > 0">
             <template #trigger>
               <SecondaryButton>
-                <PaperClipIcon class="icon-5" />
-                <span>Archivos</span>
+                <PaperClipIcon class="icon-5" /> Archivos
               </SecondaryButton>
             </template>
             <template #items>
@@ -33,6 +32,8 @@
               </DropdownExternalLink>
             </template>
           </Dropdown>
+
+          <ReportarProyecto :id="id" :reportadores="reportadores" />
         </div>
       </div>
 
@@ -42,6 +43,18 @@
     </div>
 
     <div class="space-y-3 pt-3">
+      <div
+        v-if="reportadores.length"
+        class="bg-rose-100 space-y-1 border-l-4 border-rose-500 text-rose-800 p-4 text-sm"
+        role="alert"
+      >
+        <p class="font-bold">¡¡😱 Ten cuidado con este proyecto!!</p>
+        <p>
+          Hemos recibido reportes de que este proyecto puede estar infringiendo
+          las normas de la comunidad.
+        </p>
+      </div>
+
       <h3 class="font-semibold text-slate-400">Resumen</h3>
       <p class="leading-7">{{ resumen }}</p>
     </div>
@@ -49,16 +62,14 @@
 </template>
 
 <script>
-import { onMounted, ref } from "vue";
 import BadgeTag from "../BadgeTag.vue";
 import { PaperClipIcon, DocumentTextIcon } from "@heroicons/vue/outline";
 import SecondaryButton from "../Button/SecondaryButton.vue";
 import Dropdown from "../Util/Dropdown.vue";
 import DropdownExternalLink from "../Link/DropdownExternalLink.vue";
 import Slider from "../Util/Slider.vue";
-import useFavLike from "../../composables/useFavLike";
-import { useUserStore } from "../../stores/useUser";
 import ValoracionProyecto from "./ValoracionProyecto.vue";
+import ReportarProyecto from "./ReportarProyecto.vue";
 
 export default {
   name: "DatosProyecto",
@@ -70,6 +81,7 @@ export default {
     archivos: Array,
     portadas: Array,
     tags: Array,
+    reportes: Object,
   },
   components: {
     BadgeTag,
@@ -80,6 +92,16 @@ export default {
     DropdownExternalLink,
     Slider,
     ValoracionProyecto,
+    ReportarProyecto,
+  },
+  setup(props) {
+    const reportadores = [
+      ...new Set(props.reportes.map((reporte) => reporte.usuario_id)),
+    ];
+
+    return {
+      reportadores,
+    };
   },
 };
 </script>

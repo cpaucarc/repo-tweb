@@ -14,7 +14,7 @@
       leave-to-class="transform opacity-0 scale-95"
     >
       <MenuItems
-        class="origin-top-right overflow-hidden absolute right-0 mt-2 w-44 rounded-md shadow-lg bg-white focus:outline-none border border-slate-300 border-opacity-50"
+        class="origin-top-right overflow-hidden absolute right-0 mt-1 w-44 rounded-md shadow-lg bg-white focus:outline-none border border-slate-300 border-opacity-50"
       >
         <slot name="items" />
       </MenuItems>

@@ -75,8 +75,7 @@ import AutorImagen from "./AutorImagen.vue";
 import BadgeTag from "./BadgeTag.vue";
 import Card from "./Card.vue";
 
-const default_portada =
-  "http://iaphare.org/wp-content/uploads/2018/11/Project-BG-2005.jpg";
+const default_portada = "./static/default_cover.svg";
 const default_avatar =
   "https://buster-darragh-major.github.io/res/Simpsons-Faces/1.png";
 

@@ -1,9 +1,8 @@
 <template>
   <div>
     <!-- ["Login"].indexOf($route.name) < 0 -->
-    <div class="flex flex-col gap-y-2" v-if="!guest">
+    <div class="flex flex-col" v-if="!guest">
       <NavBar />
-      <NavMenu />
     </div>
     <div
       :class="
