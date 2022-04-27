@@ -5,9 +5,7 @@
         :to="{
           name: 'Proyecto',
           params: {
-            username: proyecto.estudiante.usuario
-              ? proyecto.estudiante.usuario.usuario
-              : 'usuario-sin-nombre',
+            username: proyecto.usuario.usuario,
             proy_id: proyecto.id,
           },
         }"
@@ -36,15 +34,13 @@
         :to="{
           name: 'UsuarioProyecto',
           params: {
-            username: proyecto.estudiante.usuario
-              ? proyecto.estudiante.usuario.usuario
-              : 'usuario-sin-nombre',
+            username: proyecto.usuario.usuario,
           },
         }"
         class="avatar"
       >
         <img
-          :src="proyecto.estudiante.avatar"
+          :src="proyecto.usuario.avatar"
           loading="lazy"
           alt="Avatar del usuario"
           class="w-14 h-14 avatar"
@@ -55,15 +51,13 @@
           :to="{
             name: 'Proyecto',
             params: {
-              username: proyecto.estudiante.usuario
-                ? proyecto.estudiante.usuario.usuario
-                : 'usuario-sin-nombre',
+              username: proyecto.usuario.usuario,
               proy_id: proyecto.id,
             },
           }"
         >
           <h4
-            class="font-bold text-slate-900 text-base lg:text-sm leading-4 line-clamp-2"
+            class="font-bold text-slate-900 text-base lg:text-sm leading-4 line-clamp-3"
           >
             {{ proyecto.titulo }}
           </h4>
@@ -72,15 +66,15 @@
           <p
             class="text-sm font-semibold text-sky-800 whitespace-nowrap line-clamp-1"
           >
-            {{ proyecto.estudiante.apellidos.split(" ")[0] }}
-            {{ proyecto.estudiante.nombres.split(" ")[0] }}
+            {{ proyecto.usuario.estudiante.nombres.split(" ")[0] }}
+            {{ proyecto.usuario.estudiante.apellidos.split(" ")[0] }}
           </p>
           <div
             title="Fecha de agregado a favoritos"
             class="flex items-center whitespace-nowrap text-slate-600 text-sm pr-2"
           >
             <CalendarIcon class="icon-5 mr-1" />
-            <span>{{ proyecto.agregado_el }}</span>
+            <span>{{ fecha }}</span>
           </div>
         </div>
       </div>
@@ -89,6 +83,7 @@
 </template>
 <script>
 import { CalendarIcon, XIcon } from "@heroicons/vue/outline";
+import moment from "moment";
 import useFavLike from "../../composables/useFavLike";
 import DeleteButton from "../Button/DeleteButton.vue";
 export default {
@@ -100,6 +95,7 @@ export default {
   },
   setup(props, { emit }) {
     const { setFav } = useFavLike();
+    const fecha = moment(props.proyecto.agregado_el).format("DD-MM-YYYY");
 
     const eliminarProyecto = async (id, titulo) => {
       let rsta = confirm(
@@ -111,7 +107,7 @@ export default {
       }
     };
 
-    return { eliminarProyecto };
+    return { eliminarProyecto, fecha };
   },
 };
 </script>

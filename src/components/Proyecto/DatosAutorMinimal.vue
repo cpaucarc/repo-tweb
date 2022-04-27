@@ -5,7 +5,7 @@
       <div v-if="respuesta" class="inline-flex items-center gap-x-4">
         <img
           class="w-16 h-16 avatar"
-          :src="userinfo.estudiante.avatar"
+          :src="userinfo.avatar"
           alt="Avatar del autor"
         />
         <div class="text-sm text-slate-600">

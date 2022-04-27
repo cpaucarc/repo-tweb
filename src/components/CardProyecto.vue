@@ -4,15 +4,13 @@
       :to="{
         name: 'Proyecto',
         params: {
-          username: proyecto.estudiante.usuario
-            ? proyecto.estudiante.usuario.usuario
-            : 'usuario-sin-nombre',
+          username: proyecto.usuario.usuario,
           proy_id: proyecto.id,
         },
       }"
     >
       <img
-        class="object-cover rounded-lg aspect-video"
+        class="object-cover rounded-lg aspect-video transform hover:scale-105 transition-eio-300 overflow-hidden border border-slate-300"
         :class="large ? 'lg:aspect-[7/10]' : ''"
         loading="lazy"
         :src="proyecto.portada ? proyecto.portada.link_imagen : default_portada"
@@ -22,49 +20,50 @@
       />
     </router-link>
 
-    <div class="gap-x-4 py-1 flex items-center">
+    <div class="gap-x-4 py-1 flex items-center mt-2 pr-2">
       <router-link
         :to="{
           name: 'UsuarioProyecto',
           params: {
-            username: proyecto.estudiante.usuario
-              ? proyecto.estudiante.usuario.usuario
-              : 'usuario-sin-nombre',
+            username: proyecto.usuario.usuario,
           },
         }"
         class="avatar"
       >
         <img
-          :src="proyecto.estudiante.avatar ?? default_avatar"
+          :src="proyecto.usuario.avatar ?? default_avatar"
           loading="lazy"
           class="w-12 h-12 avatar"
         />
       </router-link>
 
-      <div class="space-y-0">
+      <div class="space-y-1">
         <router-link
           :to="{
             name: 'Proyecto',
             params: {
-              username: proyecto.estudiante.usuario
-                ? proyecto.estudiante.usuario.usuario
-                : 'usuario-sin-nombre',
+              username: proyecto.usuario.usuario,
               proy_id: proyecto.id,
             },
           }"
         >
           <h2
-            class="font-bold text-sm text-slate-900 group-hover:text-sky-600 leading-4 line-clamp-3 transition-eio-300"
+            class="font-bold text-justify text-sm text-slate-900 group-hover:text-sky-600 leading-4 line-clamp-3 transition-eio-300"
           >
             {{ proyecto.titulo }}
           </h2>
         </router-link>
-        <p
-          class="text-slate-400 group-hover:text-slate-600 text-sm mr-2 transition-eio-300"
+        <div
+          class="flex items-center justify-between text-slate-400 group-hover:text-slate-600 text-sm mr-2 transition-eio-300"
         >
-          {{ proyecto.estudiante.apellidos.split(" ")[0] }}
-          {{ proyecto.estudiante.nombres.split(" ")[0] }}
-        </p>
+          <p class="">
+            {{ proyecto.usuario.estudiante.nombres.split(" ")[0] }}
+            {{ proyecto.usuario.estudiante.apellidos.split(" ")[0] }}
+          </p>
+          <p class="flex items-start gap-x-1">
+            {{ proyecto.likes_count }} <ThumbUpIcon class="icon-4" />
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -74,6 +73,7 @@
 import AutorImagen from "./AutorImagen.vue";
 import BadgeTag from "./BadgeTag.vue";
 import Card from "./Card.vue";
+import { ThumbUpIcon } from "@heroicons/vue/outline";
 
 const default_portada = "./static/default_cover.svg";
 const default_avatar =
@@ -81,7 +81,7 @@ const default_avatar =
 
 export default {
   name: "CardProyecto",
-  components: { BadgeTag, AutorImagen, Card },
+  components: { BadgeTag, AutorImagen, Card, ThumbUpIcon },
   props: { proyecto: Object, large: { type: Boolean, default: false } },
   setup() {
     return { default_portada, default_avatar };

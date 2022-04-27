@@ -5,9 +5,7 @@
         :to="{
           name: 'Proyecto',
           params: {
-            username: proyecto.estudiante.usuario
-              ? proyecto.estudiante.usuario.usuario
-              : 'usuario-sin-nombre',
+            username: proyecto.usuario.usuario,
             proy_id: proyecto.id,
           },
         }"
@@ -26,7 +24,7 @@
       </router-link>
 
       <DeleteButton
-        v-if="logeado === proyecto.estudiante.usuario.id"
+        v-if="logeado === proyecto.usuario.id"
         class="absolute -top-3 -right-3 z-30"
         @click="eliminarProyecto(proyecto.id, proyecto.titulo)"
       >
@@ -38,26 +36,24 @@
         :to="{
           name: 'Proyecto',
           params: {
-            username: proyecto.estudiante.usuario
-              ? proyecto.estudiante.usuario.usuario
-              : 'usuario-sin-nombre',
+            username: proyecto.usuario.usuario,
             proy_id: proyecto.id,
           },
         }"
       >
         <h4
-          class="font-bold text-slate-900 text-base lg:text-sm leading-5 line-clamp-2"
+          class="font-bold text-slate-900 text-base lg:text-sm leading-5 line-clamp-3"
         >
           {{ proyecto.titulo }}
         </h4>
       </router-link>
-      <div class="flex items-center gap-x-4 justify-between">
+      <div class="flex mt-1 items-center gap-x-4 justify-between">
         <div
           title="Fecha de publicación"
           class="flex items-center text-slate-600 text-sm whitespace-nowrap"
         >
           <CalendarIcon class="icon-5 mr-1" />
-          <span>{{ proyecto.fecha_publicacion }}</span>
+          <span>{{ fecha }}</span>
         </div>
 
         <div class="flex items-center overflow-x-scroll space-x-2">
@@ -73,6 +69,7 @@
 </template>
 <script>
 import { CalendarIcon, TrashIcon } from "@heroicons/vue/outline";
+import moment from "moment";
 import useProyecto from "../../composables/useProyecto";
 import BadgeTag from "../BadgeTag.vue";
 import DeleteButton from "../Button/DeleteButton.vue";
@@ -86,6 +83,7 @@ export default {
   },
   setup(props, { emit }) {
     const { deleteProject } = useProyecto();
+    const fecha = moment(props.proyecto.created_at).format("DD-MM-YYYY");
 
     const eliminarProyecto = async (id, titulo) => {
       if (confirm(`Desea eliminar el proyecto con llamado ${titulo}`)) {
@@ -94,7 +92,7 @@ export default {
       }
     };
 
-    return { eliminarProyecto };
+    return { eliminarProyecto, fecha };
   },
 };
 </script>

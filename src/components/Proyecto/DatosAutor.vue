@@ -5,9 +5,7 @@
         :to="{
           name: 'UsuarioProyecto',
           params: {
-            username: autor.usuario
-              ? autor.usuario.usuario
-              : 'usuario-sin-nombre',
+            username: autor.usuario,
           },
         }"
         class="text-center leading-4 text-slate-600"
@@ -16,29 +14,42 @@
           <img
             class="w-24 h-24 avatar"
             :src="avatar"
-            :alt="'Avatar ' + autor.nombres"
+            :alt="'Avatar de ' + autor.estudiante.nombres"
           />
-          <h3 class="font-bold mt-2">{{ autor.apellidos }}</h3>
-          <h4 class="font-light mt-1 text-sm">{{ autor.nombres }}</h4>
+          <h3 class="font-bold mt-2">{{ autor.estudiante.apellidos }}</h3>
+          <h4 class="font-light mt-1 text-sm">
+            {{ autor.estudiante.nombres }}
+          </h4>
         </div>
       </router-link>
     </div>
 
     <div class="w-full text-center text-sm space-y-2">
       <p class="text-slate-800 leading-4">
-        {{ autor.escuela.nombre }}
+        {{ autor.estudiante.escuela.nombre }}
       </p>
-      <p class="text-slate-600">( {{ autor.escuela.facultad_abrev }} )</p>
+      <p class="text-slate-600">
+        ( {{ autor.estudiante.escuela.facultad_abrev }} )
+      </p>
     </div>
 
     <div class="flex items-center justify-center gap-x-3 text-slate-400">
-      <RedSocialLink v-if="autor.telefono" :href="'tel:' + autor.telefono">
+      <RedSocialLink
+        v-if="autor.estudiante.telefono"
+        :href="'tel:' + autor.estudiante.telefono"
+      >
         <PhoneIcon class="icon-5" />
       </RedSocialLink>
-      <RedSocialLink v-if="autor.correo" :href="'mailto:' + autor.correo">
+      <RedSocialLink
+        v-if="autor.estudiante.correo"
+        :href="'mailto:' + autor.estudiante.correo"
+      >
         <MailIcon class="icon-5" />
       </RedSocialLink>
-      <RedSocialLink v-if="autor.linkedin" :href="autor.linkedin">
+      <RedSocialLink
+        v-if="autor.estudiante.linkedin"
+        :href="autor.estudiante.linkedin"
+      >
         <svg class="h-5 w-5" role="img" viewBox="0 0 24 24" fill="currentColor">
           <title>LinkedIn</title>
           <path
@@ -62,9 +73,10 @@ export default {
   },
   setup(props) {
     const avatar = computed(() => {
-      return props.autor.avatar
-        ? props.autor.avatar
-        : "https://buster-darragh-major.github.io/res/Simpsons-Faces/1.png";
+      return (
+        props.autor.avatar ??
+        "https://buster-darragh-major.github.io/res/Simpsons-Faces/1.png"
+      );
     });
     return { avatar };
   },

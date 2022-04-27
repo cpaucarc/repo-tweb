@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-5 gap-10 items-start">
     <SkeletonDetalleAutor v-if="isLoading" />
-    <DatosAutor v-else :autor="proyecto.estudiante" />
+    <DatosAutor v-else :autor="proyecto.usuario" />
 
     <div class="col-span-3">
       <SkeletonDetalleProyecto v-if="isLoading" />
@@ -9,10 +9,10 @@
         v-else
         :id="proyecto.id"
         :portadas="proyecto.portadas"
-        :publicacion="proyecto.fecha_publicacion"
+        :publicacion="proyecto.created_at"
         :titulo="proyecto.titulo"
         :tags="proyecto.tags"
-        :archivos="proyecto.proyecto_archivo"
+        :archivos="proyecto.archivos"
         :resumen="proyecto.resumen"
         :reportes="proyecto.reportes"
       />
@@ -24,7 +24,6 @@
       <template v-for="recomendado in recomendados" :key="recomendado.id">
         <ProyectoRecomendado :proyecto="recomendado" />
       </template>
-      <!-- {{ recomendados }} -->
     </div>
   </div>
 </template>

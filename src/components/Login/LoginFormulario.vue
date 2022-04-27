@@ -61,7 +61,7 @@ export default {
     const respuesta = ref(null);
     const isLoading = ref(false);
     const user = reactive({
-      usuario: "estudiante10",
+      usuario: "vicente7",
       password: "12345678",
     });
     const router = useRouter();
@@ -71,6 +71,7 @@ export default {
     const iniciarSesion = async () => {
       isLoading.value = true;
       respuesta.value = await login({ ...user });
+      console.log(respuesta.value);
       if (respuesta.value.respuesta) {
         store.login(
           respuesta.value.mensaje.usuario,
@@ -78,7 +79,7 @@ export default {
             " " +
             respuesta.value.mensaje.estudiante.nombres,
           respuesta.value.mensaje.id,
-          respuesta.value.mensaje.estudiante.avatar
+          respuesta.value.mensaje.avatar
         );
         router.push({ name: "Home" });
       }

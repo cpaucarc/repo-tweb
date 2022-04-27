@@ -29,9 +29,7 @@ export default {
       router.push({
         name: "Proyecto",
         params: {
-          username: props.proyecto.estudiante.usuario
-            ? props.proyecto.estudiante.usuario.usuario
-            : "usuario-sin-nombre",
+          username: props.proyecto.usuario.usuario,
           proy_id: props.proyecto.id,
         },
       });

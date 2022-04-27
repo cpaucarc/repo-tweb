@@ -8,9 +8,7 @@
       </h3>
 
       <div class="flex items-center justify-between">
-        <span class="text-slate-600 text-sm">
-          Publicado el {{ publicacion }}
-        </span>
+        <span class="text-slate-600 text-sm"> Publicado el {{ fecha }} </span>
 
         <div class="flex items-center gap-x-1">
           <ValoracionProyecto :proyecto="id" />
@@ -28,7 +26,7 @@
                 :to="archivo.link_archivo"
               >
                 <DocumentTextIcon class="icon-5" />
-                <span>Archivo adjunto {{ i + 1 }}</span>
+                <p class="line-clamp-1">{{ archivo.nombre }}</p>
               </DropdownExternalLink>
             </template>
           </Dropdown>
@@ -54,10 +52,8 @@
           las normas de la comunidad.
         </p>
       </div>
-
-      <h3 class="font-semibold text-slate-400">Resumen</h3>
-      <p class="leading-7">{{ resumen }}</p>
     </div>
+    <ProyectoResumen :resumen="resumen" />
   </div>
 </template>
 
@@ -70,6 +66,8 @@ import DropdownExternalLink from "../Link/DropdownExternalLink.vue";
 import Slider from "../Util/Slider.vue";
 import ValoracionProyecto from "./ValoracionProyecto.vue";
 import ReportarProyecto from "./ReportarProyecto.vue";
+import moment from "moment";
+import ProyectoResumen from "./ProyectoResumen.vue";
 
 export default {
   name: "DatosProyecto",
@@ -93,14 +91,17 @@ export default {
     Slider,
     ValoracionProyecto,
     ReportarProyecto,
+    ProyectoResumen,
   },
   setup(props) {
     const reportadores = [
       ...new Set(props.reportes.map((reporte) => reporte.usuario_id)),
     ];
+    const fecha = moment(props.publicacion).format("DD/MM/YYYY");
 
     return {
       reportadores,
+      fecha,
     };
   },
 };

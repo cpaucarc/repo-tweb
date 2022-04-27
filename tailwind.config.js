@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Nunito", ...defaultTheme.fontFamily.sans],
+        serif: ["Roboto Slab", ...defaultTheme.fontFamily.serif],
       },
       blur: {
         xs: "1.5px",
