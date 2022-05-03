@@ -9,15 +9,21 @@
         },
       }"
     >
-      <img
-        class="object-cover rounded-lg aspect-video transform hover:scale-105 transition-eio-300 overflow-hidden border border-slate-300"
+      <div
+        class="rounded-lg aspect-video overflow-hidden border border-zinc-300 dark:border-zinc-700"
         :class="large ? 'lg:aspect-[7/10]' : ''"
-        loading="lazy"
-        :src="proyecto.portada ? proyecto.portada.link_imagen : default_portada"
-        :alt="proyecto.titulo"
-        :title="proyecto.titulo"
-        onerror="this.onerror=null;this.src='https://pandagila.com/wp-content/uploads/2020/08/error-404-not-found.jpg';"
-      />
+      >
+        <img
+          class="h-full w-full object-cover transform hover:scale-105 transition-eio-300"
+          loading="lazy"
+          :src="
+            proyecto.portada ? proyecto.portada.link_imagen : default_portada
+          "
+          :alt="proyecto.titulo"
+          :title="proyecto.titulo"
+          onerror="this.onerror=null;this.src='https://pandagila.com/wp-content/uploads/2020/08/error-404-not-found.jpg';"
+        />
+      </div>
     </router-link>
 
     <div class="gap-x-4 py-1 flex items-center mt-2 pr-2">
@@ -48,19 +54,19 @@
           }"
         >
           <h2
-            class="font-bold text-justify text-sm text-slate-900 group-hover:text-sky-600 leading-4 line-clamp-3 transition-eio-300"
+            class="font-bold text-justify text-sm text-zinc-900 dark:text-zinc-400 group-hover:text-sky-600 leading-4 line-clamp-3 transition-eio-300"
           >
             {{ proyecto.titulo }}
           </h2>
         </router-link>
         <div
-          class="flex items-center justify-between text-slate-400 group-hover:text-slate-600 text-sm mr-2 transition-eio-300"
+          class="flex items-center justify-between text-zinc-500 group-hover:text-zinc-600 dark:group-hover:text-zinc-400 text-sm mr-2 transition-eio-300"
         >
-          <p class="">
+          <p class="font-semibold">
             {{ proyecto.usuario.estudiante.nombres.split(" ")[0] }}
             {{ proyecto.usuario.estudiante.apellidos.split(" ")[0] }}
           </p>
-          <p class="flex items-start gap-x-1">
+          <p class="flex items-start gap-x-1 font-bold">
             {{ proyecto.likes_count }} <ThumbUpIcon class="icon-4" />
           </p>
         </div>

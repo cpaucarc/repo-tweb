@@ -1,6 +1,6 @@
 <template>
   <div class="my-1 space-y-1">
-    <label class="text-slate-600 text-sm" v-if="label.length" :for="id">{{
+    <label class="text-zinc-600 text-sm" v-if="label.length" :for="id">{{
       label
     }}</label>
 

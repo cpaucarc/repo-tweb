@@ -6,7 +6,7 @@
     <input
       type="checkbox"
       v-model="active"
-      class="text-sky-600 mr-1 cursor-pointer rounded focus:outline-none focus:ring-0 border border-slate-400 focus:border-sky-600 transition-eio-300"
+      class="text-sky-600 dark:text-sky-500 bg-transparent mr-1 cursor-pointer focus:ring-0 rounded border border-zinc-400 dark:border-zinc-500 focus:border-sky-600 transition-eio-300"
     />
     {{ label }}
   </label>
@@ -30,8 +30,8 @@ export default {
   setup(props) {
     const clases = computed(() => {
       return props.active
-        ? "text-slate-900 font-bold"
-        : "text-slate-400 font-normal";
+        ? "text-zinc-900 dark:text-zinc-300 font-bold"
+        : "text-zinc-400/80 font-normal";
     });
     return { clases };
   },

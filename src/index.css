@@ -5,13 +5,38 @@
 @tailwind components;
 @tailwind utilities;
 
+/* width */
+::-webkit-scrollbar{
+  height: 8px;
+  width: 10px;
+}
+::-webkit-scrollbar-thumb:horizontal{
+  border-radius: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #18181b;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
 @layer components {
   .transition-eio-300 {
     @apply transition ease-in-out duration-300;
   }
   /* Inputs */
   .input-form {
-    @apply rounded-md w-full py-1.5 px-3 border caret-sky-400 border-slate-300 focus:border-sky-400 ring-4 focus:ring-2 ring-transparent focus:ring-sky-400/50 text-sm text-slate-600 focus:text-slate-900 placeholder-slate-400 transition-eio-300;
+    @apply rounded-md w-full py-1.5 px-3 border caret-sky-400 border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-800/30 focus:border-sky-400 ring-4 focus:ring-2 ring-transparent focus:ring-sky-400/50 text-sm text-zinc-600 dark:text-zinc-300 focus:text-zinc-900 dark:focus:text-zinc-300 placeholder-zinc-400 dark:placeholder-zinc-600 transition-eio-300;
   }
 
   /* Buttons */
@@ -22,10 +47,13 @@
     @apply cursor-pointer bg-sky-800 hover:bg-sky-900 transition-eio-300 grid place-items-center text-white;
   }
   .btn-rose {
-    @apply cursor-pointer bg-rose-500 hover:bg-rose-600;
+    @apply cursor-pointer bg-rose-500 hover:bg-rose-600 dark:bg-rose-600 dark:hover:bg-rose-700;
   }
   .btn-sm {
     @apply text-sm rounded-md py-1 px-2 inline-flex gap-x-1 items-center transition-eio-300;
+  }
+  .btn-outline {
+    @apply btn border border-zinc-300 hover:bg-zinc-50 dark:border-zinc-600 dark:text-zinc-400 dark:hover:bg-zinc-600 dark:hover:text-zinc-300 text-zinc-600 hover:text-zinc-700;
   }
 
   /* Icons */
@@ -41,16 +69,16 @@
 
   /* Avatar */
   .avatar {
-    @apply flex-shrink-0 bg-amber-400 rounded-full object-cover;
+    @apply flex-shrink-0 bg-amber-400/20 rounded-full object-cover overflow-hidden;
   }
 
   /* Tags */
   .tag {
-    @apply text-xs bg-sky-100 text-sky-800 px-2.5 py-1 rounded flex items-center;
+    @apply text-sm bg-sky-100 dark:bg-sky-600/20 text-sky-800 dark:text-sky-500 px-2.5 py-1 rounded flex items-center;
   }
 
   /* Skeleton */
   .skeleton {
-    @apply animate-pulse_fast bg-gray-300;
+    @apply animate-pulse_fast bg-zinc-300 dark:bg-zinc-600;
   }
 }

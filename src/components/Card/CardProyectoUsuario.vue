@@ -1,5 +1,5 @@
 <template>
-  <div class="space-y-2">
+  <div class="space-y-2 group">
     <div class="relative">
       <router-link
         :to="{
@@ -12,7 +12,7 @@
       >
         <img
           loading="lazy"
-          class="aspect-video w-full object-cover rounded-lg"
+          class="aspect-video w-full object-cover rounded-lg border border-zinc-300 dark:border-zinc-700"
           :src="
             proyecto.portada
               ? proyecto.portada.link_imagen
@@ -42,7 +42,7 @@
         }"
       >
         <h4
-          class="font-bold text-slate-900 text-base lg:text-sm leading-5 line-clamp-3"
+          class="font-bold text-zinc-900 dark:text-zinc-400 group-hover:text-sky-600 dark:group-hover:text-sky-500 transition-eio-300 text-base lg:text-sm leading-5 line-clamp-3"
         >
           {{ proyecto.titulo }}
         </h4>
@@ -50,7 +50,7 @@
       <div class="flex mt-1 items-center gap-x-4 justify-between">
         <div
           title="Fecha de publicación"
-          class="flex items-center text-slate-600 text-sm whitespace-nowrap"
+          class="flex items-center text-zinc-600 dark:text-zinc-500 text-sm whitespace-nowrap"
         >
           <CalendarIcon class="icon-5 mr-1" />
           <span>{{ fecha }}</span>

@@ -1,7 +1,9 @@
 <template>
   <div class="space-y-2">
-    <h2 class="font-semibold text-slate-600">Escuelas</h2>
-    <p class="text-xs text-slate-400 ml-4">{{ cantidadSeleccionados }}</p>
+    <h2 class="font-semibold text-zinc-600 dark:text-zinc-300">Escuelas</h2>
+    <p class="text-xs text-zinc-400 dark:text-zinc-300 ml-4">
+      {{ cantidadSeleccionados }}
+    </p>
 
     <ul class="space-y-1 ml-4">
       <li v-for="escuela in listaEscuelas" :key="escuela.id">

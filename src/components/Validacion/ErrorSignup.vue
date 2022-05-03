@@ -7,7 +7,7 @@
       </h2>
     </div>
 
-    <div class="px-6 my-6 text-slate-900">
+    <div class="px-6 my-6 text-zinc-900">
       <ul class="list-disc list-inside marker:text-rose-500">
         <li class="" v-for="(error, i) in errores">{{ error[0] }}</li>
       </ul>

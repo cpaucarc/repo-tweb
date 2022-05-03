@@ -20,7 +20,9 @@
 
     <SkeletonDetalleRecomendaciones v-if="isLoadingRecomendado" />
     <div v-else class="space-y-5">
-      <h3 class="font-bold text-slate-400">Te pueden interesar</h3>
+      <h3 class="font-bold text-zinc-400 dark:text-zinc-500">
+        Te pueden interesar
+      </h3>
       <template v-for="recomendado in recomendados" :key="recomendado.id">
         <ProyectoRecomendado :proyecto="recomendado" />
       </template>

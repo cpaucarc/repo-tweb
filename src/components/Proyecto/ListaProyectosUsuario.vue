@@ -23,7 +23,15 @@
       >
         <div class="flex flex-col gap-1 items-center">
           <p class="text-4xl">😢</p>
-          <p class="bg-rose-600 text-white px-3 py-1">{{ error }}</p>
+          <p class="text-zinc-600 dark:text-zinc-400 px-3 py-1">{{ error }}</p>
+          <div v-if="usuario === user.username">
+            <router-link
+              :to="{ name: 'CrearProyecto' }"
+              class="bg-amber-400 hover:bg-amber-500 text-zinc-900 btn"
+            >
+              Crear un nuevo proyecto
+            </router-link>
+          </div>
         </div>
       </div>
     </div>

@@ -8,8 +8,8 @@
           :src="userinfo.avatar"
           alt="Avatar del autor"
         />
-        <div class="text-sm text-slate-600">
-          <h3 class="font-bold text-slate-900">
+        <div class="text-sm text-zinc-600 dark:text-zinc-400">
+          <h3 class="font-bold text-zinc-900 dark:text-zinc-300">
             {{ userinfo.estudiante.apellidos }},
             {{ userinfo.estudiante.nombres }}
           </h3>
@@ -19,7 +19,7 @@
           </h4>
           <!-- <p>{{ userinfo.estudiante.proyecto_count }} proyectos publicados</p> -->
         </div>
-        <div class="flex items-center space-x-2 text-slate-400">
+        <div class="flex items-center space-x-2">
           <RedSocialLink
             v-if="userinfo.estudiante.telefono"
             :href="'tel:' + userinfo.estudiante.telefono"

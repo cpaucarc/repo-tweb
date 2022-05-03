@@ -1,6 +1,6 @@
 <template>
   <router-link
-    class="text-slate-400 hover:text-slate-600 text-sm py-2 px-3 transition-eio-300"
+    class="text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 text-sm py-2 px-3 transition-eio-300"
     :to="href"
   >
     <div class="flex items-center gap-x-1">

@@ -3,7 +3,9 @@
     <div class="space-y-8 mt-8 w-10/12">
       <PasosIconos />
 
-      <h1 class="font-extrabold text-xl text-slate-900 text-center">
+      <h1
+        class="font-extrabold text-xl text-zinc-900 dark:text-zinc-400 text-center"
+      >
         {{ nombrePaso }}
       </h1>
 
@@ -12,24 +14,26 @@
       <Paso3 v-if="paso === 3" />
 
       <div class="flex justify-between items-center">
-        <span v-if="paso === 1" class="select-none text-white">Paso 1</span>
+        <span v-if="paso === 1" class="select-none text-transparent"
+          >Paso 1</span
+        >
         <button
           v-if="paso !== 1"
           @click="paso--"
-          class="bg-white text-sky-600 active:opacity-90 btn"
+          class="bg-transparent text-sky-600 active:opacity-90 btn"
         >
           Anterior
         </button>
         <button
           v-if="paso !== 3"
           @click="paso++"
-          class="bg-sky-800 text-white active:opacity-90 btn"
+          class="bg-sky-800 hover:bg-sky-700 dark:bg-sky-700 dark:hover:bg-sky-600 text-zinc-100 active:opacity-90 btn"
         >
           Siguiente
         </button>
         <button
           v-if="paso === 3"
-          class="bg-sky-800 text-white active:opacity-90 btn"
+          class="bg-sky-800 hover:bg-sky-700 dark:bg-sky-700 dark:hover:bg-sky-600 text-white active:opacity-90 btn"
           @click="crearUsuario"
         >
           Finalizar
@@ -49,7 +53,7 @@
 
       <button
         v-show="!isLoading"
-        class="px-2 py-4 w-full text-slate-700 hover:text-slate-900 font-bold transition-eio-300"
+        class="px-2 py-4 w-full text-zinc-700 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-300 font-bold transition-eio-300"
         @click="closeModal"
       >
         Aceptar
@@ -57,11 +61,11 @@
     </Modal>
 
     <div
-      class="fixed bg-white bottom-0 w-full py-2 text-center text-sm text-slate-900"
+      class="fixed bg-white dark:bg-zinc-900 bottom-0 w-full py-2 text-center text-sm text-zinc-900 dark:text-zinc-400"
     >
       ¿Ya tienes una cuenta?
       <router-link
-        class="cursor-pointer text-sky-800 font-semibold"
+        class="cursor-pointer text-sky-800 hover:text-sky-700 dark:text-sky-700 dark:hover:text-sky-600 font-semibold"
         :to="{ name: 'Login' }"
       >
         Iniciar Sesión

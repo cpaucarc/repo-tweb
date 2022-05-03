@@ -1,7 +1,7 @@
 <template>
   <TransitionRoot appear :show="isOpen" as="template">
     <Dialog as="div" @close="closeModal">
-      <div class="fixed inset-0 overflow-y-auto">
+      <div class="fixed inset-0 z-50 overflow-y-auto">
         <div class="min-h-screen px-4 text-center">
           <TransitionChild
             as="template"
@@ -13,7 +13,7 @@
             leave-to="opacity-0"
           >
             <DialogOverlay
-              class="fixed inset-0 bg-slate-800 bg-opacity-40 backdrop-blur-xs"
+              class="fixed inset-0 bg-zinc-900 bg-opacity-40 backdrop-blur-xs"
             />
           </TransitionChild>
 
@@ -31,7 +31,7 @@
             leave-to="opacity-0 scale-95"
           >
             <div
-              class="inline-block relative w-full max-w-md p-0 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-lg"
+              class="inline-block relative w-full max-w-md p-0 my-8 overflow-hidden text-left align-middle transition-all transform bg-white dark:bg-zinc-700 shadow-xl rounded-lg"
             >
               <slot />
             </div>

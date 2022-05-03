@@ -1,5 +1,7 @@
 <template>
-  <div class="h-16 flex items-center border-b bg-white">
+  <div
+    class="h-16 flex items-center border-b border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800"
+  >
     <div class="container mx-auto flex justify-between">
       <router-link :to="{ name: 'Home' }" class="flex items-center gap-x-2">
         <img

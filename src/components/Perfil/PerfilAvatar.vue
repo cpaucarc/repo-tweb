@@ -5,9 +5,9 @@
       <img class="h-32 w-32 avatar" :src="avatar" alt="Foto de perfil" />
       <label
         for="imagen"
-        class="btn-sky bottom-0 right-0 absolute rounded-full border-2 border-white w-10 h-10"
+        class="btn-sky bottom-0 right-0 absolute rounded-full border-4 border-white dark:border-zinc-900 w-10 h-10"
       >
-        <PencilIcon class="icon-5" />
+        <PencilIcon class="icon-4" />
       </label>
     </div>
 

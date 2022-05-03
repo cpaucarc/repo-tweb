@@ -16,7 +16,7 @@
       <template #items>
         <button
           @click="abrirReporte"
-          class="flex items-center gap-x-2 px-3 py-2 text-sm transition-eio-300 text-slate-600 hover:text-slate-900"
+          class="flex w-full items-center gap-x-2 px-2 py-3 text-sm transition-eio-300 text-zinc-600 dark:text-zinc-400 dark:hover:bg-zinc-700 hover:text-zinc-900 dark:hover:text-zinc-300"
         >
           <FlagIcon class="icon-5" /> Reportar proyecto
         </button>
@@ -25,27 +25,29 @@
 
     <Modal :isOpen="open">
       <div class="p-4 font-bold" v-if="reportado">
-        <h4 class="text-center">
+        <h4 class="text-center text-zinc-700 dark:text-zinc-400">
           {{ mensaje }}
         </h4>
         <button class="sr-only"></button>
       </div>
 
       <div class="p-4 space-y-6" v-else>
-        <h3 class="font-bold leading-5 text-slate-800">
+        <h3 class="font-bold leading-5 text-zinc-800 dark:text-zinc-300">
           ¿Cuales son los motivos por los que quiere reportar este proyecto?
         </h3>
 
         <div v-if="reportando" class="font-bold py-4">
-          <h4 class="text-center">
+          <h4 class="text-center text-zinc-700 dark:text-zinc-500">
             ⌛ Reportando proyecto, espere un momento.
           </h4>
           <button class="sr-only"></button>
         </div>
         <div v-else>
-          <p v-if="isLoading">Cargando información</p>
+          <p v-if="isLoading" class="text-zinc-700 dark:text-zinc-400">
+            🔃 Cargando motivos
+          </p>
           <div v-else class="text-sm">
-            <ul class="space-y-1">
+            <ul class="space-y-1 ml-2">
               <li v-for="(motivo, i) in motivos" :key="i">
                 <InputCheckbox
                   @click="seleccionarMotivo(motivo.id)"
@@ -58,12 +60,7 @@
         </div>
 
         <div v-if="!reportando" class="flex items-center justify-end gap-x-2">
-          <button
-            @click="open = !open"
-            class="btn border border-slate-300 hover:bg-slate-50"
-          >
-            Cancelar
-          </button>
+          <button @click="open = !open" class="btn-outline">Cancelar</button>
 
           <button
             class="btn btn-rose text-white disabled:cursor-not-allowed disabled:bg-opacity-75"

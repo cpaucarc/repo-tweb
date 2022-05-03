@@ -10,7 +10,7 @@
       <!-- <div>
         <input
           type="text"
-          class="text-sm w-full text-slate-600 p-0 focus:text-slate-900 focus:ring-0 border-0 text-center"
+          class="text-sm w-full text-zinc-600 p-0 focus:text-zinc-900 focus:ring-0 border-0 text-center"
           v-model="perfil.usuario"
           required
         />

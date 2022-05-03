@@ -3,7 +3,7 @@
     <SkeletonPerfilDatos v-if="isLoadingPerfil" />
     <div v-else class="space-y-5">
       <div class="space-y-3">
-        <h2 class="text-slate-900 text-lg font-bold">Datos Personales</h2>
+        <h2 class="text-zinc-900 text-lg font-bold">Datos Personales</h2>
         <div class="flex items-center gap-x-4">
           <InputForm>
             <InputLabel for="apellidos">Apellidos</InputLabel>
@@ -11,6 +11,7 @@
               id="apellidos"
               type="text"
               class="input-form"
+              placeholder="Ninguno"
               :disabled="isSaving"
               v-model="perfil.apellidos"
             />
@@ -21,6 +22,7 @@
               id="nombres"
               type="text"
               class="input-form"
+              placeholder="Ninguno"
               :disabled="isSaving"
               v-model="perfil.nombres"
             />
@@ -36,6 +38,7 @@
           >
             <option
               v-for="escuela in escuelas"
+              class="dark:text-zinc-400 dark:bg-zinc-800"
               :key="escuela.id"
               :value="escuela.id"
             >
@@ -46,13 +49,14 @@
       </div>
 
       <div class="space-y-3">
-        <h2 class="text-slate-900 text-lg font-bold">Datos de Contacto</h2>
+        <h2 class="text-zinc-900 text-lg font-bold">Datos de Contacto</h2>
         <InputForm>
           <InputLabel for="correo">Correo</InputLabel>
           <input
             id="correo"
             type="text"
             class="input-form"
+            placeholder="Ninguno"
             :disabled="isSaving"
             v-model="perfil.correo"
           />
@@ -64,6 +68,7 @@
             type="text"
             maxlength="9"
             class="input-form"
+            placeholder="Ninguno"
             :disabled="isSaving"
             v-model="perfil.telefono"
           />
@@ -74,6 +79,7 @@
             id="linkedin"
             type="text"
             class="input-form"
+            placeholder="Ninguno"
             :disabled="isSaving"
             v-model="perfil.linkedin"
           />

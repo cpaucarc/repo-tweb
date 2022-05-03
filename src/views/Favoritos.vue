@@ -1,6 +1,6 @@
 <template>
   <div class="space-y-8">
-    <div class="text-slate-900">
+    <div class="text-zinc-900 dark:text-zinc-400">
       <div class="flex justify-between items-center">
         <p class="text-sm">
           Se encontraron {{ cantidad }} proyectos entre tus favoritos

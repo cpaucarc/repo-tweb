@@ -1,6 +1,6 @@
 <template>
   <div class="relative flex items-center">
-    <label for="search" class="absolute ml-2 text-slate-400">
+    <label for="search" class="absolute ml-2 text-zinc-400">
       <SearchIcon class="icon-5" />
     </label>
     <input

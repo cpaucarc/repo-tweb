@@ -1,6 +1,6 @@
 <template>
   <div class="grid grid-cols-5 h-screen">
-    <div class="col-span-3 bg-sky-800 grid place-items-center">
+    <div class="col-span-3 bg-sky-800 dark:bg-sky-900 grid place-items-center">
       <div class="relative">
         <div
           class="absolute bottom-4 right-4 w-56 h-44 bg-amber-400 rounded-lg rotate-3"

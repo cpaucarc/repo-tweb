@@ -3,12 +3,16 @@
     <Slider :portadas="portadas" v-if="portadas.length" />
 
     <div class="space-y-4">
-      <h3 class="font-extrabold line-clamp-3 text-xl leading-6 text-slate-900">
+      <h3
+        class="font-extrabold line-clamp-3 text-xl leading-6 text-zinc-900 dark:text-zinc-300 text-justify"
+      >
         {{ titulo }}
       </h3>
 
       <div class="flex items-center justify-between">
-        <span class="text-slate-600 text-sm"> Publicado el {{ fecha }} </span>
+        <span class="text-zinc-600 dark:text-zinc-400 text-sm">
+          Publicado el {{ fecha }}
+        </span>
 
         <div class="flex items-center gap-x-1">
           <ValoracionProyecto :proyecto="id" />
@@ -40,19 +44,8 @@
       </div>
     </div>
 
-    <div class="space-y-3 pt-3">
-      <div
-        v-if="reportadores.length"
-        class="bg-rose-100 space-y-1 border-l-4 border-rose-500 text-rose-800 p-4 text-sm"
-        role="alert"
-      >
-        <p class="font-bold">¡¡😱 Ten cuidado con este proyecto!!</p>
-        <p>
-          Hemos recibido reportes de que este proyecto puede estar infringiendo
-          las normas de la comunidad.
-        </p>
-      </div>
-    </div>
+    <ProyectoReportadoMessage v-if="reportadores.length" />
+
     <ProyectoResumen :resumen="resumen" />
   </div>
 </template>
@@ -68,6 +61,7 @@ import ValoracionProyecto from "./ValoracionProyecto.vue";
 import ReportarProyecto from "./ReportarProyecto.vue";
 import moment from "moment";
 import ProyectoResumen from "./ProyectoResumen.vue";
+import ProyectoReportadoMessage from "../Util/ProyectoReportadoMessage.vue";
 
 export default {
   name: "DatosProyecto",
@@ -92,6 +86,7 @@ export default {
     ValoracionProyecto,
     ReportarProyecto,
     ProyectoResumen,
+    ProyectoReportadoMessage,
   },
   setup(props) {
     const reportadores = [

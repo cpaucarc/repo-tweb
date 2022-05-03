@@ -5,8 +5,8 @@
       class="btn-sm"
       :class="
         like
-          ? 'bg-sky-200 font-semibold text-sky-700'
-          : 'bg-transparent font-normal text-slate-600'
+          ? 'bg-sky-200 dark:bg-sky-500/20 font-semibold text-sky-700 dark:text-sky-600'
+          : 'bg-transparent font-normal text-zinc-600 dark:text-zinc-400'
       "
       @click="meGusta"
     >
@@ -20,8 +20,8 @@
       class="btn-sm"
       :class="
         fav
-          ? 'bg-rose-200 font-semibold text-rose-700'
-          : 'bg-transparent font-normal text-slate-600'
+          ? 'bg-rose-200 dark:bg-rose-500/20 font-semibold text-rose-700 dark:text-rose-600'
+          : 'bg-transparent font-normal text-zinc-600 dark:text-zinc-400'
       "
       @click="aFav"
     >

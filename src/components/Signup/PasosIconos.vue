@@ -1,7 +1,7 @@
 <template>
   <div class="relative w-52 mx-auto">
     <hr
-      class="absolute top-5 border border-sky-100 border-dashed w-full -z-10"
+      class="absolute top-5 border border-sky-100 dark:border-zinc-600 border-dashed w-full -z-10"
     />
     <div class="flex justify-between items-center space-x-10">
       <StepButton @click="paso = 1" :active="paso === 1">

@@ -8,7 +8,7 @@
             username: autor.usuario,
           },
         }"
-        class="text-center leading-4 text-slate-600"
+        class="text-center leading-4 text-zinc-600 dark:text-zinc-400"
       >
         <div class="flex flex-col items-center">
           <img
@@ -25,15 +25,15 @@
     </div>
 
     <div class="w-full text-center text-sm space-y-2">
-      <p class="text-slate-800 leading-4">
+      <p class="text-zinc-800 dark:text-zinc-400 leading-4">
         {{ autor.estudiante.escuela.nombre }}
       </p>
-      <p class="text-slate-600">
+      <p class="text-zinc-600 dark:text-zinc-500">
         ( {{ autor.estudiante.escuela.facultad_abrev }} )
       </p>
     </div>
 
-    <div class="flex items-center justify-center gap-x-3 text-slate-400">
+    <div class="flex items-center justify-center gap-x-3">
       <RedSocialLink
         v-if="autor.estudiante.telefono"
         :href="'tel:' + autor.estudiante.telefono"

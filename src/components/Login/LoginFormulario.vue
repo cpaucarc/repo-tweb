@@ -34,7 +34,7 @@
 
       <button
         type="submit"
-        class="bg-sky-800 text-white px-3 py-2 font-medium text-sm rounded-md w-full flex justify-center disabled:cursor-not-allowed disabled:bg-opacity-80"
+        class="bg-sky-800 hover:bg-sky-700 transition-eio-300 text-white px-3 py-2 font-medium text-sm rounded-md w-full flex justify-center disabled:cursor-not-allowed disabled:bg-opacity-80"
         :disabled="isLoading"
       >
         <LoadingState v-show="isLoading" texto="Iniciando Sesión..." />

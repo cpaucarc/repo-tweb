@@ -1,7 +1,9 @@
 <template>
   <span
     class="text-xs mr-1 font-semibold"
-    :class="restante >= 0 ? 'text-slate-600' : 'text-rose-500'"
+    :class="
+      restante >= 0 ? 'text-zinc-600 dark:text-zinc-400' : 'text-rose-500'
+    "
   >
     {{ restante }}/{{ limite }}
   </span>

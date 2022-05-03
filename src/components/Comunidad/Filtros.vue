@@ -2,20 +2,23 @@
   <div class="relative h-full min-h-full">
     <AdjustmentsIcon
       @click="verFiltros = !verFiltros"
-      class="icon-5 cursor-pointer absolute -top-8 right-0 text-slate-400 hover:text-slate-600 transition-eio-300"
+      class="icon-5 cursor-pointer absolute -top-8 right-0 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 transition-eio-300"
     />
 
     <Modal :isOpen="verFiltros" @closeModal="verFiltros = !verFiltros">
       <div class="relative py-4 px-6 flex flex-col items-start gap-y-4">
         <XIcon
           @click="verFiltros = !verFiltros"
-          class="icon-6 absolute top-2 right-2 cursor-pointer text-slate-300 hover:text-rose-500 rounded-full transition-eio-300"
+          class="icon-6 absolute top-2 right-2 cursor-pointer text-zinc-300 dark:text-zinc-500 hover:text-rose-500 rounded-full transition-eio-300"
         />
         <FiltrosFechas />
 
         <FiltrosFacultad />
 
         <div class="ml-4">
+          <button @click="verFiltros = !verFiltros" class="btn-outline mr-2">
+            Cancelar
+          </button>
           <PrimaryButton @click="aplicarFiltros">
             Filtrar proyectos
           </PrimaryButton>

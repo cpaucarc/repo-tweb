@@ -27,7 +27,7 @@
     <InputForm>
       <InputLabel for="tags">
         Tags
-        <span class="text-slate-400 ml-1">*(separados por coma)</span>
+        <span class="text-zinc-400 ml-1">*(separados por coma)</span>
       </InputLabel>
       <InputTags
         id="tags"
@@ -69,7 +69,7 @@
       </div>
       <button
         v-show="!isSaving"
-        class="px-2 py-4 w-full text-slate-700 hover:text-slate-900 font-bold transition-eio-300"
+        class="px-2 py-4 w-full text-zinc-700 hover:text-zinc-900 font-bold transition-eio-300"
         @click="closeModal"
       >
         Aceptar

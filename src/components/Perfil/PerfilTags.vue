@@ -1,6 +1,6 @@
 <template>
   <div class="text-center space-y-2">
-    <h3 class="font-semibold text-slate-900 text-lg">Temas de Interes</h3>
+    <h3 class="font-semibold text-zinc-900 text-lg">Temas de Interes</h3>
     <SkeletonPerfilTags v-if="isLoadingTags" />
     <div v-else class="flex justify-center flex-wrap gap-2">
       <TagItem

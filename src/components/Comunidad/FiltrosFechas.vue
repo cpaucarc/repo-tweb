@@ -1,9 +1,20 @@
 <template>
   <div class="space-y-2">
-    <h2 class="font-semibold text-slate-600">Fecha de publicación</h2>
+    <h2 class="font-semibold text-zinc-600 dark:text-zinc-300">
+      Fecha de publicación
+    </h2>
     <div class="grid grid-cols-2 gap-x-4 ml-4">
-      <InputDate :fechaDefault="inicio" @fechaCambiado="recibirFechaInicial" />
-      <InputDate :fechaDefault="fin" @fechaCambiado="recibirFechaFinal" />
+      <InputDate
+        :fechaDefault="inicio"
+        @fechaCambiado="recibirFechaInicial"
+        title="Fecha de Inicio"
+      />
+
+      <InputDate
+        :fechaDefault="fin"
+        @fechaCambiado="recibirFechaFinal"
+        title="Fecha Final"
+      />
     </div>
   </div>
 </template>

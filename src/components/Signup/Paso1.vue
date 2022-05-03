@@ -31,9 +31,12 @@
         v-model="datos.escuela_id"
         class="cursor-pointer input-form"
       >
-        <option value="0">Seleccione su escuela</option>
+        <option value="0" class="dark:text-zinc-400 dark:bg-zinc-800">
+          Seleccione su escuela
+        </option>
         <option
           v-for="escuela in escuelas"
+          class="dark:text-zinc-400 dark:bg-zinc-800"
           :value="escuela.id"
           :key="escuela.id"
         >

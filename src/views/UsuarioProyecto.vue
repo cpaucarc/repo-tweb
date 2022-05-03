@@ -1,6 +1,6 @@
 <template>
   <div class="space-y-8">
-    <div class="text-slate-900">
+    <div class="text-zinc-900 dark:text-zinc-600">
       <div class="flex flex-col md:flex-row gap-4 justify-between items-center">
         <DatosAutorMinimal :usuario="usuario" />
         <InputSearch @onEnter="onEnter" />

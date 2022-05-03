@@ -1,13 +1,15 @@
 <template>
   <div>
     <div class="space-y-4">
-      <p class="text-slate-600 text-sm">
+      <p class="text-zinc-600 dark:text-zinc-400 text-sm">
         Seleccione al menos 3 temas de su interes
       </p>
 
       <div v-for="(topico, i) in topicos" :key="i">
         <details :open="i < 2" class="appearance-none">
-          <summary class="cursor-pointer font-bold text-slate-600 mb-2">
+          <summary
+            class="cursor-pointer font-bold text-zinc-600 dark:text-zinc-300 mb-2"
+          >
             {{ topico.area }}
           </summary>
           <div class="flex flex-wrap gap-3">
