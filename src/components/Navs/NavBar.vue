@@ -6,7 +6,7 @@
       <router-link :to="{ name: 'Home' }" class="flex items-center gap-x-2">
         <img
           class="h-10 flex-shrink-0"
-          src="../../assets/repotweb.svg"
+          src="../../assets/repotwebdark.svg"
           alt="Logo RepoTWeb"
         />
       </router-link>

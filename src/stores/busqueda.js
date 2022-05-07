@@ -6,7 +6,10 @@ export const useBusquedaStore = defineStore({
   state: () => {
     return {
       search: "",
-      inicio: moment().startOf("year").format("YYYY-MM-DD"),
+      inicio: moment()
+        .subtract(2, "years")
+        .startOf("year")
+        .format("YYYY-MM-DD"),
       fin: moment().format("YYYY-MM-DD"),
       escuelas: [],
     };

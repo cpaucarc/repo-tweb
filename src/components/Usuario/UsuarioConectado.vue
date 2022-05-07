@@ -7,10 +7,10 @@
       </div>
     </template>
     <template #items>
-      <button @click="cambiarTema" class="flex px-2 py-1.5 gap-x-1">
+      <!-- <button @click="cambiarTema" class="flex px-2 py-1.5 gap-x-1">
         <SunIcon class="icon-5" />
         Cambiar tema
-      </button>
+      </button> -->
       <hr class="border border-zinc-200/50 dark:border-zinc-900/50" />
       <DropdownLink :to="{ name: 'Perfil' }">
         <UserIcon class="icon-5" />
