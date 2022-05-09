@@ -31,8 +31,9 @@
       </InputLabel>
       <InputTags
         id="tags"
+        :defaultTags="defaultTags"
         @tags="obtenerTags"
-        placeholder="Ancash,Mineria,IA"
+        placeholder="Ancash,Mineria,Turismo,..."
       />
     </InputForm>
 
@@ -79,7 +80,7 @@
 </template>
 
 <script>
-import { reactive, ref } from "vue";
+import { onMounted, reactive, ref } from "vue";
 import InputTags from "../components/Input/InputTags.vue";
 import InputFile from "../components/Input/InputFile.vue";
 import InputFileImage from "../components/Input/InputFileImage.vue";
@@ -120,11 +121,16 @@ export default {
       imagenes: [],
       documentos: [],
     });
+    const defaultTags = ref([]);
     const respuesta = ref([]);
     const isSaving = ref(false);
     const isOpen = ref(false);
     const router = useRouter();
-    const { saveProyecto } = useProyectosHome();
+    const { saveProyecto, getTags } = useProyectosHome();
+
+    onMounted(async () => {
+      defaultTags.value = await getTags();
+    });
 
     const enviarProyecto = async () => {
       isSaving.value = true;
@@ -165,6 +171,7 @@ export default {
       isOpen,
       closeModal,
       respuesta,
+      defaultTags,
     };
   },
 };

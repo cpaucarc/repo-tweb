@@ -67,6 +67,21 @@ export default function useUsuario() {
     return res.data;
   };
 
+  const verificaCodigo = async (codigo) => {
+    let res = await axios.get(
+      `http://localhost:8000/api/usuario/codigo/${codigo}`
+    );
+    let response = res.data;
+    return response.existe;
+  };
+
+  const buscaDatosEnOge = async (codigo) => {
+    let rs = await axios.get(
+      `http://sga.unasam.edu.pe/api/indicadores/ensenianza_aprendizaje/01?codigo=${codigo}`
+    );
+    return rs.data;
+  };
+
   return {
     respuesta,
     login,
@@ -77,5 +92,7 @@ export default function useUsuario() {
     getAvatar,
     updateAvatar,
     deleteTema,
+    verificaCodigo,
+    buscaDatosEnOge,
   };
 }

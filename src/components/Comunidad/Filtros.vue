@@ -60,7 +60,6 @@ export default {
     provide("fin", fin);
 
     const aplicarFiltros = async () => {
-      console.log("Filtrando por: ", escuelas.value, inicio.value, fin.value);
       busqueda.setInicio(inicio.value);
       busqueda.setFin(fin.value);
       busqueda.setEscuelas(escuelas.value);

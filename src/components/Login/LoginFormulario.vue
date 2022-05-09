@@ -71,7 +71,6 @@ export default {
     const iniciarSesion = async () => {
       isLoading.value = true;
       respuesta.value = await login({ ...user });
-      console.log(respuesta.value);
       if (respuesta.value.respuesta) {
         store.login(
           respuesta.value.mensaje.usuario,

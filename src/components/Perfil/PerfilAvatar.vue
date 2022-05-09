@@ -56,7 +56,7 @@ export default {
           avatarUpdated(res.mensaje);
         }
       } catch (error) {
-        console.log(error);
+        alert("Se produjo un error: \n" + error);
       }
     };
 

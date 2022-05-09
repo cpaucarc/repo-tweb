@@ -1,7 +1,7 @@
 <template>
   <div class="grid place-items-center w-2/5 mx-auto relative mb-20">
     <div class="space-y-8 mt-8 w-10/12">
-      <PasosIconos />
+      <PasosIconos v-if="paso > 0" />
 
       <h1
         class="font-extrabold text-xl text-zinc-900 dark:text-zinc-400 text-center"
@@ -9,33 +9,22 @@
         {{ nombrePaso }}
       </h1>
 
+      <Paso0 v-if="paso === 0" />
       <Paso1 v-if="paso === 1" />
       <Paso2 v-if="paso === 2" />
       <Paso3 v-if="paso === 3" />
 
       <div class="flex justify-between items-center">
-        <span v-if="paso === 1" class="select-none text-transparent"
-          >Paso 1</span
-        >
-        <button
-          v-if="paso !== 1"
-          @click="paso--"
-          class="bg-transparent text-sky-600 active:opacity-90 btn"
-        >
+        <span v-if="paso === 0" class="select-none text-transparent">
+          Paso 0
+        </span>
+        <button v-if="paso !== 0" class="btn btn-ghost" @click="paso--">
           Anterior
         </button>
-        <button
-          v-if="paso !== 3"
-          @click="paso++"
-          class="bg-sky-800 hover:bg-sky-700 dark:bg-sky-700 dark:hover:bg-sky-600 text-zinc-100 active:opacity-90 btn"
-        >
+        <button v-if="paso > 0 && paso < 3" class="btn btn-sky" @click="paso++">
           Siguiente
         </button>
-        <button
-          v-if="paso === 3"
-          class="bg-sky-800 hover:bg-sky-700 dark:bg-sky-700 dark:hover:bg-sky-600 text-white active:opacity-90 btn"
-          @click="crearUsuario"
-        >
+        <button v-if="paso === 3" class="btn btn-sky" @click="crearUsuario">
           Finalizar
         </button>
       </div>
@@ -87,8 +76,10 @@ import ErrorMessage from "../components/Validacion/ErrorMessage.vue";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/useUser";
 import LoadingMessage from "../components/Validacion/LoadingMessage.vue";
+import Paso0 from "../components/Signup/Paso0.vue";
 
 const nombrePasos = [
+  "¿Eres un estudiante de la Unasam?", //Paso 0
   "Datos Básicos", //Paso 1
   "Datos de Contacto", //Paso 2
   "Temas de Interés", //Paso 3
@@ -99,6 +90,7 @@ export default {
   components: {
     LoginSeccionLogo,
     PasosIconos,
+    Paso0,
     Paso1,
     Paso2,
     Paso3,
@@ -107,10 +99,11 @@ export default {
     LoadingMessage,
   },
   setup() {
-    const paso = ref(1);
+    const paso = ref(0);
     const isOpen = ref(false);
     const isLoading = ref(false);
     const datos = reactive({
+      codigo: "",
       nombres: "",
       apellidos: "",
       escuela_id: 0,
@@ -126,7 +119,7 @@ export default {
     const { respuesta, signup } = useUsuario();
 
     const nombrePaso = computed(() => {
-      return nombrePasos[paso.value - 1];
+      return nombrePasos[paso.value];
     });
 
     const closeModal = () => {

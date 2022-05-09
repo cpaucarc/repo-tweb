@@ -30,8 +30,6 @@ export default {
     const route = useRoute();
     const usuario = route.params.username;
 
-    console.log(route.params.username);
-
     provide("search", search);
 
     const onEnter = (value) => {

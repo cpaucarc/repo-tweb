@@ -69,6 +69,11 @@ export default function useProyectosHome() {
     return response.data;
   };
 
+  const getTags = async () => {
+    let response = await axios.get("http://localhost:8000/api/proyecto/tags");
+    return response.data;
+  };
+
   return {
     isLoading,
     proyectos,
@@ -77,5 +82,6 @@ export default function useProyectosHome() {
     getProyectos,
     saveProyecto,
     searchProjects,
+    getTags,
   };
 }
